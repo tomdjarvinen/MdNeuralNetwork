@@ -141,3 +141,20 @@ function getMeanErrorParallel(testSet,netRepo)
         return -1
     end
 end
+function getMeanErrorDenormalized(testSet, netRepo, mean, stdev)
+    local i, testCase = next(testSet,nil)
+    local count, error = 0,0
+    while i do
+        count = count+1
+        local inference = denormalize(parallelForward(testCase,netRepo)[1], mean, stdev)
+        local target = denormalize(testCase["output"][1],mean,stdev)
+        error = error + math.abs(inference-target)
+        i, testCase = next(testSet,i)
+    end
+    if count ~= 0 then
+        return error/count
+    else
+        return -1
+    end
+
+end

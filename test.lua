@@ -7,7 +7,7 @@
 --
 require 'Net'
 --Set output file
-io.output("Tests/AnneallingTest2")
+io.output("Tests/BigStrainTest3")
 --Initialize Networks
 
 function makeRepo(base, numAtoms)
@@ -29,7 +29,7 @@ function makeRepo(base, numAtoms)
 end
 function testArch(trainSet,testSet,criterion,learningRate,anneallingRate,numIterations,netRepo)
     local k = 0
-    local Results = "Network: "..tostring(netRepo[1]).."Criterion: "..tostring(criterion).."\nLearningRate: "..learningRate.."Annealling Rate: "..anneallingRate.."\n"
+    local Results = "Network: "..tostring(netRepo[1]).."Criterion: "..tostring(criterion).."\nLearningRate: "..learningRate.." Annealling Rate: "..anneallingRate.."\n"
     for i = 1,numIterations do
         parallelSGD(trainSet,netRepo,criterion,learningRate)
         k = k + 1
@@ -38,13 +38,14 @@ function testArch(trainSet,testSet,criterion,learningRate,anneallingRate,numIter
     end
     return Results
 end
-
---Initialize parallel networks for each # of atoms in our test set.
---This will allow us to pass our dataSet into the tables as references in order to rapidly train our network.
+function denormalize(value, mean, stdev)
+    return value * stdev + mean
+end
 
 
 --Initialize our data
 dataSet = dftPreprocess('strainData.txt')
+
 function dataSet:size()return 41 end
 mean,stdev = meanStdev(dataSet)
 dataSet = normalize(dataSet,mean,stdev)
@@ -52,25 +53,44 @@ trainSet,testSet = splitSet(dataSet,0.7)
 twoDTrain = dataSetTo2dTensor(trainSet)
 twoDTest = dataSetTo2dTensor(testSet)
 
-BaseNet = makeNet(40, 2, 50)
-NetRepository = makeRepo(BaseNet, 10)
-io.write("Data Set Used: Only strain data.  70% of data is allocated as a training set, 30% is left for validation.\n")
-io.write("This run will test further test variations on learning rates.\n")
-learningRate,anneallingRate = 0.01,1
-learningRate = 0.01
-local target, result
-while learningRate > 0.001 do
-    anneallingRate = 1
-    for i = 1, 4 do
-        io.write(testArch(twoDTrain,twoDTest,nn.MSECriterion(),learningRate,anneallingRate,20,NetRepository))
-        io.write("\nSome forward passes through the network:\n")
-        for i = 1,5 do
-            target = twoDTest[i]["output"][1]
-            result = parallelForward(twoDTest[i],NetRepository)[1]
-            io.write("Target: ",target," Result: ", result, " Denormalized Target: ", (target*stdev[1]) + mean[1], " Denormalized Result: ", (result*stdev[1]) + mean[1])
-        end
+bigStrain = dftPreprocess('bigStrain.txt')
+bigStrain = normalize(bigStrain,mean,stdev) --Normalize with respect to same values as dataSet
+twoDbigStrain = dataSetTo2dTensor(trainSet)
 
-        anneallingRate = anneallingRate - 0.2
-    end
-    learningRate = learningRate - 0.001
+--Make some nets
+net1 = makeNet(40,2,50)
+net2 = makeNet(40,3,50)
+net3 = makeNet(40,4,50)
+repo1 = makeRepo(net1,8)
+repo2 = makeRepo(net2,8)
+repo3 = makeRepo(net3,8)
+learningRate = 0.01
+annealingRate = 0.6
+io.write("Initial test using big strain dataSet\n")
+io.write("Testing three neural networks trained exclusively on strain dataSet with 70% being used as data, and 30% for validation.\nTrain the networks: \n")
+--Train the Nets
+io.write(testArch(twoDTrain,twoDTest,nn.MSECriterion(),learningRate,annealingRate,6,repo1))
+io.write(testArch(twoDTrain,twoDTest,nn.MSECriterion(),learningRate,annealingRate,6,repo2))
+io.write(testArch(twoDTrain,twoDTest,nn.MSECriterion(),learningRate,annealingRate,6,repo2))
+
+io.write("\nNow test the networks.\n Net one (50-50-1):\n")
+io.write("Strain test set average error (denormalized): ", getMeanErrorDenormalized(twoDTest,repo1,mean[1],stdev[1]))
+io.write("\nBig-Strain test set average error: ", getMeanErrorParallel(twoDbigStrain,repo1), " Denormalized: ", getMeanErrorDenormalized(twoDbigStrain,repo1,mean[1],stdev[1]))
+io.write("\nSome forward passes: \n")
+for i = 1,50 do
+    io.write("Big strain[", (i*5), "] Target:Result ", twoDbigStrain[i*5]["output"][1],":", parallelForward(twoDbigStrain[i*5],repo1)[1], " Denormalized: ", denormalize(twoDbigStrain[i*5]["output"][1],mean[1],stdev[1]), ":", denormalize(parallelForward(twoDbigStrain[i*5],repo1)[1],mean[1],stdev[1]), "\n")
+end
+io.write("\nNow test the networks.\n Net two (50-50-50-1):\n")
+io.write("Strain test set average error (denormalized): ", getMeanErrorDenormalized(twoDTest,repo2,mean[1],stdev[1]))
+io.write("\nBig-Strain test set average error: ", getMeanErrorParallel(twoDbigStrain,repo2), " Denormalized: ", getMeanErrorDenormalized(twoDbigStrain,repo2,mean[1],stdev[1]))
+io.write("\nSome forward passes: \n")
+for i = 1,50 do
+    io.write("Big strain[", i*5, "] Target:Result ", twoDbigStrain[i*5]["output"][1],":", parallelForward(twoDbigStrain[i*5],repo2)[1], " Denormalized: ", denormalize(twoDbigStrain[i*5]["output"][1],mean[1],stdev[1]), ":", denormalize(parallelForward(twoDbigStrain[i*5],repo2)[1],mean[1],stdev[1]), "\n")
+end
+io.write("\nNow test the networks.\n Net two (50-50-50-50-1):\n")
+io.write("Strain test set average error (denormalized): ", getMeanErrorDenormalized(twoDTest,repo3,mean[1],stdev[1]))
+io.write("\nBig-Strain test set average error: ", getMeanErrorParallel(twoDbigStrain,repo3), " Denormalized: ", getMeanErrorDenormalized(twoDbigStrain,repo3,mean[1],stdev[1]))
+io.write("\nSome forward passes: \n")
+for i = 1,50 do
+    io.write("Big strain[", i*5, "] Target:Result ", twoDbigStrain[i*5]["output"][1],":", parallelForward(twoDbigStrain[i*5],repo3)[1], " Denormalized: ", denormalize(twoDbigStrain[i*5]["output"][1],mean[1],stdev[1]), ":", denormalize(parallelForward(twoDbigStrain[i*5],repo3)[1],mean[1],stdev[1]), "\n")
 end
