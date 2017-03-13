@@ -219,8 +219,8 @@ end
 --      Index: numAtoms     Contains:Lua table w/ # of each type of atom in the system, Indexed by atomic # of the atoms
 --          E.g. a test case with 10 Si atoms and 4 Sulfur atoms would have format numAtoms[14] = 10, numAtoms[16] = 4
 --      Index: input        Contains: Tensor[numSymmetry][SUM(all values in numAtoms].  This object is ordered by the numAtoms index.
+--          E.g. for the test case above input[*][1]-input[*][10] will contain Si data, and input[*][11]-input[*][14] will contain S data
 --      Index: output       Contains: Tensor[1] object containing energy of system (target output of NN).
---E.g. for the test case above input[*][1]-input[*][10] will contain Si data, and input[*][11]-input[*][14] will contain S data
 function dataPointTo2dTensor(dataPoint)
     local numAtoms = {}
     local symmetry

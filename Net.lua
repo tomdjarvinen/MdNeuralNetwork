@@ -78,7 +78,7 @@ end
 --Outputs:  Returns a network with SUM(numTypes[i]*numSymmetry[i]) inputs, and one output, where i is all the indexes to the numTypes table
 --Inputs to the net should be indexed as a 2-d tensor with size [numSymmetry][numAtoms]
 --      TODO: This may need to change, because it does not allow different atom types to have a different # of inputs (unless the Tensor object can support this)
---      TODO: It is possible that this can be implemented more efficiently as a gated expert network; research how they are implemented
+--      TODO: It is possible that this can be implemented more efficiently as a gated expert network; research how they work
 function parallelNet(numTypes, nets)
     local net = nn.Sequential()
     local c = nn.Parallel(2,1)    --Takes in parallel inputs indexed along the second dimension of input tensor (Q: can it take a table?)
@@ -94,4 +94,50 @@ function parallelNet(numTypes, nets)
     net:add(c)
     net:add(nn.Linear(atomCount,1)) --Output is a weighted sum (atomCount)atoms, each having 1 output
     return net
+end
+--parallelSGD: Run one pass of stochastic gradient descent on the training networks in netRepo
+--Inputs:
+--      dataSet2d: set of data to train the network on
+--          Format: see dftPreprocess:dataPointTo2dTensor
+--      netRepo:    set of parallel nets, one for each possible numbers of atoms in the system, indexed by # of atoms in the net
+--          E.g. To do a forward pass on a system with 4 atoms use netRepo[4]
+--      criterion: criterion by which the network is trained
+--      learningRate: how fast the network is trained
+--TODO: Current implementation is only for one element systems.  Eventually need to overload for multi-atom systems
+function parallelSGD(dataSet2d,netRepo, criterion, learningRate)
+    local networks = {} --Initialize the networks as local vars; this should result in faster performance, because there is quicker memory access for local vars
+    local i,net = next(netRepo,nil)
+    while i do
+        networks[i] = net
+        i, net = next(netRepo, i)
+    end
+    local dataPoint
+    i, dataPoint = next(dataSet2d, nil) --Grab first case
+    while i do      --For all cases, train with backpropogation
+        local currentNet= networks[dataPoint["numAtoms"][14]]   --grab correct net for inputs
+        criterion:forward(currentNet:forward(dataPoint["input"]),dataPoint["output"])   --Complete forward pass
+        currentNet:zeroGradParameters()     --Zero any previously accumulated gradients
+        currentNet:backward(dataPoint["input"],criterion:backward(currentNet.output,dataPoint["output"]))   --Complete backward pass
+        currentNet:updateParameters(learningRate)   --Update parameters with learning rate
+        i, dataPoint = next(dataSet2d,i)            --Grab next point
+    end
+end
+--parallelforward: given a data point, complete a forward pass through the appropriate network
+function parallelForward(dataPoint2d, netRepo)
+    return netRepo[dataPoint2d["numAtoms"][14]]:forward(dataPoint2d["input"])
+end
+
+function getMeanErrorParallel(testSet,netRepo)
+    local i, testCase = next(testSet,nil)
+    local count, error = 0,0
+    while i do
+        count = count+1
+        error = error + math.abs(parallelForward(testCase,netRepo)[1]-testCase["output"][1])
+        i, testCase = next(testSet,i)
+    end
+    if count ~= 0 then
+        return error/count
+    else
+        return -1
+    end
 end
