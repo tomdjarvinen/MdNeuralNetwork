@@ -13,21 +13,42 @@ for i = 1,10 do --Makes 10 copies of the base Net, all with shared parameters (p
     NetRepository[i]=BaseNet:clone()   --Create network with same structure as our base
     NetRepository[i]:share(BaseNet,'bias','weight') --Share BaseNet's parameters as references
 end
-
-TestNet2 = makeNet(41,3,50)
-NetRepository2 = {}
-for i = 1,10 do --Makes 10 copies of the base Net, all with shared parameters (parameters are shared references, not just values)
-    NetRepository2[i]=TestNet2:clone()   --Create network with same structure as our base
-    NetRepository2[i]:share(TestNet2,'bias','weight') --Share BaseNet's parameters as references
+--Initialize parallel networks for each # of atoms in our test set.
+--This will allow us to pass our dataSet into the tables as references in order to rapidly train our network.
+parallelNetTable = {} --Table containing neural networks indexed with the # of parallel atoms
+dummyNumAtomsTable = {}
+dummyNumAtomsTable[14] = 0  --Atomic # of silicon is 14
+dummyNNtable = {}           --Need to wrap NetRepository in a table so that parallelNet will work correctly
+dummyNNtable[14] = NetRepository
+for i = 1,10 do --
+    dummyNumAtomsTable[14] = i
+    parallelNetTable[i] = parallelNet(dummyNumAtomsTable,dummyNNtable)
 end
 
 
-singleAtomRepo = {}
-singleAtomRepo[1] = NetRepository
-singleAtomReference = {}
-singleAtomReference[1] = 2
-singleNetTest = parallelNet(singleAtomReference, singleAtomRepo)
-print(singleNetTest:forward(torch.randn(41,2)))
+
+
+
+
+
+
+
+
+--TEST CODE FOR PARALLELNET METHOD: SO FAR IT SEEMS TO BE WORKING CORRECTLY
+--TestNet2 = makeNet(41,3,50)
+--NetRepository2 = {}
+--for i = 1,10 do --Makes 10 copies of the base Net, all with shared parameters (parameters are shared references, not just values)
+--    NetRepository2[i]=TestNet2:clone()   --Create network with same structure as our base
+--    NetRepository2[i]:share(TestNet2,'bias','weight') --Share BaseNet's parameters as references
+--end
+
+
+--singleAtomRepo = {}
+--singleAtomRepo[1] = NetRepository
+--singleAtomReference = {}
+--singleAtomReference[1] = 2
+--singleNetTest = parallelNet(singleAtomReference, singleAtomRepo)
+--print(singleNetTest:forward(torch.randn(41,2)))
 --print(singleNetTest:forward(tableTest))
 
 --net:add(nn.Linear(numNets,1))
@@ -42,7 +63,7 @@ print(singleNetTest:forward(torch.randn(41,2)))
 --local test = inference(basicNet,dataSet[1])-dataSet[1][1][1]
 --print(test)
 
-
+--TESTING CODE FOR SGD METHOD: THIS HAD WEIRD BEHAVIOR, I DON'T THINK MY TRAINING IS CORRECT
 --mean,stdev = meanStdev(dataSet)
 --dataSet = normalize(dataSet,mean,stdev)
 --trainSet,testSet = splitSet(dataSet,0.7)
