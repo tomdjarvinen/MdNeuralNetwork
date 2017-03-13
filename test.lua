@@ -7,25 +7,43 @@
 --
 require 'Net'
 --Set output file
-io.output("ParallelNetTest1")
+io.output("Tests/AnneallingTest2")
 --Initialize Networks
-BaseNet = makeNet(40, 2, 50)
-NetRepository = {}
-for i = 1,10 do --Makes 10 copies of the base Net, all with shared parameters (parameters are shared references, not just values)
-    NetRepository[i]=BaseNet:clone()   --Create network with same structure as our base
-    NetRepository[i]:share(BaseNet,'bias','weight') --Share BaseNet's parameters as references
+
+function makeRepo(base, numAtoms)
+    local repo = {}
+    for i = 1,numAtoms do --Makes 10 copies of the base Net, all with shared parameters (parameters are shared references, not just values)
+        repo[i]=base:clone()   --Create network with same structure as our base
+        repo[i]:share(base,'bias','weight') --Share BaseNet's parameters as references
+    end
+    local parallelNetTable = {} --Table containing neural networks indexed with the # of parallel atoms
+    local dummyNumAtomsTable = {}
+    dummyNumAtomsTable[14] = 0  --Atomic # of silicon is 14
+    local dummyNNtable = {}           --Need to wrap NetRepository in a table so that parallelNet will work correctly
+    dummyNNtable[14] = repo
+    for i = 1,numAtoms do --
+        dummyNumAtomsTable[14] = i
+        parallelNetTable[i] = parallelNet(dummyNumAtomsTable,dummyNNtable)
+    end
+    return parallelNetTable
 end
+function testArch(trainSet,testSet,criterion,learningRate,anneallingRate,numIterations,netRepo)
+    local k = 0
+    local Results = "Network: "..tostring(netRepo[1]).."Criterion: "..tostring(criterion).."\nLearningRate: "..learningRate.."Annealling Rate: "..anneallingRate.."\n"
+    for i = 1,numIterations do
+        parallelSGD(trainSet,netRepo,criterion,learningRate)
+        k = k + 1
+        learningRate = learningRate*anneallingRate
+        Results = Results.."Run = "..k.." Training set error: "..getMeanErrorParallel(trainSet,netRepo).." Test Set error: "..getMeanErrorParallel(testSet,netRepo).."\n"
+    end
+    return Results
+end
+
 --Initialize parallel networks for each # of atoms in our test set.
 --This will allow us to pass our dataSet into the tables as references in order to rapidly train our network.
-parallelNetTable = {} --Table containing neural networks indexed with the # of parallel atoms
-dummyNumAtomsTable = {}
-dummyNumAtomsTable[14] = 0  --Atomic # of silicon is 14
-dummyNNtable = {}           --Need to wrap NetRepository in a table so that parallelNet will work correctly
-dummyNNtable[14] = NetRepository
-for i = 1,10 do --
-    dummyNumAtomsTable[14] = i
-    parallelNetTable[i] = parallelNet(dummyNumAtomsTable,dummyNNtable)
-end
+
+
+--Initialize our data
 dataSet = dftPreprocess('strainData.txt')
 function dataSet:size()return 41 end
 mean,stdev = meanStdev(dataSet)
@@ -33,170 +51,26 @@ dataSet = normalize(dataSet,mean,stdev)
 trainSet,testSet = splitSet(dataSet,0.7)
 twoDTrain = dataSetTo2dTensor(trainSet)
 twoDTest = dataSetTo2dTensor(testSet)
-io.write("ParallelNetTest1.  DataSetUsed: Only strain data.  70% of data is allocated as a training set, 30% is left for validation.")
-io.write("Activation function used: sigmoid.  The output layer is simply linear")
-io.write("Test using 40-2-50 with MSECriterion and a learning rate of 0.01.")
-k = 0
-io.write("Run = ", k, "Training set error: ", getMeanErrorParallel(twoDTrain,parallelNetTable), "Test Set error: ",getMeanErrorParallel(twoDTest,parallelNetTable))
-for i = 1,10 do
-    parallelSGD(twoDTrain,parallelNetTable,nn.MSECriterion(),0.01)
-    k = k + 1
-    io.write("Run = ", k, "Training set error: ", getMeanErrorParallel(twoDTrain,parallelNetTable), "Test Set error: ",getMeanErrorParallel(twoDTest,parallelNetTable))
-end
-io.write("Test using 40-2-50 with MSECriterion and an annealed learning learing rate of 0.01*0.7^# of runs")
+
 BaseNet = makeNet(40, 2, 50)
-NetRepository = {}
-for i = 1,10 do --Makes 10 copies of the base Net, all with shared parameters (parameters are shared references, not just values)
-    NetRepository[i]=BaseNet:clone()   --Create network with same structure as our base
-    NetRepository[i]:share(BaseNet,'bias','weight') --Share BaseNet's parameters as references
-end
---Initialize parallel networks for each # of atoms in our test set.
---This will allow us to pass our dataSet into the tables as references in order to rapidly train our network.
-parallelNetTable = {} --Table containing neural networks indexed with the # of parallel atoms
-dummyNumAtomsTable = {}
-dummyNumAtomsTable[14] = 0  --Atomic # of silicon is 14
-dummyNNtable = {}           --Need to wrap NetRepository in a table so that parallelNet will work correctly
-dummyNNtable[14] = NetRepository
-for i = 1,10 do --
-    dummyNumAtomsTable[14] = i
-    parallelNetTable[i] = parallelNet(dummyNumAtomsTable,dummyNNtable)
-end
+NetRepository = makeRepo(BaseNet, 10)
+io.write("Data Set Used: Only strain data.  70% of data is allocated as a training set, 30% is left for validation.\n")
+io.write("This run will test further test variations on learning rates.\n")
+learningRate,anneallingRate = 0.01,1
 learningRate = 0.01
-k = 0
-for i = 1,10 do
-    io.write("Run = ", k, "Training set error: ", getMeanErrorParallel(twoDTrain,parallelNetTable), "Test Set error: ",getMeanErrorParallel(twoDTest,parallelNetTable))
-    parallelSGD(twoDTrain,parallelNetTable,nn.MSECriterion(),learningRate)
-    learningRate = learningRate*0.7
-    k = k + 1
-    io.write("Run = ", k, "Training set error: ", getMeanErrorParallel(twoDTrain,parallelNetTable), "Test Set error: ",getMeanErrorParallel(twoDTest,parallelNetTable))
+local target, result
+while learningRate > 0.001 do
+    anneallingRate = 1
+    for i = 1, 4 do
+        io.write(testArch(twoDTrain,twoDTest,nn.MSECriterion(),learningRate,anneallingRate,20,NetRepository))
+        io.write("\nSome forward passes through the network:\n")
+        for i = 1,5 do
+            target = twoDTest[i]["output"][1]
+            result = parallelForward(twoDTest[i],NetRepository)[1]
+            io.write("Target: ",target," Result: ", result, " Denormalized Target: ", (target*stdev[1]) + mean[1], " Denormalized Result: ", (result*stdev[1]) + mean[1])
+        end
+
+        anneallingRate = anneallingRate - 0.2
+    end
+    learningRate = learningRate - 0.001
 end
-io.write("Test using 40-3-50 with MSECriterion and a learning rate of 0.01")
-BaseNet = makeNet(40, 3, 50)
-NetRepository = {}
-for i = 1,10 do --Makes 10 copies of the base Net, all with shared parameters (parameters are shared references, not just values)
-    NetRepository[i]=BaseNet:clone()   --Create network with same structure as our base
-    NetRepository[i]:share(BaseNet,'bias','weight') --Share BaseNet's parameters as references
-end
---Initialize parallel networks for each # of atoms in our test set.
---This will allow us to pass our dataSet into the tables as references in order to rapidly train our network.
-parallelNetTable = {} --Table containing neural networks indexed with the # of parallel atoms
-dummyNumAtomsTable = {}
-dummyNumAtomsTable[14] = 0  --Atomic # of silicon is 14
-dummyNNtable = {}           --Need to wrap NetRepository in a table so that parallelNet will work correctly
-dummyNNtable[14] = NetRepository
-for i = 1,10 do --
-    dummyNumAtomsTable[14] = i
-    parallelNetTable[i] = parallelNet(dummyNumAtomsTable,dummyNNtable)
-end
-learningRate = 0.01
-k = 0
-io.write("Run = ", k, "Training set error: ", getMeanErrorParallel(twoDTrain,parallelNetTable), "Test Set error: ",getMeanErrorParallel(twoDTest,parallelNetTable))
-for i = 1,10 do
-    parallelSGD(twoDTrain,parallelNetTable,nn.MSECriterion(),0.01)
-    k = k + 1
-    io.write("Run = ", k, "Training set error: ", getMeanErrorParallel(twoDTrain,parallelNetTable), "Test Set error: ",getMeanErrorParallel(twoDTest,parallelNetTable))
-end
-io.write("Test using 40-3-50 with MSECriterion and an annealed learning learing rate of 0.01*0.7^# of runs")
-BaseNet = makeNet(40, 3, 50)
-NetRepository = {}
-for i = 1,10 do --Makes 10 copies of the base Net, all with shared parameters (parameters are shared references, not just values)
-    NetRepository[i]=BaseNet:clone()   --Create network with same structure as our base
-    NetRepository[i]:share(BaseNet,'bias','weight') --Share BaseNet's parameters as references
-end
---Initialize parallel networks for each # of atoms in our test set.
---This will allow us to pass our dataSet into the tables as references in order to rapidly train our network.
-parallelNetTable = {} --Table containing neural networks indexed with the # of parallel atoms
-dummyNumAtomsTable = {}
-dummyNumAtomsTable[14] = 0  --Atomic # of silicon is 14
-dummyNNtable = {}           --Need to wrap NetRepository in a table so that parallelNet will work correctly
-dummyNNtable[14] = NetRepository
-for i = 1,10 do --
-    dummyNumAtomsTable[14] = i
-    parallelNetTable[i] = parallelNet(dummyNumAtomsTable,dummyNNtable)
-end
-learningRate = 0.01
-k = 0
-io.write("Run = ", k, "Training set error: ", getMeanErrorParallel(twoDTrain,parallelNetTable), "Test Set error: ",getMeanErrorParallel(twoDTest,parallelNetTable))
-for i = 1,10 do
-    parallelSGD(twoDTrain,parallelNetTable,nn.MSECriterion(),0.01)
-    k = k + 1
-    learningRate = learningRate *0.7
-    io.write("Run = ", k, "Training set error: ", getMeanErrorParallel(twoDTrain,parallelNetTable), "Test Set error: ",getMeanErrorParallel(twoDTest,parallelNetTable))
-end
-io.write("Test using 40-4-50 with MSECriterion and learning rate of 0.1")
-BaseNet = makeNet(40, 4, 50)
-NetRepository = {}
-for i = 1,10 do --Makes 10 copies of the base Net, all with shared parameters (parameters are shared references, not just values)
-    NetRepository[i]=BaseNet:clone()   --Create network with same structure as our base
-    NetRepository[i]:share(BaseNet,'bias','weight') --Share BaseNet's parameters as references
-end
---Initialize parallel networks for each # of atoms in our test set.
---This will allow us to pass our dataSet into the tables as references in order to rapidly train our network.
-parallelNetTable = {} --Table containing neural networks indexed with the # of parallel atoms
-dummyNumAtomsTable = {}
-dummyNumAtomsTable[14] = 0  --Atomic # of silicon is 14
-dummyNNtable = {}           --Need to wrap NetRepository in a table so that parallelNet will work correctly
-dummyNNtable[14] = NetRepository
-for i = 1,10 do --
-    dummyNumAtomsTable[14] = i
-    parallelNetTable[i] = parallelNet(dummyNumAtomsTable,dummyNNtable)
-end
-learningRate = 0.01
-k = 0
-io.write("Run = ", k, "Training set error: ", getMeanErrorParallel(twoDTrain,parallelNetTable), "Test Set error: ",getMeanErrorParallel(twoDTest,parallelNetTable))
-for i = 1,10 do
-    parallelSGD(twoDTrain,parallelNetTable,nn.MSECriterion(),0.01)
-    k = k + 1
-    learningRate = learningRate *0.7
-    io.write("Run = ", k, "Training set error: ", getMeanErrorParallel(twoDTrain,parallelNetTable), "Test Set error: ",getMeanErrorParallel(twoDTest,parallelNetTable))
-end
-
-
---TEST CODE FOR PARALLELNET METHOD: SO FAR IT SEEMS TO BE WORKING CORRECTLY
---TestNet2 = makeNet(41,3,50)
---NetRepository2 = {}
---for i = 1,10 do --Makes 10 copies of the base Net, all with shared parameters (parameters are shared references, not just values)
---    NetRepository2[i]=TestNet2:clone()   --Create network with same structure as our base
---    NetRepository2[i]:share(TestNet2,'bias','weight') --Share BaseNet's parameters as references
---end
-
-
---singleAtomRepo = {}
---singleAtomRepo[1] = NetRepository
---singleAtomReference = {}
---singleAtomReference[1] = 2
---singleNetTest = parallelNet(singleAtomReference, singleAtomRepo)
---print(singleNetTest:forward(torch.randn(41,2)))
---print(singleNetTest:forward(tableTest))
-
---net:add(nn.Linear(numNets,1))
---net:zeroGradParameters()
-
-
-
-
---local testInput = torch.randn(41,2)
---print(parallelTest:forward(testInput))
---basicNet = makeNet(41, 10, 100)
---local test = inference(basicNet,dataSet[1])-dataSet[1][1][1]
---print(test)
-
---TESTING CODE FOR SGD METHOD: THIS HAD WEIRD BEHAVIOR, I DON'T THINK MY TRAINING IS CORRECT
---mean,stdev = meanStdev(dataSet)
---dataSet = normalize(dataSet,mean,stdev)
---trainSet,testSet = splitSet(dataSet,0.7)
---learningRate = .001
---net1 = basicNet:clone()
---net2 = basicNet:clone()
---for i = 1, 10 do
-   -- SGD(basicNet, trainSet,nn.MSECriterion(),learningRate)
-    --SGD(net1, trainSet,nn.MSECriterion(),learningRate/2)
-    --   SGD(net2, trainSet,nn.MSECriterion(),learningRate/10)
-
---    print('Basic Train Set error: ', getMeanError(basicNet,trainSet), 'Test Set error', getMeanError(basicNet,testSet))
---    print('net1 Train Set error: ', getMeanError(basicNet,trainSet), 'Test Set error', getMeanError(basicNet,testSet))
---    print('net3 Train Set error: ', getMeanError(basicNet,trainSet), 'Test Set error', getMeanError(basicNet,testSet))
---
---end
-
-

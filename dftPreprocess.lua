@@ -154,6 +154,11 @@ function meanStdev(Set)
     end
     return mean, stdev
 end
+--Normalize Set by subtracting the mean, then dividing by standard deviation
+--      Input: DataSet with format matching the output of DataToTensor
+--      mean: table containing mean for each value
+--      stdev: table containing standard deviation of each value
+--      Output: returns normalized dataSet
 function normalize(Set, mean, stdev)
     local i, dataUnit = next(Set, nil)  --grabs a test set
     while i do --normalize
