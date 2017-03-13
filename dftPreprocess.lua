@@ -221,7 +221,6 @@ end
 --      Index: input        Contains: Tensor[numSymmetry][SUM(all values in numAtoms].  This object is ordered by the numAtoms index.
 --      Index: output       Contains: Tensor[1] object containing energy of system (target output of NN).
 --E.g. for the test case above input[*][1]-input[*][10] will contain Si data, and input[*][11]-input[*][14] will contain S data
---TODO: Write input validation method to make sure inputs are ordered by atomic #
 function dataPointTo2dTensor(dataPoint)
     local numAtoms = {}
     local symmetry
@@ -247,12 +246,14 @@ function dataPointTo2dTensor(dataPoint)
     data2d["output"] = output
     return data2d
 end
-
 --Returns the input Tensor with its first element removed
 function removeFirstElement(tensor)
     return tensor:narrow(1,2,tensor:size()[1]-1)
 end
-
-
-
+--dataSetOrderTest: Validates assumption that input data to dataPointTo2dTensor will be ordered by atom type
+--  Input:  dataPoint (see dataPointTo2dTensor for details)
+--  Output: return 1 if everything is correct, return 0 if not
+--  TODO: Implement this method (deferring implementation until we get to two-atom systems)
+function dataSetOrderTest(dataPoint)
+end
 

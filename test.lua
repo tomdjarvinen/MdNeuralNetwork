@@ -24,10 +24,17 @@ for i = 1,10 do --
     dummyNumAtomsTable[14] = i
     parallelNetTable[i] = parallelNet(dummyNumAtomsTable,dummyNNtable)
 end
-
 dataSet = dftPreprocess('strainData.txt')
-twoDTest = dataPointTo2dTensor(dataSet[1])
-print("NumAtoms", twoDTest["numAtoms"][14],"Input", twoDTest["input"],"Output",twoDTest["output"])
+function dataSet:size()return 41 end
+mean,stdev = meanStdev(dataSet)
+dataSet = normalize(dataSet,mean,stdev)
+trainSet,testSet = splitSet(dataSet,0.7)
+twoDTest = dataSetTo2dTensor(trainSet)
+i, temp = next(twoDTest,nil)
+while i do
+    print(temp["numAtoms"][14])
+    i,temp = next(twoDTest,i)
+end
 
 
 
