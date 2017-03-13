@@ -6,8 +6,8 @@ require 'nngraph';
 
 --Initialize dataset
 --TODO: Save dataSet sequentially
-dataSet = dftPreprocess('strainData.txt')
-function dataSet:size()return 41 end
+--dataSet = dftPreprocess('strainData.txt')
+--function dataSet:size()return 41 end
 
 function inference(net, system)
     local i, atom = next(system, 1) --Skip first element, contains target value
@@ -55,20 +55,8 @@ function makeNet(numSymmetry, numHidden, numNodes)
     net:add(nn.Sigmoid())
     return net
 end
-function parallelNet(numAtoms,netPrimitive)
-    net = nn.Sequential()
-    m = nn.Parallel()
-    netPrimitive:zeroGradParameters()
-    local netTable = {}
-    for i = 1, numAtoms do
-        netTable[i] = netPrimitive:clone(netPrimitive)
-        netTable[i]:share(netPrimitive,'bias','weight')
-        m.add(netTable[i])
-    end
-    net:add(m)
-    net:add(nn.Linear(numAtoms,1))
-    return net
-end
+
+
 function getMeanError(net,Set)
     local count, error = 0, 0
     local i, node = next(Set, nil)
@@ -78,4 +66,32 @@ function getMeanError(net,Set)
         count = count +1
     end
     return (error)/count
+end
+
+--parallelNet: Returns a neural network which has a set of parallel inputs for each atom in a system
+--Inputs:
+--  numTypes: table indexed with atomic # of each type of atom being evaluated
+--      Each index contains the number of nets of that type which are needed
+--  nets: table of tables:
+--      Outer table: indexed with atom types from numTypes.  These indexes reference a table of neural network objects
+--          These objects should be cloned networks with shared parameters indexed to the natural numbers.
+--Outputs:  Returns a network with SUM(numTypes[i]*numSymmetry[i]) inputs, and one output, where i is all the indexes to the numTypes table
+--Inputs to the net should be indexed as a 2-d tensor with size [numSymmetry][numAtoms]
+--      TODO: This may need to change, because it does not allow different atom types to have a different # of inputs (unless the Tensor object can support this)
+--      TODO: It is possible that this can be implemented more efficiently as a gated expert network; research how they are implemented
+function parallelNet(numTypes, nets)
+    local net = nn.Sequential()
+    local c = nn.Parallel(2,1)    --Takes in parallel inputs indexed along the second dimension of input tensor (Q: can it take a table?)
+    local i, numAtom = next(numTypes, nil)
+    local atomCount = 0 --Need to track the total number of atoms in order to sum their outputs
+    while i do
+        for j = 1, numAtom do
+            c:add(nets[i][j])
+            atomCount = atomCount + 1
+        end
+        i, numAtom = next(numTypes, i)
+    end
+    net:add(c)
+    net:add(nn.Linear(atomCount,1)) --Output is a weighted sum (atomCount)atoms, each having 1 output
+    return net
 end
