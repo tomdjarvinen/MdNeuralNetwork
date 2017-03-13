@@ -1,3 +1,8 @@
+-- dftPreprocess.lua
+-- Author: Thomas Jarvinen
+-- Purpose: This script contains a set of helper functions that format our data suitably for training and inference by the objects of Net.lua
+--
+
 require 'torch';
 require 'math';
 --Parses a String of values seperated by sep, and formats it as a table where each value is an index
@@ -194,5 +199,60 @@ function splitSet(Set, ratio)
     end
     return trainSet,testSet
 end
+--dataSetTo2dTensor: Parses through a dataSet, so it can be reformatted by the dataPointTo2dTensor method
+--Input: dataSet: table of tables formatted as dataPoints (see dataPointTo2dTensor for details)
+--Output: dataSet2d: table of tables formatted as data2D  (see dataPointTo2dTensor for details)
+function dataSetTo2dTensor(dataSet)
+    local i, testCase = next(dataSet,nil)
+    local dataSet2D = {}
+    while i do
+        dataSet2D[i] = dataPointTo2dTensor(testCase)
+        i, testCase = next(dataSet,i)
+    end
+    return dataSet2D
+end
+--dataPointTo2dTensor: reformats dataSet data structure (as output by dftPreprocess) into a format suitable for parallelTable
+--Inputs:
+--  dataPoint: dft test that has been loaded into a Lua table
+--      dataPoint has format: {1=output=Torch.tensor(1), 2=Torch.tensor(# of inputs to net),...,i=Torch.tensor(# of inputs to net))
+--Output: returns data2d, a restructuring of the input dataPoint. It is a lua table. Data2d has the following indices:
+--      Index: numAtoms     Contains:Lua table w/ # of each type of atom in the system, Indexed by atomic # of the atoms
+--          E.g. a test case with 10 Si atoms and 4 Sulfur atoms would have format numAtoms[14] = 10, numAtoms[16] = 4
+--      Index: input        Contains: Tensor[numSymmetry][SUM(all values in numAtoms].  This object is ordered by the numAtoms index.
+--      Index: output       Contains: Tensor[1] object containing energy of system (target output of NN).
+--E.g. for the test case above input[*][1]-input[*][10] will contain Si data, and input[*][11]-input[*][14] will contain S data
+--TODO: Write input validation method to make sure inputs are ordered by atomic #
+function dataPointTo2dTensor(dataPoint)
+    local numAtoms = {}
+    local symmetry
+    local i, output = next(dataPoint,nil) --Get first value in dataPoint: output
+    local input
+    i,input = next(dataPoint,i)           --Get first input
+    while i do  --parse through all inputs
+        if(numAtoms[input[1]] == nil) then  --First Element of the input is the atomic #, if We don't yet have this atom type, then add an index for it.
+            numAtoms[input[1]] = 1
+        else                                --If we already have this type, increment our count
+            numAtoms[input[1]] = numAtoms[input[1]] + 1
+        end
+        if(symmetry == nil) then            --If it doesn't exist yet, initialize it with the input
+            symmetry = removeFirstElement(input)
+        else                                --Else, concatenate current input
+            symmetry = torch.cat(symmetry,removeFirstElement(input),2)      --Want formated as Tensor of size [numSymmettry][numAtoms], so concat in second dimension
+        end
+        i, input = next(dataPoint,i)        --Move to next element
+    end
+    local data2d = {}
+    data2d["numAtoms"] = numAtoms
+    data2d["input"] = symmetry
+    data2d["output"] = output
+    return data2d
+end
+
+--Returns the input Tensor with its first element removed
+function removeFirstElement(tensor)
+    return tensor:narrow(1,2,tensor:size()[1]-1)
+end
+
+
 
 

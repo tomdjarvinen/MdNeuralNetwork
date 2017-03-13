@@ -25,10 +25,9 @@ for i = 1,10 do --
     parallelNetTable[i] = parallelNet(dummyNumAtomsTable,dummyNNtable)
 end
 
-
-
-
-
+dataSet = dftPreprocess('strainData.txt')
+twoDTest = dataPointTo2dTensor(dataSet[1])
+print("NumAtoms", twoDTest["numAtoms"][14],"Input", twoDTest["input"],"Output",twoDTest["output"])
 
 
 
