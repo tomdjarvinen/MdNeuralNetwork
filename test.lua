@@ -27,14 +27,13 @@ end
 dataSet = dftPreprocess('strainData.txt')
 function dataSet:size()return 41 end
 mean,stdev = meanStdev(dataSet)
+testDelete = removeSymmetryFromSet(dataSet, 41 )
+--print("Original", dataSet[1][2][10], dataSet[1][2][11])
+--print(testDelete[3])
 dataSet = normalize(dataSet,mean,stdev)
 trainSet,testSet = splitSet(dataSet,0.7)
 twoDTest = dataSetTo2dTensor(trainSet)
-i, temp = next(twoDTest,nil)
-while i do
-    print(temp["numAtoms"][14])
-    i,temp = next(twoDTest,i)
-end
+
 
 
 

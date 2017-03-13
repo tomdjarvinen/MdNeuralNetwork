@@ -46,7 +46,7 @@ function ParseCSVLine (line,sep)
     return res
 end
 --TODO: actually implement getSize function
-function getSize(symettryDefinition)
+function getSize(symmetryDefinition)
     return 41
 end
 --Parses a single CSV file into a table where each index contains one line of data in from the file
@@ -256,4 +256,42 @@ end
 --  TODO: Implement this method (deferring implementation until we get to two-atom systems)
 function dataSetOrderTest(dataPoint)
 end
-
+--removeSymmetryFunction: returns a dataSet with the row at index removed
+--Inputs:
+--  dataSet: table of values with format: {1=output=Torch.tensor(1), 2=Torch.tensor(# of inputs to net),...,i=Torch.tensor(# of inputs to net))
+function removeSymmetryFromSet(dataSet, index)
+    local updatedSet = {}
+    local i, testRun = next(dataSet,nil)
+    while i do
+        updatedSet[i]= removeSymmetry(testRun,index)
+        i, testRun = next(dataSet,i)
+    end
+    return updatedSet
+end
+--removeSymmetry: returns the input data point with the symetry function at index removed
+--If the index is invalid, it returns the original datapoint, a -1, and an error message
+--If the index is valid, it returns the updated point and a 1
+function removeSymmetry(dataPoint,index)
+    local updatedPoint = {}
+    local i, temp = next(dataPoint, nil)
+    updatedPoint[i] = temp
+    i, temp = next(dataPoint,i)
+    local first, second
+    while i do
+        if index==1 then
+            updatedPoint[i] = removeFirstElement(temp)
+        elseif index == temp:size()[1] then
+            updatedPoint[i] = temp:narrow(1,1,index-1)
+        elseif index > temp:size()[1] then
+            return dataPoint, -1, "Index too large"
+        elseif index < 0 then
+            return dataPoint, -1, "Negative Index"
+        else
+            first = temp:narrow(1,1,index-1)
+            second = temp:narrow(1,index+1,temp:size()[1]-index)
+            updatedPoint[i] = torch.cat(first,second)
+        end
+        i, temp = next(dataPoint,i)
+    end
+    return updatedPoint,1,"success"
+end
