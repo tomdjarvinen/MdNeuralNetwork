@@ -7,9 +7,8 @@
 --
 require 'Net'
 --Set output file
-io.output("Tests/BigStrainTest3")
+io.output("Tests/OverfitTest2")
 --Initialize Networks
-
 function makeRepo(base, numAtoms)
     local repo = {}
     for i = 1,numAtoms do --Makes 10 copies of the base Net, all with shared parameters (parameters are shared references, not just values)
@@ -30,11 +29,13 @@ end
 function testArch(trainSet,testSet,criterion,learningRate,anneallingRate,numIterations,netRepo)
     local k = 0
     local Results = "Network: "..tostring(netRepo[1]).."Criterion: "..tostring(criterion).."\nLearningRate: "..learningRate.." Annealling Rate: "..anneallingRate.."\n"
+
     for i = 1,numIterations do
+        print("hi")
         parallelSGD(trainSet,netRepo,criterion,learningRate)
         k = k + 1
         learningRate = learningRate*anneallingRate
-        Results = Results.."Run = "..k.." Training set error: "..getMeanErrorParallel(trainSet,netRepo).." Test Set error: "..getMeanErrorParallel(testSet,netRepo).."\n"
+        Results = Results.."Run = "..k.." Training set Percent error: %"..getMeanPercentError(trainSet,netRepo).." Test Set Percent error: %"..getMeanPercentError(testSet,netRepo).."\n"
     end
     return Results
 end
@@ -42,10 +43,12 @@ function denormalize(value, mean, stdev)
     return value * stdev + mean
 end
 
-
 --Initialize our data
-dataSet = dftPreprocess('strainData.txt')
+local dataSet = dftPreprocess('bigStrain.txt')
+--local bigStrain = dftPreprocess('bigStrain.txt')
+--If you import multiple datasets using dftPreprocess, they must be local variables otherwise new imports will overwrite the old value references
 
+--dataSet = TableConcat(dataSet,bigStrain)
 function dataSet:size()return 41 end
 mean,stdev = meanStdev(dataSet)
 dataSet = normalize(dataSet,mean,stdev)
@@ -53,44 +56,15 @@ trainSet,testSet = splitSet(dataSet,0.7)
 twoDTrain = dataSetTo2dTensor(trainSet)
 twoDTest = dataSetTo2dTensor(testSet)
 
-bigStrain = dftPreprocess('bigStrain.txt')
-bigStrain = normalize(bigStrain,mean,stdev) --Normalize with respect to same values as dataSet
-twoDbigStrain = dataSetTo2dTensor(trainSet)
 
 --Make some nets
-net1 = makeNet(40,2,50)
-net2 = makeNet(40,3,50)
-net3 = makeNet(40,4,50)
-repo1 = makeRepo(net1,8)
-repo2 = makeRepo(net2,8)
-repo3 = makeRepo(net3,8)
-learningRate = 0.01
-annealingRate = 0.6
-io.write("Initial test using big strain dataSet\n")
-io.write("Testing three neural networks trained exclusively on strain dataSet with 70% being used as data, and 30% for validation.\nTrain the networks: \n")
---Train the Nets
-io.write(testArch(twoDTrain,twoDTest,nn.MSECriterion(),learningRate,annealingRate,6,repo1))
-io.write(testArch(twoDTrain,twoDTest,nn.MSECriterion(),learningRate,annealingRate,6,repo2))
-io.write(testArch(twoDTrain,twoDTest,nn.MSECriterion(),learningRate,annealingRate,6,repo2))
+io.write("Overfit Test \n")
+io.write("Testing networks of depth 3-13 with 50 training epochs at training rate .01, annealing rate 0.95\n")
+io.write("Training will be done on Strain+Big Strain datasets.  I want to see what effect adding more data has.")
+repo = {}
+for i = 3, 13 do
+    repo[i] = makeRepo(makeNet(40,i,50),8)
+    io.write(testArch(twoDTrain,twoDTest,nn.MSECriterion(),.01,0.95,50,repo[i]))
+end
 
-io.write("\nNow test the networks.\n Net one (50-50-1):\n")
-io.write("Strain test set average error (denormalized): ", getMeanErrorDenormalized(twoDTest,repo1,mean[1],stdev[1]))
-io.write("\nBig-Strain test set average error: ", getMeanErrorParallel(twoDbigStrain,repo1), " Denormalized: ", getMeanErrorDenormalized(twoDbigStrain,repo1,mean[1],stdev[1]))
-io.write("\nSome forward passes: \n")
-for i = 1,50 do
-    io.write("Big strain[", (i*5), "] Target:Result ", twoDbigStrain[i*5]["output"][1],":", parallelForward(twoDbigStrain[i*5],repo1)[1], " Denormalized: ", denormalize(twoDbigStrain[i*5]["output"][1],mean[1],stdev[1]), ":", denormalize(parallelForward(twoDbigStrain[i*5],repo1)[1],mean[1],stdev[1]), "\n")
-end
-io.write("\nNow test the networks.\n Net two (50-50-50-1):\n")
-io.write("Strain test set average error (denormalized): ", getMeanErrorDenormalized(twoDTest,repo2,mean[1],stdev[1]))
-io.write("\nBig-Strain test set average error: ", getMeanErrorParallel(twoDbigStrain,repo2), " Denormalized: ", getMeanErrorDenormalized(twoDbigStrain,repo2,mean[1],stdev[1]))
-io.write("\nSome forward passes: \n")
-for i = 1,50 do
-    io.write("Big strain[", i*5, "] Target:Result ", twoDbigStrain[i*5]["output"][1],":", parallelForward(twoDbigStrain[i*5],repo2)[1], " Denormalized: ", denormalize(twoDbigStrain[i*5]["output"][1],mean[1],stdev[1]), ":", denormalize(parallelForward(twoDbigStrain[i*5],repo2)[1],mean[1],stdev[1]), "\n")
-end
-io.write("\nNow test the networks.\n Net two (50-50-50-50-1):\n")
-io.write("Strain test set average error (denormalized): ", getMeanErrorDenormalized(twoDTest,repo3,mean[1],stdev[1]))
-io.write("\nBig-Strain test set average error: ", getMeanErrorParallel(twoDbigStrain,repo3), " Denormalized: ", getMeanErrorDenormalized(twoDbigStrain,repo3,mean[1],stdev[1]))
-io.write("\nSome forward passes: \n")
-for i = 1,50 do
-    io.write("Big strain[", i*5, "] Target:Result ", twoDbigStrain[i*5]["output"][1],":", parallelForward(twoDbigStrain[i*5],repo3)[1], " Denormalized: ", denormalize(twoDbigStrain[i*5]["output"][1],mean[1],stdev[1]), ":", denormalize(parallelForward(twoDbigStrain[i*5],repo3)[1],mean[1],stdev[1]), "\n")
-end
+

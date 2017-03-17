@@ -8,7 +8,7 @@ require 'nngraph';
 --TODO: Save dataSet sequentially
 --dataSet = dftPreprocess('strainData.txt')
 --function dataSet:size()return 41 end
-
+--DO NOT USE
 function inference(net, system)
     local i, atom = next(system, 1) --Skip first element, contains target value
     local accumulatedInference = torch.Tensor(1)
@@ -19,6 +19,7 @@ function inference(net, system)
     return accumulatedInference
 end
 --TODO: generalize to allow for multiple atom types
+--THIS METHOD DOES NOT WORK. DO NOT USE
 function SGD(net, trainSet, criterion, learningRate)
     net:zeroGradParameters()
     local i, system = next(trainSet, nil)
@@ -156,5 +157,18 @@ function getMeanErrorDenormalized(testSet, netRepo, mean, stdev)
     else
         return -1
     end
-
+end
+function getMeanPercentError(testSet,netRepo)
+    local i, testCase = next(testSet,nil)
+    local count, PercentError = 0,0
+    while i do
+        count = count+1
+        PercentError = PercentError + math.abs((parallelForward(testCase,netRepo)[1]-testCase["output"][1])/testCase["output"][1])
+        i, testCase = next(testSet,i)
+    end
+    if count ~= 0 then
+        return (100*PercentError)/count
+    else
+        return -1
+    end
 end
