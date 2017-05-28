@@ -1,0 +1,860 @@
+Overfit Test 
+Testing networks of depth 3-13 with 50 training epochs at training rate .01, annealing rate 0.95
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.95
+Run = 1 Training set Percent error: %14.23095060249 Test Set Percent error: %16.575737677683
+Run = 2 Training set Percent error: %10.537798181056 Test Set Percent error: %11.746194367251
+Run = 3 Training set Percent error: %9.0698091114148 Test Set Percent error: %9.7380459927877
+Run = 4 Training set Percent error: %8.3554673276816 Test Set Percent error: %8.8273769261738
+Run = 5 Training set Percent error: %7.9460989230654 Test Set Percent error: %8.3421129667744
+Run = 6 Training set Percent error: %7.6746659840514 Test Set Percent error: %8.0392236589956
+Run = 7 Training set Percent error: %7.480794132939 Test Set Percent error: %7.8484122100974
+Run = 8 Training set Percent error: %7.3368437851293 Test Set Percent error: %7.7109081274582
+Run = 9 Training set Percent error: %7.2028473497124 Test Set Percent error: %7.5849621215186
+Run = 10 Training set Percent error: %7.0746512305231 Test Set Percent error: %7.4637706594155
+Run = 11 Training set Percent error: %6.9526953836213 Test Set Percent error: %7.3478060900385
+Run = 12 Training set Percent error: %6.8361316705166 Test Set Percent error: %7.2365758885653
+Run = 13 Training set Percent error: %6.7259816825692 Test Set Percent error: %7.1302693640404
+Run = 14 Training set Percent error: %6.6216028831732 Test Set Percent error: %7.0291368137577
+Run = 15 Training set Percent error: %6.5234924203058 Test Set Percent error: %6.9348341304354
+Run = 16 Training set Percent error: %6.4310949828107 Test Set Percent error: %6.8483408988673
+Run = 17 Training set Percent error: %6.3445908294695 Test Set Percent error: %6.7673700636064
+Run = 18 Training set Percent error: %6.2641186337743 Test Set Percent error: %6.6920530714397
+Run = 19 Training set Percent error: %6.1901272312009 Test Set Percent error: %6.6224779877592
+Run = 20 Training set Percent error: %6.1224683872452 Test Set Percent error: %6.5586864432731
+Run = 21 Training set Percent error: %6.0612932486748 Test Set Percent error: %6.5006718567331
+Run = 22 Training set Percent error: %6.0062324784724 Test Set Percent error: %6.4483792621622
+Run = 23 Training set Percent error: %5.9570742137965 Test Set Percent error: %6.4017067783894
+Run = 24 Training set Percent error: %5.913665280653 Test Set Percent error: %6.3616122339609
+Run = 25 Training set Percent error: %5.8758108399102 Test Set Percent error: %6.3272025154001
+Run = 26 Training set Percent error: %5.8432797699494 Test Set Percent error: %6.2976520335258
+Run = 27 Training set Percent error: %5.8158106819066 Test Set Percent error: %6.2727220217812
+Run = 28 Training set Percent error: %5.7931182365201 Test Set Percent error: %6.2521518114504
+Run = 29 Training set Percent error: %5.7749907458873 Test Set Percent error: %6.235813153499
+Run = 30 Training set Percent error: %5.7610425947383 Test Set Percent error: %6.2234044133443
+Run = 31 Training set Percent error: %5.7509033991078 Test Set Percent error: %6.214422929909
+Run = 32 Training set Percent error: %5.7442544896689 Test Set Percent error: %6.2085815984638
+Run = 33 Training set Percent error: %5.7407808503242 Test Set Percent error: %6.2055966074987
+Run = 34 Training set Percent error: %5.7401748678766 Test Set Percent error: %6.2051908193816
+Run = 35 Training set Percent error: %5.7421394055423 Test Set Percent error: %6.2070965412443
+Run = 36 Training set Percent error: %5.7463902266376 Test Set Percent error: %6.2110577098798
+Run = 37 Training set Percent error: %5.7526578146335 Test Set Percent error: %6.2168315323357
+Run = 38 Training set Percent error: %5.7606886486137 Test Set Percent error: %6.2241896354589
+Run = 39 Training set Percent error: %5.7702460001164 Test Set Percent error: %6.2329187839023
+Run = 40 Training set Percent error: %5.7811103196439 Test Set Percent error: %6.2428212281755
+Run = 41 Training set Percent error: %5.7931045127582 Test Set Percent error: %6.2538620353358
+Run = 42 Training set Percent error: %5.8060918478194 Test Set Percent error: %6.2658311296258
+Run = 43 Training set Percent error: %5.819835593506 Test Set Percent error: %6.2784874016471
+Run = 44 Training set Percent error: %5.8341816365216 Test Set Percent error: %6.2916901275635
+Run = 45 Training set Percent error: %5.8489911261142 Test Set Percent error: %6.305312533296
+Run = 46 Training set Percent error: %5.8641396275277 Test Set Percent error: %6.3192410203264
+Run = 47 Training set Percent error: %5.8795162211756 Test Set Percent error: %6.3333743419178
+Run = 48 Training set Percent error: %5.8950225744002 Test Set Percent error: %6.3476227543125
+Run = 49 Training set Percent error: %5.9105720074848 Test Set Percent error: %6.3619071627112
+Run = 50 Training set Percent error: %5.9260885709627 Test Set Percent error: %6.376158277618
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.95
+Run = 1 Training set Percent error: %15.391376989622 Test Set Percent error: %16.895814783681
+Run = 2 Training set Percent error: %11.744482303969 Test Set Percent error: %12.050560523589
+Run = 3 Training set Percent error: %10.770222555813 Test Set Percent error: %10.856612509301
+Run = 4 Training set Percent error: %10.399519237781 Test Set Percent error: %10.475142942585
+Run = 5 Training set Percent error: %10.166457971071 Test Set Percent error: %10.268877277632
+Run = 6 Training set Percent error: %9.9352430936997 Test Set Percent error: %10.06590952926
+Run = 7 Training set Percent error: %9.7087468114454 Test Set Percent error: %9.8666716532089
+Run = 8 Training set Percent error: %9.4886033296439 Test Set Percent error: %9.6730578504995
+Run = 9 Training set Percent error: %9.2755015448204 Test Set Percent error: %9.4853395296705
+Run = 10 Training set Percent error: %9.0700162975822 Test Set Percent error: %9.3033896861881
+Run = 11 Training set Percent error: %8.8721296950879 Test Set Percent error: %9.1269882221546
+Run = 12 Training set Percent error: %8.6825768156528 Test Set Percent error: %8.9559047316922
+Run = 13 Training set Percent error: %8.5006879377234 Test Set Percent error: %8.7899242280362
+Run = 14 Training set Percent error: %8.3247465456594 Test Set Percent error: %8.6288574541534
+Run = 15 Training set Percent error: %8.1558890948867 Test Set Percent error: %8.4725467547285
+Run = 16 Training set Percent error: %7.9940138941532 Test Set Percent error: %8.3208704103641
+Run = 17 Training set Percent error: %7.8371359528301 Test Set Percent error: %8.1737460573978
+Run = 18 Training set Percent error: %7.6860795750578 Test Set Percent error: %8.0311331281815
+Run = 19 Training set Percent error: %7.5398076887736 Test Set Percent error: %7.8945583570422
+Run = 20 Training set Percent error: %7.3983451631722 Test Set Percent error: %7.7635523120943
+Run = 21 Training set Percent error: %7.262423783518 Test Set Percent error: %7.6371032331944
+Run = 22 Training set Percent error: %7.1319839494647 Test Set Percent error: %7.515330562085
+Run = 23 Training set Percent error: %7.0081660587616 Test Set Percent error: %7.3983835378448
+Run = 24 Training set Percent error: %6.8898382691194 Test Set Percent error: %7.2864336020816
+Run = 25 Training set Percent error: %6.778508186998 Test Set Percent error: %7.1796654311227
+Run = 26 Training set Percent error: %6.6736179966958 Test Set Percent error: %7.0782670527222
+Run = 27 Training set Percent error: %6.5748537933092 Test Set Percent error: %6.9827168293989
+Run = 28 Training set Percent error: %6.4823017977216 Test Set Percent error: %6.8953266291455
+Run = 29 Training set Percent error: %6.3957476630071 Test Set Percent error: %6.8143724703906
+Run = 30 Training set Percent error: %6.3152982267834 Test Set Percent error: %6.7391414049294
+Run = 31 Training set Percent error: %6.2410301322476 Test Set Percent error: %6.6696942120468
+Run = 32 Training set Percent error: %6.1734583621245 Test Set Percent error: %6.6060485482051
+Run = 33 Training set Percent error: %6.1120102605165 Test Set Percent error: %6.5481766749017
+Run = 34 Training set Percent error: %6.0570137943694 Test Set Percent error: %6.4960051051066
+Run = 35 Training set Percent error: %6.0078831335174 Test Set Percent error: %6.449416018332
+Run = 36 Training set Percent error: %5.9644512631184 Test Set Percent error: %6.4082502026097
+Run = 37 Training set Percent error: %5.926512058394 Test Set Percent error: %6.3730003903848
+Run = 38 Training set Percent error: %5.8938256008576 Test Set Percent error: %6.343353923651
+Run = 39 Training set Percent error: %5.8661240799649 Test Set Percent error: %6.3182545111524
+Run = 40 Training set Percent error: %5.8431179538901 Test Set Percent error: %6.2974376829988
+Run = 41 Training set Percent error: %5.8245020837449 Test Set Percent error: %6.2806247407444
+Run = 42 Training set Percent error: %5.8099616067088 Test Set Percent error: %6.2675281198311
+Run = 43 Training set Percent error: %5.799177368977 Test Set Percent error: %6.2578563504471
+Run = 44 Training set Percent error: %5.7918307939992 Test Set Percent error: %6.2513185029026
+Run = 45 Training set Percent error: %5.7876207887809 Test Set Percent error: %6.2476539189422
+Run = 46 Training set Percent error: %5.7862291647996 Test Set Percent error: %6.2465638851138
+Run = 47 Training set Percent error: %5.7873422369935 Test Set Percent error: %6.2477239444996
+Run = 48 Training set Percent error: %5.7906878876028 Test Set Percent error: %6.2509057908752
+Run = 49 Training set Percent error: %5.796029942376 Test Set Percent error: %6.2559287935533
+Run = 50 Training set Percent error: %5.8031010564135 Test Set Percent error: %6.2625256442396
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 50)
+             (8): nn.Sigmoid
+             (9): nn.Linear(50 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.95
+Run = 1 Training set Percent error: %12.963176199304 Test Set Percent error: %13.293401736605
+Run = 2 Training set Percent error: %11.628983836651 Test Set Percent error: %11.608339724613
+Run = 3 Training set Percent error: %11.258729815588 Test Set Percent error: %11.240667877555
+Run = 4 Training set Percent error: %10.992841865001 Test Set Percent error: %11.005070797451
+Run = 5 Training set Percent error: %10.726835619172 Test Set Percent error: %10.768699094304
+Run = 6 Training set Percent error: %10.469554742802 Test Set Percent error: %10.538187570985
+Run = 7 Training set Percent error: %10.222381016866 Test Set Percent error: %10.319029275439
+Run = 8 Training set Percent error: %9.9851107670234 Test Set Percent error: %10.1105234023
+Run = 9 Training set Percent error: %9.7557749980151 Test Set Percent error: %9.9087495574758
+Run = 10 Training set Percent error: %9.5336678908663 Test Set Percent error: %9.7134138861588
+Run = 11 Training set Percent error: %9.3186253327448 Test Set Percent error: %9.5242235282873
+Run = 12 Training set Percent error: %9.111340436881 Test Set Percent error: %9.3408987362429
+Run = 13 Training set Percent error: %8.9116032082248 Test Set Percent error: %9.1631779953096
+Run = 14 Training set Percent error: %8.7203040518559 Test Set Percent error: %8.9908217139605
+Run = 15 Training set Percent error: %8.5368576895121 Test Set Percent error: %8.8236157022665
+Run = 16 Training set Percent error: %8.3594547515229 Test Set Percent error: %8.6613746792829
+Run = 17 Training set Percent error: %8.1890475982396 Test Set Percent error: %8.503945765946
+Run = 18 Training set Percent error: %8.0258970309731 Test Set Percent error: %8.3512117875189
+Run = 19 Training set Percent error: %7.8679958018661 Test Set Percent error: %8.2030941216241
+Run = 20 Training set Percent error: %7.7157983881174 Test Set Percent error: %8.0595547706312
+Run = 21 Training set Percent error: %7.5686557783872 Test Set Percent error: %7.9216507339274
+Run = 22 Training set Percent error: %7.4263951778378 Test Set Percent error: %7.7898663980052
+Run = 23 Training set Percent error: %7.2895689590943 Test Set Percent error: %7.6627261555586
+Run = 24 Training set Percent error: %7.158318687254 Test Set Percent error: %7.5403692150631
+Run = 25 Training set Percent error: %7.0337306267578 Test Set Percent error: %7.4228938437672
+Run = 26 Training set Percent error: %6.9148571266525 Test Set Percent error: %7.3104657613901
+Run = 27 Training set Percent error: %6.8027705924528 Test Set Percent error: %7.2032632681233
+Run = 28 Training set Percent error: %6.6972999931517 Test Set Percent error: %7.1014676543146
+Run = 29 Training set Percent error: %6.5979923373232 Test Set Percent error: %7.005253231189
+Run = 30 Training set Percent error: %6.5050850207105 Test Set Percent error: %6.9170107078532
+Run = 31 Training set Percent error: %6.4181941568823 Test Set Percent error: %6.8357408121285
+Run = 32 Training set Percent error: %6.3374207412321 Test Set Percent error: %6.7602052807675
+Run = 33 Training set Percent error: %6.262824846871 Test Set Percent error: %6.6904600481682
+Run = 34 Training set Percent error: %6.1947983681991 Test Set Percent error: %6.62651860765
+Run = 35 Training set Percent error: %6.1330277128897 Test Set Percent error: %6.5683497503524
+Run = 36 Training set Percent error: %6.0775773440921 Test Set Percent error: %6.5158771891204
+Run = 37 Training set Percent error: %6.0281272046103 Test Set Percent error: %6.4689809269585
+Run = 38 Training set Percent error: %5.9843682574898 Test Set Percent error: %6.4275001374704
+Run = 39 Training set Percent error: %5.9460931550498 Test Set Percent error: %6.3914870578073
+Run = 40 Training set Percent error: %5.9130611980968 Test Set Percent error: %6.3612345110026
+Run = 41 Training set Percent error: %5.8850041695375 Test Set Percent error: %6.3358036625997
+Run = 42 Training set Percent error: %5.8616324335398 Test Set Percent error: %6.3146458805416
+Run = 43 Training set Percent error: %5.8426410157706 Test Set Percent error: %6.2974826647839
+Run = 44 Training set Percent error: %5.8277154302722 Test Set Percent error: %6.2840268420836
+Run = 45 Training set Percent error: %5.8165370732666 Test Set Percent error: %6.2739874904414
+Run = 46 Training set Percent error: %5.8087880583709 Test Set Percent error: %6.2670743537743
+Run = 47 Training set Percent error: %5.804155417538 Test Set Percent error: %6.2630016775704
+Run = 48 Training set Percent error: %5.8023346351237 Test Set Percent error: %6.2614914356578
+Run = 49 Training set Percent error: %5.8030325174882 Test Set Percent error: %6.2622759502177
+Run = 50 Training set Percent error: %5.8059694273311 Test Set Percent error: %6.2650999316634
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> (11) -> (12) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 50)
+             (8): nn.Sigmoid
+             (9): nn.Linear(50 -> 50)
+             (10): nn.Sigmoid
+             (11): nn.Linear(50 -> 1)
+             (12): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.95
+Run = 1 Training set Percent error: %16.891544137071 Test Set Percent error: %19.111516848922
+Run = 2 Training set Percent error: %11.983778740998 Test Set Percent error: %12.662002303517
+Run = 3 Training set Percent error: %10.456379331286 Test Set Percent error: %10.72440072532
+Run = 4 Training set Percent error: %9.8555978935646 Test Set Percent error: %10.026237227506
+Run = 5 Training set Percent error: %9.5562720109561 Test Set Percent error: %9.7338885015795
+Run = 6 Training set Percent error: %9.3481001934923 Test Set Percent error: %9.5491880362627
+Run = 7 Training set Percent error: %9.1434847558707 Test Set Percent error: %9.3693913497295
+Run = 8 Training set Percent error: %8.9437468510538 Test Set Percent error: %9.1922638068118
+Run = 9 Training set Percent error: %8.7514054042694 Test Set Percent error: %9.0195620687079
+Run = 10 Training set Percent error: %8.5668325623743 Test Set Percent error: %8.8517379413468
+Run = 11 Training set Percent error: %8.3884535058409 Test Set Percent error: %8.6888389090177
+Run = 12 Training set Percent error: %8.2168903462244 Test Set Percent error: %8.5307968239257
+Run = 13 Training set Percent error: %8.0528679710157 Test Set Percent error: %8.3775260505314
+Run = 14 Training set Percent error: %7.894405982323 Test Set Percent error: %8.2289591616522
+Run = 15 Training set Percent error: %7.7415607686706 Test Set Percent error: %8.0850607929562
+Run = 16 Training set Percent error: %7.5940695002685 Test Set Percent error: %7.9464055777059
+Run = 17 Training set Percent error: %7.4515573205509 Test Set Percent error: %7.8144427410101
+Run = 18 Training set Percent error: %7.3143844598129 Test Set Percent error: %7.6871782456136
+Run = 19 Training set Percent error: %7.1830559516724 Test Set Percent error: %7.5647211149853
+Run = 20 Training set Percent error: %7.0580809813292 Test Set Percent error: %7.4472078121605
+Run = 21 Training set Percent error: %6.9392368222909 Test Set Percent error: %7.3347951609379
+Run = 22 Training set Percent error: %6.8268625337085 Test Set Percent error: %7.2276519440226
+Run = 23 Training set Percent error: %6.721325463017 Test Set Percent error: %7.1259496063976
+Run = 24 Training set Percent error: %6.6219773219984 Test Set Percent error: %7.0298525730566
+Run = 25 Training set Percent error: %6.5292308311875 Test Set Percent error: %6.9407976481569
+Run = 26 Training set Percent error: %6.4425077349109 Test Set Percent error: %6.8596606928936
+Run = 27 Training set Percent error: %6.361899954687 Test Set Percent error: %6.7842546637404
+Run = 28 Training set Percent error: %6.287459338319 Test Set Percent error: %6.7146280567912
+Run = 29 Training set Percent error: %6.219385414174 Test Set Percent error: %6.6507877770785
+Run = 30 Training set Percent error: %6.1577348460183 Test Set Percent error: %6.5926969297401
+Run = 31 Training set Percent error: %6.1021835617227 Test Set Percent error: %6.5402744604335
+Run = 32 Training set Percent error: %6.052790263603 Test Set Percent error: %6.4933965112319
+Run = 33 Training set Percent error: %6.0090514246579 Test Set Percent error: %6.4518992663323
+Run = 34 Training set Percent error: %5.9707572954376 Test Set Percent error: %6.4155829993028
+Run = 35 Training set Percent error: %5.9376655894089 Test Set Percent error: %6.3846347169566
+Run = 36 Training set Percent error: %5.9095072445736 Test Set Percent error: %6.3589618806414
+Run = 37 Training set Percent error: %5.8859924480441 Test Set Percent error: %6.3376406179086
+Run = 38 Training set Percent error: %5.866816641393 Test Set Percent error: %6.3202767569384
+Run = 39 Training set Percent error: %5.8516662738656 Test Set Percent error: %6.3065840431914
+Run = 40 Training set Percent error: %5.8402241247205 Test Set Percent error: %6.2962728724417
+Run = 41 Training set Percent error: %5.8321740697927 Test Set Percent error: %6.2890546435558
+Run = 42 Training set Percent error: %5.8272052170427 Test Set Percent error: %6.2846455351721
+Run = 43 Training set Percent error: %5.8250153788211 Test Set Percent error: %6.2827696767269
+Run = 44 Training set Percent error: %5.8253138835514 Test Set Percent error: %6.2831617162396
+Run = 45 Training set Percent error: %5.8278237563015 Test Set Percent error: %6.2855688117297
+Run = 46 Training set Percent error: %5.83228331661 Test Set Percent error: %6.2897520904109
+Run = 47 Training set Percent error: %5.838447253963 Test Set Percent error: %6.2954876308059
+Run = 48 Training set Percent error: %5.846087247516 Test Set Percent error: %6.3025670285937
+Run = 49 Training set Percent error: %5.8549921983364 Test Set Percent error: %6.3107976085444
+Run = 50 Training set Percent error: %5.8649681406531 Test Set Percent error: %6.3200023432641
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> (11) -> (12) -> (13) -> (14) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 50)
+             (8): nn.Sigmoid
+             (9): nn.Linear(50 -> 50)
+             (10): nn.Sigmoid
+             (11): nn.Linear(50 -> 50)
+             (12): nn.Sigmoid
+             (13): nn.Linear(50 -> 1)
+             (14): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.95
+Run = 1 Training set Percent error: %11.460797863257 Test Set Percent error: %12.017761215507
+Run = 2 Training set Percent error: %10.075441023242 Test Set Percent error: %10.220772657608
+Run = 3 Training set Percent error: %9.6154528014401 Test Set Percent error: %9.792277060531
+Run = 4 Training set Percent error: %9.3616114370963 Test Set Percent error: %9.5658398143512
+Run = 5 Training set Percent error: %9.1473155239312 Test Set Percent error: %9.3754999848659
+Run = 6 Training set Percent error: %8.9461534077801 Test Set Percent error: %9.1964516951255
+Run = 7 Training set Percent error: %8.7545360141826 Test Set Percent error: %9.0241066889477
+Run = 8 Training set Percent error: %8.5712077472457 Test Set Percent error: %8.857203593415
+Run = 9 Training set Percent error: %8.3940298418112 Test Set Percent error: %8.695273899128
+Run = 10 Training set Percent error: %8.2235216613543 Test Set Percent error: %8.5380685023381
+Run = 11 Training set Percent error: %8.0602715268376 Test Set Percent error: %8.3854217068941
+Run = 12 Training set Percent error: %7.9022767102004 Test Set Percent error: %8.2372190863598
+Run = 13 Training set Percent error: %7.7496180547788 Test Set Percent error: %8.0933910823665
+Run = 14 Training set Percent error: %7.6019693105472 Test Set Percent error: %7.9545047696032
+Run = 15 Training set Percent error: %7.4589360961637 Test Set Percent error: %7.8219532992477
+Run = 16 Training set Percent error: %7.3208766117298 Test Set Percent error: %7.6937508452825
+Run = 17 Training set Percent error: %7.1882685636669 Test Set Percent error: %7.5699999110343
+Run = 18 Training set Percent error: %7.0616919386052 Test Set Percent error: %7.4508385583721
+Run = 19 Training set Percent error: %6.9408389679453 Test Set Percent error: %7.3364337663414
+Run = 20 Training set Percent error: %6.8262242435381 Test Set Percent error: %7.2269730837389
+Run = 21 Training set Percent error: %6.7181229165057 Test Set Percent error: %7.1226549772807
+Run = 22 Training set Percent error: %6.6159718503403 Test Set Percent error: %7.0236783994715
+Run = 23 Training set Percent error: %6.5201152099788 Test Set Percent error: %6.9321115334255
+Run = 24 Training set Percent error: %6.4300970850112 Test Set Percent error: %6.84781115577
+Run = 25 Training set Percent error: %6.3460600144174 Test Set Percent error: %6.7691197295724
+Run = 26 Training set Percent error: %6.2681083687947 Test Set Percent error: %6.6961350276918
+Run = 27 Training set Percent error: %6.1967028034785 Test Set Percent error: %6.6289134122167
+Run = 28 Training set Percent error: %6.1315525503768 Test Set Percent error: %6.5674661435019
+Run = 29 Training set Percent error: %6.0728359276823 Test Set Percent error: %6.5117577005189
+Run = 30 Training set Percent error: %6.0201528008729 Test Set Percent error: %6.4617060306878
+Run = 31 Training set Percent error: %5.9732777830838 Test Set Percent error: %6.4171845354363
+Run = 32 Training set Percent error: %5.9320348837894 Test Set Percent error: %6.3787011474644
+Run = 33 Training set Percent error: %5.8962097732911 Test Set Percent error: %6.346109009955
+Run = 34 Training set Percent error: %5.8655554207092 Test Set Percent error: %6.3182366985548
+Run = 35 Training set Percent error: %5.8397982098226 Test Set Percent error: %6.2948342597061
+Run = 36 Training set Percent error: %5.8186442132271 Test Set Percent error: %6.2756331907489
+Run = 37 Training set Percent error: %5.8017853518072 Test Set Percent error: %6.2603520666438
+Run = 38 Training set Percent error: %5.7889347119485 Test Set Percent error: %6.2487889766648
+Run = 39 Training set Percent error: %5.7797857896626 Test Set Percent error: %6.2407258246119
+Run = 40 Training set Percent error: %5.7739631783182 Test Set Percent error: %6.2356438297631
+Run = 41 Training set Percent error: %5.7711604991223 Test Set Percent error: %6.2332642838779
+Run = 42 Training set Percent error: %5.7710630013789 Test Set Percent error: %6.2333167037817
+Run = 43 Training set Percent error: %5.7733821910946 Test Set Percent error: %6.235541263719
+Run = 44 Training set Percent error: %5.7778434715944 Test Set Percent error: %6.2396906652515
+Run = 45 Training set Percent error: %5.7841876486621 Test Set Percent error: %6.2455314928265
+Run = 46 Training set Percent error: %5.7921719280385 Test Set Percent error: %6.2528451119096
+Run = 47 Training set Percent error: %5.8016356435188 Test Set Percent error: %6.2616024102738
+Run = 48 Training set Percent error: %5.8123222421754 Test Set Percent error: %6.2714763130467
+Run = 49 Training set Percent error: %5.8240306793351 Test Set Percent error: %6.2822793385525
+Run = 50 Training set Percent error: %5.8365845654796 Test Set Percent error: %6.2938504552703
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> (11) -> (12) -> (13) -> (14) -> (15) -> (16) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 50)
+             (8): nn.Sigmoid
+             (9): nn.Linear(50 -> 50)
+             (10): nn.Sigmoid
+             (11): nn.Linear(50 -> 50)
+             (12): nn.Sigmoid
+             (13): nn.Linear(50 -> 50)
+             (14): nn.Sigmoid
+             (15): nn.Linear(50 -> 1)
+             (16): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.95
+Run = 1 Training set Percent error: %14.961806024783 Test Set Percent error: %16.333258636409
+Run = 2 Training set Percent error: %11.592795462608 Test Set Percent error: %11.912084475929
+Run = 3 Training set Percent error: %10.634126740092 Test Set Percent error: %10.738734019521
+Run = 4 Training set Percent error: %10.259434743113 Test Set Percent error: %10.351810473942
+Run = 5 Training set Percent error: %10.0324819666 Test Set Percent error: %10.151748675481
+Run = 6 Training set Percent error: %9.8059286185341 Test Set Percent error: %9.952711183404
+Run = 7 Training set Percent error: %9.5834227416707 Test Set Percent error: %9.7568764446706
+Run = 8 Training set Percent error: %9.3669177163772 Test Set Percent error: %9.566437906726
+Run = 9 Training set Percent error: %9.1579277368497 Test Set Percent error: %9.3815979161493
+Run = 10 Training set Percent error: %8.9563030391947 Test Set Percent error: %9.2023223926563
+Run = 11 Training set Percent error: %8.7628034545155 Test Set Percent error: %9.0284464059801
+Run = 12 Training set Percent error: %8.5773719962222 Test Set Percent error: %8.8597786022438
+Run = 13 Training set Percent error: %8.39826187914 Test Set Percent error: %8.6961444768604
+Run = 14 Training set Percent error: %8.2258858943716 Test Set Percent error: %8.5374253024575
+Run = 15 Training set Percent error: %8.0610649139826 Test Set Percent error: %8.3834650976637
+Run = 16 Training set Percent error: %7.9018646146967 Test Set Percent error: %8.2341804473923
+Run = 17 Training set Percent error: %7.7482335760704 Test Set Percent error: %8.0895276112499
+Run = 18 Training set Percent error: %7.5999495817666 Test Set Percent error: %7.9499573208323
+Run = 19 Training set Percent error: %7.4565813988825 Test Set Percent error: %7.8171671560068
+Run = 20 Training set Percent error: %7.3184537399384 Test Set Percent error: %7.6890311957724
+Run = 21 Training set Percent error: %7.1861522967934 Test Set Percent error: %7.5656587015556
+Run = 22 Training set Percent error: %7.0601021447587 Test Set Percent error: %7.4471879268689
+Run = 23 Training set Percent error: %6.9401921700901 Test Set Percent error: %7.3337790725054
+Run = 24 Training set Percent error: %6.8266927203811 Test Set Percent error: %7.2256058709152
+Run = 25 Training set Percent error: %6.7200272062208 Test Set Percent error: %7.1228462078064
+Run = 26 Training set Percent error: %6.6195418474818 Test Set Percent error: %7.0256722851703
+Run = 27 Training set Percent error: %6.5256424724717 Test Set Percent error: %6.9356191139798
+Run = 28 Training set Percent error: %6.4377620437092 Test Set Percent error: %6.853438106346
+Run = 29 Training set Percent error: %6.3560036977071 Test Set Percent error: %6.7769973058969
+Run = 30 Training set Percent error: %6.2804305946712 Test Set Percent error: %6.7063551658798
+Run = 31 Training set Percent error: %6.2113006086706 Test Set Percent error: %6.641528410115
+Run = 32 Training set Percent error: %6.1485876941213 Test Set Percent error: %6.5824895213445
+Run = 33 Training set Percent error: %6.0920922334536 Test Set Percent error: %6.5291661134904
+Run = 34 Training set Percent error: %6.0417514967641 Test Set Percent error: %6.4814420655516
+Run = 35 Training set Percent error: %5.9971300725387 Test Set Percent error: %6.439160198618
+Run = 36 Training set Percent error: %5.9580241731262 Test Set Percent error: %6.4021262105331
+Run = 37 Training set Percent error: %5.92419609705 Test Set Percent error: %6.3709021761958
+Run = 38 Training set Percent error: %5.8953799888547 Test Set Percent error: %6.3447997381792
+Run = 39 Training set Percent error: %5.871287907657 Test Set Percent error: %6.3230051856424
+Run = 40 Training set Percent error: %5.8516159138802 Test Set Percent error: %6.305240910445
+Run = 41 Training set Percent error: %5.8360499322772 Test Set Percent error: %6.2912200760305
+Run = 42 Training set Percent error: %5.8242712036264 Test Set Percent error: %6.2806515923597
+Run = 43 Training set Percent error: %5.8159611920083 Test Set Percent error: %6.2732445943136
+Run = 44 Training set Percent error: %5.8108058652289 Test Set Percent error: %6.2687123481306
+Run = 45 Training set Percent error: %5.8084993101678 Test Set Percent error: %6.2667755508534
+Run = 46 Training set Percent error: %5.8087466811105 Test Set Percent error: %6.2671650209179
+Run = 47 Training set Percent error: %5.8112665071139 Test Set Percent error: %6.2696238036028
+Run = 48 Training set Percent error: %5.8157924045196 Test Set Percent error: %6.2739087334031
+Run = 49 Training set Percent error: %5.8220742537097 Test Set Percent error: %6.279791507258
+Run = 50 Training set Percent error: %5.8298789062252 Test Set Percent error: %6.2870593289942
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> (11) -> (12) -> (13) -> (14) -> (15) -> (16) -> (17) -> (18) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 50)
+             (8): nn.Sigmoid
+             (9): nn.Linear(50 -> 50)
+             (10): nn.Sigmoid
+             (11): nn.Linear(50 -> 50)
+             (12): nn.Sigmoid
+             (13): nn.Linear(50 -> 50)
+             (14): nn.Sigmoid
+             (15): nn.Linear(50 -> 50)
+             (16): nn.Sigmoid
+             (17): nn.Linear(50 -> 1)
+             (18): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.95
+Run = 1 Training set Percent error: %16.321151527616 Test Set Percent error: %19.129312907346
+Run = 2 Training set Percent error: %11.199350119863 Test Set Percent error: %12.269430160294
+Run = 3 Training set Percent error: %9.4869121936461 Test Set Percent error: %10.048366718943
+Run = 4 Training set Percent error: %8.7425399557404 Test Set Percent error: %9.1339610024261
+Run = 5 Training set Percent error: %8.3463730705564 Test Set Percent error: %8.6796753044395
+Run = 6 Training set Percent error: %8.1002200192366 Test Set Percent error: %8.4275476175764
+Run = 7 Training set Percent error: %7.9406747792155 Test Set Percent error: %8.2740626665115
+Run = 8 Training set Percent error: %7.7900721261256 Test Set Percent error: %8.1310773223287
+Run = 9 Training set Percent error: %7.6436516904882 Test Set Percent error: %7.9928211322681
+Run = 10 Training set Percent error: %7.5009130051621 Test Set Percent error: %7.8604764683292
+Run = 11 Training set Percent error: %7.3626438476003 Test Set Percent error: %7.7325460535947
+Run = 12 Training set Percent error: %7.2301473060718 Test Set Percent error: %7.6091093646705
+Run = 13 Training set Percent error: %7.103271868341 Test Set Percent error: %7.4904570748982
+Run = 14 Training set Percent error: %6.9831306657578 Test Set Percent error: %7.3768157387848
+Run = 15 Training set Percent error: %6.8687797966473 Test Set Percent error: %7.2683855484847
+Run = 16 Training set Percent error: %6.761567655352 Test Set Percent error: %7.1653522652738
+Run = 17 Training set Percent error: %6.6607798160134 Test Set Percent error: %7.0678875555288
+Run = 18 Training set Percent error: %6.5663639366944 Test Set Percent error: %6.9766299048875
+Run = 19 Training set Percent error: %6.4781948995441 Test Set Percent error: %6.8934996202037
+Run = 20 Training set Percent error: %6.39611976073 Test Set Percent error: %6.8167037683012
+Run = 21 Training set Percent error: %6.3201972424129 Test Set Percent error: %6.7456734580531
+Run = 22 Training set Percent error: %6.2504427419549 Test Set Percent error: %6.6804231859041
+Run = 23 Training set Percent error: %6.187260176376 Test Set Percent error: %6.6209243035666
+Run = 24 Training set Percent error: %6.1301417631403 Test Set Percent error: %6.5671042930931
+Run = 25 Training set Percent error: %6.0791916269557 Test Set Percent error: %6.5188477466899
+Run = 26 Training set Percent error: %6.0340424093189 Test Set Percent error: %6.4759988690782
+Run = 27 Training set Percent error: %5.9943740358409 Test Set Percent error: %6.4383652403873
+Run = 28 Training set Percent error: %5.9599508783134 Test Set Percent error: %6.4057225324058
+Run = 29 Training set Percent error: %5.9305094198113 Test Set Percent error: %6.3784153773118
+Run = 30 Training set Percent error: %5.9057642106492 Test Set Percent error: %6.3559621295871
+Run = 31 Training set Percent error: %5.8854138711172 Test Set Percent error: %6.3375172532617
+Run = 32 Training set Percent error: %5.8691468956514 Test Set Percent error: %6.3227963968934
+Run = 33 Training set Percent error: %5.8566470661904 Test Set Percent error: %6.3115109050098
+Run = 34 Training set Percent error: %5.8475983366746 Test Set Percent error: %6.3033722784522
+Run = 35 Training set Percent error: %5.8416891015945 Test Set Percent error: %6.298096072393
+Run = 36 Training set Percent error: %5.8386158063572 Test Set Percent error: %6.2954051934027
+Run = 37 Training set Percent error: %5.8380858943572 Test Set Percent error: %6.2950325908409
+Run = 38 Training set Percent error: %5.8398201144926 Test Set Percent error: %6.2967233642148
+Run = 39 Training set Percent error: %5.8435542337097 Test Set Percent error: %6.3002363271931
+Run = 40 Training set Percent error: %5.8490402128236 Test Set Percent error: %6.3053450814483
+Run = 41 Training set Percent error: %5.8560469113848 Test Set Percent error: %6.3118386603818
+Run = 42 Training set Percent error: %5.8643603900291 Test Set Percent error: %6.3195218052245
+Run = 43 Training set Percent error: %5.873783877664 Test Set Percent error: %6.3282149350235
+Run = 44 Training set Percent error: %5.8841374671745 Test Set Percent error: %6.3377538686726
+Run = 45 Training set Percent error: %5.8952575978997 Test Set Percent error: %6.3479893521907
+Run = 46 Training set Percent error: %5.9069963767751 Test Set Percent error: %6.3587864386436
+Run = 47 Training set Percent error: %5.9192207832646 Test Set Percent error: %6.370023761924
+Run = 48 Training set Percent error: %5.9318117964832 Test Set Percent error: %6.3815927394656
+Run = 49 Training set Percent error: %5.9446634765005 Test Set Percent error: %6.3935776001256
+Run = 50 Training set Percent error: %5.9576820259426 Test Set Percent error: %6.405784681291
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> (11) -> (12) -> (13) -> (14) -> (15) -> (16) -> (17) -> (18) -> (19) -> (20) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 50)
+             (8): nn.Sigmoid
+             (9): nn.Linear(50 -> 50)
+             (10): nn.Sigmoid
+             (11): nn.Linear(50 -> 50)
+             (12): nn.Sigmoid
+             (13): nn.Linear(50 -> 50)
+             (14): nn.Sigmoid
+             (15): nn.Linear(50 -> 50)
+             (16): nn.Sigmoid
+             (17): nn.Linear(50 -> 50)
+             (18): nn.Sigmoid
+             (19): nn.Linear(50 -> 1)
+             (20): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.95
+Run = 1 Training set Percent error: %12.824125813724 Test Set Percent error: %13.388093215611
+Run = 2 Training set Percent error: %10.914453728299 Test Set Percent error: %11.001590111356
+Run = 3 Training set Percent error: %10.319466485884 Test Set Percent error: %10.410479081626
+Run = 4 Training set Percent error: %10.019544277051 Test Set Percent error: %10.142827046361
+Run = 5 Training set Percent error: %9.7768924018948 Test Set Percent error: %9.9274092245486
+Run = 6 Training set Percent error: %9.5505205469448 Test Set Percent error: %9.7281820994879
+Run = 7 Training set Percent error: %9.33354033145 Test Set Percent error: %9.5376336793035
+Run = 8 Training set Percent error: %9.1252156025973 Test Set Percent error: %9.353617898263
+Run = 9 Training set Percent error: %8.92469928233 Test Set Percent error: %9.1754598991495
+Run = 10 Training set Percent error: %8.7326590443879 Test Set Percent error: %9.0027886903598
+Run = 11 Training set Percent error: %8.5487428165779 Test Set Percent error: %8.8353449219113
+Run = 12 Training set Percent error: %8.3709941274437 Test Set Percent error: %8.6729262183978
+Run = 13 Training set Percent error: %8.2001798476427 Test Set Percent error: %8.5153723209541
+Run = 14 Training set Percent error: %8.036753935195 Test Set Percent error: %8.3625621901475
+Run = 15 Training set Percent error: %7.8787316699605 Test Set Percent error: %8.2144145664254
+Run = 16 Training set Percent error: %7.7263864121416 Test Set Percent error: %8.0708890966186
+Run = 17 Training set Percent error: %7.579237818637 Test Set Percent error: %7.9328259420551
+Run = 18 Training set Percent error: %7.4370216506818 Test Set Percent error: %7.8011373505417
+Run = 19 Training set Percent error: %7.3002021466689 Test Set Percent error: %7.6741042629148
+Run = 20 Training set Percent error: %7.1690829937012 Test Set Percent error: %7.5518390935849
+Run = 21 Training set Percent error: %7.0444792230257 Test Set Percent error: %7.4344823473129
+Run = 22 Training set Percent error: %6.9257737866322 Test Set Percent error: %7.3221953367681
+Run = 23 Training set Percent error: %6.8137066454326 Test Set Percent error: %7.2151515976436
+Run = 24 Training set Percent error: %6.7083553100222 Test Set Percent error: %7.1135274226321
+Run = 25 Training set Percent error: %6.6091752832449 Test Set Percent error: %7.0174920260078
+Run = 26 Training set Percent error: %6.5164875665494 Test Set Percent error: %6.9289759804659
+Run = 27 Training set Percent error: %6.4298233674787 Test Set Percent error: %6.8478788147008
+Run = 28 Training set Percent error: %6.3492703841601 Test Set Percent error: %6.7725090216418
+Run = 29 Training set Percent error: %6.2748838845704 Test Set Percent error: %6.7029184752597
+Run = 30 Training set Percent error: %6.2069563402597 Test Set Percent error: %6.6391170259799
+Run = 31 Training set Percent error: %6.1453598080947 Test Set Percent error: %6.5810702892705
+Run = 32 Training set Percent error: %6.0899643185037 Test Set Percent error: %6.5286992995176
+Run = 33 Training set Percent error: %6.0406411880289 Test Set Percent error: %6.4818818905896
+Run = 34 Training set Percent error: %5.9969830549208 Test Set Percent error: %6.4404555729167
+Run = 35 Training set Percent error: %5.9587811964599 Test Set Percent error: %6.4042216151202
+Run = 36 Training set Percent error: %5.9257940506968 Test Set Percent error: %6.3737169726794
+Run = 37 Training set Percent error: %5.8977530113114 Test Set Percent error: %6.3482623432878
+Run = 38 Training set Percent error: %5.8743684828828 Test Set Percent error: %6.327055392722
+Run = 39 Training set Percent error: %5.855335914088 Test Set Percent error: %6.3098180721791
+Run = 40 Training set Percent error: %5.8403415760812 Test Set Percent error: %6.2962639500467
+Run = 41 Training set Percent error: %5.8290679077037 Test Set Percent error: %6.2861030938895
+Run = 42 Training set Percent error: %5.8211983031281 Test Set Percent error: %6.2790464433734
+Run = 43 Training set Percent error: %5.8164212671206 Test Set Percent error: %6.2748096057009
+Run = 44 Training set Percent error: %5.8144339060191 Test Set Percent error: %6.2731160443514
+Run = 45 Training set Percent error: %5.8149447573268 Test Set Percent error: %6.2736996637281
+Run = 46 Training set Percent error: %5.8176759874886 Test Set Percent error: %6.2763068166866
+Run = 47 Training set Percent error: %5.8223650061966 Test Set Percent error: %6.2806977790842
+Run = 48 Training set Percent error: %5.8287655575279 Test Set Percent error: %6.286647746424
+Run = 49 Training set Percent error: %5.8366483543846 Test Set Percent error: %6.293947413303
+Run = 50 Training set Percent error: %5.845801324359 Test Set Percent error: %6.3024031978917
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> (11) -> (12) -> (13) -> (14) -> (15) -> (16) -> (17) -> (18) -> (19) -> (20) -> (21) -> (22) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 50)
+             (8): nn.Sigmoid
+             (9): nn.Linear(50 -> 50)
+             (10): nn.Sigmoid
+             (11): nn.Linear(50 -> 50)
+             (12): nn.Sigmoid
+             (13): nn.Linear(50 -> 50)
+             (14): nn.Sigmoid
+             (15): nn.Linear(50 -> 50)
+             (16): nn.Sigmoid
+             (17): nn.Linear(50 -> 50)
+             (18): nn.Sigmoid
+             (19): nn.Linear(50 -> 50)
+             (20): nn.Sigmoid
+             (21): nn.Linear(50 -> 1)
+             (22): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.95
+Run = 1 Training set Percent error: %16.107257855922 Test Set Percent error: %18.589480142942
+Run = 2 Training set Percent error: %11.324227448448 Test Set Percent error: %12.122552078746
+Run = 3 Training set Percent error: %9.8329379342933 Test Set Percent error: %10.230985746616
+Run = 4 Training set Percent error: %9.2035593460842 Test Set Percent error: %9.4858715437121
+Run = 5 Training set Percent error: %8.8586559308768 Test Set Percent error: %9.1188912619536
+Run = 6 Training set Percent error: %8.663190710203 Test Set Percent error: %8.9399975985198
+Run = 7 Training set Percent error: %8.4865196346208 Test Set Percent error: %8.7770474336477
+Run = 8 Training set Percent error: %8.3132903903949 Test Set Percent error: %8.618861653758
+Run = 9 Training set Percent error: %8.1457646715744 Test Set Percent error: %8.4638371706109
+Run = 10 Training set Percent error: %7.9846592814141 Test Set Percent error: %8.3129153499337
+Run = 11 Training set Percent error: %7.8284454464308 Test Set Percent error: %8.1664506384765
+Run = 12 Training set Percent error: %7.6781802167571 Test Set Percent error: %8.0245944835498
+Run = 13 Training set Percent error: %7.532885429551 Test Set Percent error: %7.8890704355981
+Run = 14 Training set Percent error: %7.3926545467551 Test Set Percent error: %7.7592224476593
+Run = 15 Training set Percent error: %7.2582642263738 Test Set Percent error: %7.6341811094622
+Run = 16 Training set Percent error: %7.1296133434332 Test Set Percent error: %7.5140735410502
+Run = 17 Training set Percent error: %7.0078323973565 Test Set Percent error: %7.3990463970189
+Run = 18 Training set Percent error: %6.8917706780652 Test Set Percent error: %7.2892600571342
+Run = 19 Training set Percent error: %6.7829110342622 Test Set Percent error: %7.1848807234513
+Run = 20 Training set Percent error: %6.680664156274 Test Set Percent error: %7.0860714389903
+Run = 21 Training set Percent error: %6.5846803693931 Test Set Percent error: %6.9930879214097
+Run = 22 Training set Percent error: %6.4951032080719 Test Set Percent error: %6.9082876899515
+Run = 23 Training set Percent error: %6.4116242036778 Test Set Percent error: %6.8302082417732
+Run = 24 Training set Percent error: %6.3343089217823 Test Set Percent error: %6.7579056832819
+Run = 25 Training set Percent error: %6.2631806484911 Test Set Percent error: %6.6914014952949
+Run = 26 Training set Percent error: %6.1985550034453 Test Set Percent error: %6.6306745805055
+Run = 27 Training set Percent error: %6.1401363615681 Test Set Percent error: %6.5756600872789
+Run = 28 Training set Percent error: %6.0878530311421 Test Set Percent error: %6.526250005031
+Run = 29 Training set Percent error: %6.0415078365121 Test Set Percent error: %6.4822953499394
+Run = 30 Training set Percent error: %6.0007005340214 Test Set Percent error: %6.4436096823113
+Run = 31 Training set Percent error: %5.9652008309366 Test Set Percent error: %6.4099736498197
+Run = 32 Training set Percent error: %5.9347493587182 Test Set Percent error: %6.3816004670781
+Run = 33 Training set Percent error: %5.9090635926346 Test Set Percent error: %6.3582468954155
+Run = 34 Training set Percent error: %5.8878438758363 Test Set Percent error: %6.3390393406165
+Run = 35 Training set Percent error: %5.8707792914546 Test Set Percent error: %6.3236203705594
+Run = 36 Training set Percent error: %5.8575531786545 Test Set Percent error: %6.3117009029265
+Run = 37 Training set Percent error: %5.8478481430489 Test Set Percent error: %6.3029911951196
+Run = 38 Training set Percent error: %5.8413504639172 Test Set Percent error: %6.297204867116
+Run = 39 Training set Percent error: %5.837753847093 Test Set Percent error: %6.2940623271609
+Run = 40 Training set Percent error: %5.8367625113014 Test Set Percent error: %6.293293589048
+Run = 41 Training set Percent error: %5.8380936264012 Test Set Percent error: %6.294640497768
+Run = 42 Training set Percent error: %5.8414791445334 Test Set Percent error: %6.2978584009119
+Run = 43 Training set Percent error: %5.8466670803041 Test Set Percent error: %6.3027173170436
+Run = 44 Training set Percent error: %5.8534223048752 Test Set Percent error: %6.309002660252
+Run = 45 Training set Percent error: %5.8615269224181 Test Set Percent error: %6.3165155833764
+Run = 46 Training set Percent error: %5.8707802970028 Test Set Percent error: %6.3250730020544
+Run = 47 Training set Percent error: %5.8809987947525 Test Set Percent error: %6.3345073587846
+Run = 48 Training set Percent error: %5.8920153009407 Test Set Percent error: %6.3446661814982
+Run = 49 Training set Percent error: %5.9036785654705 Test Set Percent error: %6.355411485437
+Run = 50 Training set Percent error: %5.9158524234103 Test Set Percent error: %6.36661906096
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> (11) -> (12) -> (13) -> (14) -> (15) -> (16) -> (17) -> (18) -> (19) -> (20) -> (21) -> (22) -> (23) -> (24) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 50)
+             (8): nn.Sigmoid
+             (9): nn.Linear(50 -> 50)
+             (10): nn.Sigmoid
+             (11): nn.Linear(50 -> 50)
+             (12): nn.Sigmoid
+             (13): nn.Linear(50 -> 50)
+             (14): nn.Sigmoid
+             (15): nn.Linear(50 -> 50)
+             (16): nn.Sigmoid
+             (17): nn.Linear(50 -> 50)
+             (18): nn.Sigmoid
+             (19): nn.Linear(50 -> 50)
+             (20): nn.Sigmoid
+             (21): nn.Linear(50 -> 50)
+             (22): nn.Sigmoid
+             (23): nn.Linear(50 -> 1)
+             (24): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.95
+Run = 1 Training set Percent error: %15.690823484258 Test Set Percent error: %18.216684120479
+Run = 2 Training set Percent error: %11.010517632007 Test Set Percent error: %11.944843610068
+Run = 3 Training set Percent error: %9.4153728755121 Test Set Percent error: %9.9030778226254
+Run = 4 Training set Percent error: %8.7515237316566 Test Set Percent error: %9.097601289758
+Run = 5 Training set Percent error: %8.3998160782937 Test Set Percent error: %8.7045057978668
+Run = 6 Training set Percent error: %8.2028330360156 Test Set Percent error: %8.5177411473058
+Run = 7 Training set Percent error: %8.0437146457255 Test Set Percent error: %8.3673677425886
+Run = 8 Training set Percent error: %7.8884318888454 Test Set Percent error: %8.221606841328
+Run = 9 Training set Percent error: %7.7366324882077 Test Set Percent error: %8.0788884292458
+Run = 10 Training set Percent error: %7.5892171438794 Test Set Percent error: %7.940393312002
+Run = 11 Training set Percent error: %7.4462779544655 Test Set Percent error: %7.8080707465801
+Run = 12 Training set Percent error: %7.3083907462212 Test Set Percent error: %7.6801437043036
+Run = 13 Training set Percent error: %7.176122333048 Test Set Percent error: %7.5568169853726
+Run = 14 Training set Percent error: %7.0501045512898 Test Set Percent error: %7.4382738636989
+Run = 15 Training set Percent error: %6.9300252000457 Test Set Percent error: %7.3246983810569
+Run = 16 Training set Percent error: %6.8164024909471 Test Set Percent error: %7.2162794299414
+Run = 17 Training set Percent error: %6.7094942842901 Test Set Percent error: %7.1132067661268
+Run = 18 Training set Percent error: %6.608717577857 Test Set Percent error: %7.0156634550414
+Run = 19 Training set Percent error: %6.5144166381164 Test Set Percent error: %6.9255643260947
+Run = 20 Training set Percent error: %6.4261003981221 Test Set Percent error: %6.8429535006459
+Run = 21 Training set Percent error: %6.3438826666537 Test Set Percent error: %6.7660596238197
+Run = 22 Training set Percent error: %6.2678372043771 Test Set Percent error: %6.6949515160958
+Run = 23 Training set Percent error: %6.1983216298404 Test Set Percent error: %6.6296559004785
+Run = 24 Training set Percent error: %6.1351447418755 Test Set Percent error: %6.5701546769905
+Run = 25 Training set Percent error: %6.078298762187 Test Set Percent error: %6.5163841089671
+Run = 26 Training set Percent error: %6.0275374019827 Test Set Percent error: %6.4682358105848
+Run = 27 Training set Percent error: %5.9825258552712 Test Set Percent error: %6.4255593213847
+Run = 28 Training set Percent error: %5.9430661351312 Test Set Percent error: %6.3884320781119
+Run = 29 Training set Percent error: %5.9089252232371 Test Set Percent error: %6.3571855609775
+Run = 30 Training set Percent error: %5.8798408422197 Test Set Percent error: %6.330819204779
+Run = 31 Training set Percent error: %5.8555275675815 Test Set Percent error: %6.3088045148957
+Run = 32 Training set Percent error: %5.8356829820083 Test Set Percent error: %6.2908653024153
+Run = 33 Training set Percent error: %5.8199936237456 Test Set Percent error: %6.2767153044575
+Run = 34 Training set Percent error: %5.8081405354715 Test Set Percent error: %6.2660632508202
+Run = 35 Training set Percent error: %5.7998042752881 Test Set Percent error: %6.2586174396866
+Run = 36 Training set Percent error: %5.7946693029366 Test Set Percent error: %6.2540897429087
+Run = 37 Training set Percent error: %5.7924276993502 Test Set Percent error: %6.2521990025159
+Run = 38 Training set Percent error: %5.792782214762 Test Set Percent error: %6.2526738140201
+Run = 39 Training set Percent error: %5.7954486693095 Test Set Percent error: %6.2552547183382
+Run = 40 Training set Percent error: %5.8001577508072 Test Set Percent error: %6.2596958431129
+Run = 41 Training set Percent error: %5.8066562679176 Test Set Percent error: %6.2657660466005
+Run = 42 Training set Percent error: %5.8147079244425 Test Set Percent error: %6.2732496241557
+Run = 43 Training set Percent error: %5.8240936831306 Test Set Percent error: %6.2819466397836
+Run = 44 Training set Percent error: %5.834611786387 Test Set Percent error: %6.2916729443156
+Run = 45 Training set Percent error: %5.8460774976737 Test Set Percent error: %6.3022599384797
+Run = 46 Training set Percent error: %5.8583226220777 Test Set Percent error: %6.313554134285
+Run = 47 Training set Percent error: %5.8711948582702 Test Set Percent error: %6.3254165624289
+Run = 48 Training set Percent error: %5.8845570274033 Test Set Percent error: %6.3377220673335
+Run = 49 Training set Percent error: %5.898286217849 Test Set Percent error: %6.3503585253535
+Run = 50 Training set Percent error: %5.9122728783498 Test Set Percent error: %6.3632260159067
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> (11) -> (12) -> (13) -> (14) -> (15) -> (16) -> (17) -> (18) -> (19) -> (20) -> (21) -> (22) -> (23) -> (24) -> (25) -> (26) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 50)
+             (8): nn.Sigmoid
+             (9): nn.Linear(50 -> 50)
+             (10): nn.Sigmoid
+             (11): nn.Linear(50 -> 50)
+             (12): nn.Sigmoid
+             (13): nn.Linear(50 -> 50)
+             (14): nn.Sigmoid
+             (15): nn.Linear(50 -> 50)
+             (16): nn.Sigmoid
+             (17): nn.Linear(50 -> 50)
+             (18): nn.Sigmoid
+             (19): nn.Linear(50 -> 50)
+             (20): nn.Sigmoid
+             (21): nn.Linear(50 -> 50)
+             (22): nn.Sigmoid
+             (23): nn.Linear(50 -> 50)
+             (24): nn.Sigmoid
+             (25): nn.Linear(50 -> 1)
+             (26): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.95
+Run = 1 Training set Percent error: %10.596186740775 Test Set Percent error: %11.011485127262
+Run = 2 Training set Percent error: %9.7719654110187 Test Set Percent error: %9.9299277369643
+Run = 3 Training set Percent error: %9.4245327048135 Test Set Percent error: %9.6227661871332
+Run = 4 Training set Percent error: %9.1839698816069 Test Set Percent error: %9.4079712368805
+Run = 5 Training set Percent error: %8.9727307230445 Test Set Percent error: %9.2187285187413
+Run = 6 Training set Percent error: %8.7750708198277 Test Set Percent error: %9.0405450976505
+Run = 7 Training set Percent error: %8.5874435844026 Test Set Percent error: %8.8698418840686
+Run = 8 Training set Percent error: %8.4071256029485 Test Set Percent error: %8.7051003645832
+Run = 9 Training set Percent error: %8.2340021277538 Test Set Percent error: %8.5456295424163
+Run = 10 Training set Percent error: %8.0687152973196 Test Set Percent error: %8.3912006416348
+Run = 11 Training set Percent error: %7.9093777487692 Test Set Percent error: %8.2416988080426
+Run = 12 Training set Percent error: %7.7557524554325 Test Set Percent error: %8.0970771477557
+Run = 13 Training set Percent error: %7.6077949105671 Test Set Percent error: %7.9576454706248
+Run = 14 Training set Percent error: %7.4650264750738 Test Set Percent error: %7.8253915281477
+Run = 15 Training set Percent error: %7.3277076573733 Test Set Percent error: %7.6980528499052
+Run = 16 Training set Percent error: %7.1965530922772 Test Set Percent error: %7.5757383395813
+Run = 17 Training set Percent error: %7.0717450373216 Test Set Percent error: %7.4585803621912
+Run = 18 Training set Percent error: %6.9534848548401 Test Set Percent error: %7.3467273398915
+Run = 19 Training set Percent error: %6.8416446944775 Test Set Percent error: %7.2403354023505
+Run = 20 Training set Percent error: %6.736917300522 Test Set Percent error: %7.139559410307
+Run = 21 Training set Percent error: %6.6386112990112 Test Set Percent error: %7.0445437890696
+Run = 22 Training set Percent error: %6.5469758883172 Test Set Percent error: %6.9562445595135
+Run = 23 Training set Percent error: %6.4615641900363 Test Set Percent error: %6.8761015235692
+Run = 24 Training set Percent error: %6.3823479411388 Test Set Percent error: %6.8020465323155
+Run = 25 Training set Percent error: %6.3093527430935 Test Set Percent error: %6.7338240350337
+Run = 26 Training set Percent error: %6.242559913574 Test Set Percent error: %6.671415586171
+Run = 27 Training set Percent error: %6.182366860616 Test Set Percent error: %6.61475980347
+Run = 28 Training set Percent error: %6.1281557886342 Test Set Percent error: %6.5637525479346
+Run = 29 Training set Percent error: %6.0800338052739 Test Set Percent error: %6.5182487209837
+Run = 30 Training set Percent error: %6.0376165296121 Test Set Percent error: %6.4780654482722
+Run = 31 Training set Percent error: %6.0005646677736 Test Set Percent error: %6.4429863626947
+Run = 32 Training set Percent error: %5.9686214029359 Test Set Percent error: %6.4127666714543
+Run = 33 Training set Percent error: %5.9415058141815 Test Set Percent error: %6.3874663138551
+Run = 34 Training set Percent error: %5.9189188820499 Test Set Percent error: %6.3668368936253
+Run = 35 Training set Percent error: %5.900549405508 Test Set Percent error: %6.3502581854746
+Run = 36 Training set Percent error: %5.8860796106943 Test Set Percent error: %6.3372337697937
+Run = 37 Training set Percent error: %5.8751902858814 Test Set Percent error: %6.327472203802
+Run = 38 Training set Percent error: %5.8675653302864 Test Set Percent error: %6.3206849132212
+Run = 39 Training set Percent error: %5.8628956529685 Test Set Percent error: %6.3165897473688
+Run = 40 Training set Percent error: %5.8608843104679 Test Set Percent error: %6.3149139213937
+Run = 41 Training set Percent error: %5.8612467430322 Test Set Percent error: %6.3153963558908
+Run = 42 Training set Percent error: %5.8637079344049 Test Set Percent error: %6.3177894471211
+Run = 43 Training set Percent error: %5.8680127119099 Test Set Percent error: %6.3218603169503
+Run = 44 Training set Percent error: %5.87392288415 Test Set Percent error: %6.3273916012562
+Run = 45 Training set Percent error: %5.8812176701616 Test Set Percent error: %6.3341818400557
+Run = 46 Training set Percent error: %5.8896937618884 Test Set Percent error: %6.3420455330627
+Run = 47 Training set Percent error: %5.8991650870913 Test Set Percent error: %6.3508129219175
+Run = 48 Training set Percent error: %5.9094623348731 Test Set Percent error: %6.3603295558329
+Run = 49 Training set Percent error: %5.9204322997598 Test Set Percent error: %6.3704556917067
+Run = 50 Training set Percent error: %5.9319370933563 Test Set Percent error: %6.3810655734407

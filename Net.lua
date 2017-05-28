@@ -79,10 +79,9 @@ end
 --Outputs:  Returns a network with SUM(numTypes[i]*numSymmetry[i]) inputs, and one output, where i is all the indexes to the numTypes table
 --Inputs to the net should be indexed as a 2-d tensor with size [numSymmetry][numAtoms]
 --      TODO: This may need to change, because it does not allow different atom types to have a different # of inputs (unless the Tensor object can support this)
---      TODO: It is possible that this can be implemented more efficiently as a gated expert network; research how they work
 function parallelNet(numTypes, nets)
     local net = nn.Sequential()
-    local c = nn.Parallel(2,1)    --Takes in parallel inputs indexed along the second dimension of input tensor (Q: can it take a table?)
+    local c = nn.Parallel(2,1)    --Takes in parallel inputs indexed along the second dimension of input tensor
     local i, numAtom = next(numTypes, nil)
     local atomCount = 0 --Need to track the total number of atoms in order to sum their outputs
     while i do
@@ -95,6 +94,30 @@ function parallelNet(numTypes, nets)
     net:add(c)
     net:add(nn.Linear(atomCount,1)) --Output is a weighted sum (atomCount)atoms, each having 1 output
     return net
+end
+--makeRepo: Returns a table of parallelNetworks.  At each index from 1 to numAtoms, there is a parallelNetwork which contains i copies of the base network in parallel as inputs
+--Inputs:
+--  base: the neural network you want to copy
+--  numAtoms: the maximum # of parallel inputs you want the repo to support.  This corresponds to the highest index of the repo
+--  atomicNumber:A parameter that makes it easier to keep track of what the network is supposed to be for.
+--Outputs:
+--  repo: this method returns the table of networks.  Each network is identical, except for the number of parallel inputs it takes.  All parameters are shared between the parallel nets.
+function makeRepo(base, numAtoms, atomicNumber)
+    local repo = {}
+    for i = 1,numAtoms do --Makes numAtoms copies of the base Net, all with shared parameters (parameters are shared references, not just values)
+        repo[i]=base:clone()   --Create network with same structure as our base
+        repo[i]:share(base,'bias','weight') --Share BaseNet's parameters as references
+    end
+    local parallelNetTable = {} --Table containing neural networks indexed with the # of parallel atoms
+    local dummyNumAtomsTable = {}
+    dummyNumAtomsTable[atomicNumber] = 0
+    local dummyNNtable = {}           --Need to wrap NetRepository and # of atoms in tables so that parallelNet will work correctly
+    dummyNNtable[atomicNumber] = repo
+    for i = 1,numAtoms do
+        dummyNumAtomsTable[atomicNumber] = i
+        parallelNetTable[i] = parallelNet(dummyNumAtomsTable,dummyNNtable)
+    end
+    return parallelNetTable
 end
 --parallelSGD: Run one pass of stochastic gradient descent on the training networks in netRepo
 --Inputs:
@@ -116,12 +139,30 @@ function parallelSGD(dataSet2d,netRepo, criterion, learningRate)
     i, dataPoint = next(dataSet2d, nil) --Grab first case
     while i do      --For all cases, train with backpropogation
         local currentNet= networks[dataPoint["numAtoms"][14]]   --grab correct net for inputs
-        criterion:forward(currentNet:forward(dataPoint["input"]),dataPoint["output"])   --Complete forward pass
+        criterion:forward(currentNet:forward(dataPoint["input"]),dataPoint["output"])   --Complete forward pass (to do backpropagation, you must first do a forward pass)
         currentNet:zeroGradParameters()     --Zero any previously accumulated gradients
         currentNet:backward(dataPoint["input"],criterion:backward(currentNet.output,dataPoint["output"]))   --Complete backward pass
         currentNet:updateParameters(learningRate)   --Update parameters with learning rate
         i, dataPoint = next(dataSet2d,i)            --Grab next point
     end
+end
+function parallelBGD(batch,netRepo,criterion,learningRate)
+    local networks = {} --Initialize the networks as local vars; this should result in faster performance, because there is quicker memory access for local vars
+    local i,net = next(netRepo,nil)
+    net:zeroGradParameters();
+    while i do
+        networks[i] = net
+        i, net = next(netRepo, i)
+    end
+    local dataPoint
+    i, dataPoint = next(batch, nil) --Grab first case
+    while i do      --For all cases, train with backpropogation
+        local currentNet= networks[dataPoint["numAtoms"][14]]   --grab correct net for inputs
+        criterion:forward(currentNet:forward(dataPoint["input"]),dataPoint["output"])   --Complete forward pass (to do backpropagation, you must first do a forward pass)
+        currentNet:backward(dataPoint["input"],criterion:backward(currentNet.output,dataPoint["output"]))   --Complete backward pass
+        i, dataPoint = next(batch,i)            --Grab next point
+    end
+    netRepo[1]:updateParameters(learningRate)   --Update parameters with learning rate
 end
 --parallelforward: given a data point, complete a forward pass through the appropriate network
 function parallelForward(dataPoint2d, netRepo)
@@ -147,8 +188,8 @@ function getMeanErrorDenormalized(testSet, netRepo, mean, stdev)
     local count, error = 0,0
     while i do
         count = count+1
-        local inference = denormalize(parallelForward(testCase,netRepo)[1], mean, stdev)
-        local target = denormalize(testCase["output"][1],mean,stdev)
+        local inference = gaussianDenormalize(parallelForward(testCase,netRepo)[1], mean, stdev)
+        local target = gaussianDenormalize(testCase["output"][1],mean,stdev)
         error = error + math.abs(inference-target)
         i, testCase = next(testSet,i)
     end
@@ -168,6 +209,33 @@ function getMeanPercentError(testSet,netRepo)
     end
     if count ~= 0 then
         return (100*PercentError)/count
+    else
+        return -1
+    end
+end
+function percentErrorScatter(testSet,netRepo,mean,stdev)
+    local i, testCase = next(testSet,nil)
+    local scatter = torch.Tensor(#testSet,3)
+    for j=1,#testSet do
+        scatter[j][1] = (testCase["output"][1]*stdev[1])+mean[1]
+        scatter[j][2] = (parallelForward(testCase,netRepo)[1]*stdev[1])+mean[1]
+        scatter[j][3] = math.abs((math.abs(parallelForward(testCase,netRepo)[1])-math.abs(testCase["output"][1]))/testCase["output"][1])*100
+        i, testCase = next(testSet,i)
+    end
+    return scatter
+end
+function getMeanErrorHardDenorm(testSet, netRepo, min, max)
+    local i, testCase = next(testSet,nil)
+    local count, error = 0,0
+    while i do
+        count = count+1
+        local inference = hardDenormalize(parallelForward(testCase,netRepo)[1], min, max)
+        local target = hardDenormalize(testCase["output"][1],min,max)
+        error = error + math.abs(math.abs(inference)-math.abs(target))--Assumes they are the same sine
+        i, testCase = next(testSet,i)
+    end
+    if count ~= 0 then
+        return error/count
     else
         return -1
     end

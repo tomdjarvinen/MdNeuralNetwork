@@ -117,7 +117,7 @@ function meanStdev(Set)
     local meanS = {}
     local stdev = {}
     --initialize table values
-    for i =1, Set:size()+1 do
+    for i =1, 41 do
         sum[i] = 0
         sumS[i]=0
     end
@@ -133,7 +133,7 @@ function meanStdev(Set)
             k, atom = next(dataUnit,k)
             while k do
                 --parse through all symmetry functions in this atom (skipping first index which is atom label)
-                for j = 2, Set:size() do
+                for j = 2, 40 do
                     sum[j] = sum[j] + atom[j]
                     sumS[j] = sum[j] + atom[j]^2
                 end
@@ -159,7 +159,8 @@ end
 --      mean: table containing mean for each value
 --      stdev: table containing standard deviation of each value
 --      Output: returns normalized dataSet
-function normalize(Set, mean, stdev)
+--Note: this method seems to be bugged.
+function gaussianNormalize(Set, mean, stdev)
     local i, dataUnit = next(Set, nil)  --grabs a test set
     while i do --normalize
         if(type(dataUnit) == 'table') then
@@ -182,6 +183,98 @@ function normalize(Set, mean, stdev)
         i, dataUnit = next(Set, i)
     end
     return Set
+end
+--Normalize Set to the range of values [-1,1] using formula 12 from Behler paper
+--  For each index in set, use formula: 2(Val-Valmax)/(Valmax-Valmin)-1
+--Inputs:
+--  set: table of values with format: {1=output=Torch.tensor(1), 2=Torch.tensor(# of inputs to net),...,i=Torch.tensor(# of inputs to net))
+--  max: a table containing maximimum values for each index of the input set (skip input[1], which is always atomic #
+--  min: same as max, except minimum values
+--Output:
+--  set: Same as input except with values squeezed to [-1,1]
+function hardNormalization(set,max,min)
+    for i = 1, #set do
+        local j, out = next(set[i], nil) --Puts output of this datapoint in out.  This is of type Tensor[1]
+        if(max[j]-min[j]~=0)then
+            set[i][j][1] = (2*(out[1]-min[j])/(max[j]-min[j]))-1
+        end
+        local input
+        j, input = next(set[i], j) --Grabs first input of this datapoint. This should be of format Tensor[#of inputs + 1]
+        while j do
+            for k = 2, 41 do        --Skip first value, it is just the atomic #
+                if(max[k]-min[k]~=0)then
+                    set[i][j][k] = (2*(input[k]-min[k])/(max[k]-min[k]))-1
+                end
+
+            end
+            j,input = next(set[i], j)
+        end
+    end
+    return set
+end
+function logOfSet(set)
+    for i = 1, #set do
+        local j, out = next(set[i], nil) --Puts output of this datapoint in out.  This is of type Tensor[1]
+        local input
+        j, input = next(set[i], j) --Grabs first input of this datapoint. This should be of format Tensor[#of inputs + 1]
+        while j do
+            for k = 2, 41 do        --Skip first value, it is just the atomic #
+                if(set[i][j][k] ~=0)then
+                set[i][j][k] = math.log(set[i][j][k])
+                end
+
+            end
+            j,input = next(set[i], j)
+        end
+    end
+    return set
+end
+--Performs a linear search for maximum and minimum values of each index of Set, and returns a table containing these values.
+--Inputs:
+--  set: a set of values of the format returned by dftPreprocess
+--      set: table of values with format: {1=output=Torch.tensor(1), 2=Torch.tensor(# of inputs to net),...,i=Torch.tensor(# of inputs to net))
+-- Outputs:
+--  max: a table containing maximimum values for each index of the input set (skip input[1], which is always atomic #
+--  min: same as max, except minimum values
+--TODO: Figure out how to do the dataSet:size method properly, then update the innermost for loop to use it.
+function getMaxMin(set)
+    local max = {}
+    local min = {}
+    for i = 1, #set do
+
+       local j, out = next(set[i], nil) --Puts output of this datapoint in out.  This is of type Tensor[1]
+        if(max[j] == nil)then
+            max[j] = out[1]
+        elseif(out[1] > max[j])then
+            max[j] = out[1]
+        end
+        if(min[j] == nil)then
+            min[j] = out[1]
+        elseif(out[1] < min[j])then
+            min[j] = out[1]
+        end
+        local input
+        j, input = next(set[i], j) --Grabs first input of this datapoint. This should be of format Tensor[#of inputs + 1]
+
+        while j do
+            for k = 2, 41 do
+                if(max[k] == nil)then
+                    max[k] = input[k]
+                elseif(input[k] > max[k])then
+                    max[k] = input[k]
+                end
+                if(min[k] == nil)then
+                    min[k] = input[k]
+                elseif(input[k] < min[k])then
+                    min[k] = input[k]
+                    if(k==41)then
+                    end
+                end
+            end
+            j,input = next(set[i], j)
+        end
+    end
+    return max,min
 end
 --splits a set into two seperate sets at random
 --The ratio of one set to another is defined by ratio
@@ -276,6 +369,7 @@ end
 --removeSymmetry: returns the input data point with the symetry function at index removed
 --If the index is invalid, it returns the original datapoint, a -1, and an error message
 --If the index is valid, it returns the updated point and a 1
+--Input: dataPoint (2dTensor form)
 function removeSymmetry(dataPoint,index)
     local updatedPoint = {}
     local i, temp = next(dataPoint, nil)
@@ -294,7 +388,7 @@ function removeSymmetry(dataPoint,index)
         else
             first = temp:narrow(1,1,index-1)
             second = temp:narrow(1,index+1,temp:size()[1]-index)
-            updatedPoint[i] = torch.cat(first,second)
+            updatedPoint[i] = torch.cat(first,second,1)
         end
         i, temp = next(dataPoint,i)
     end
@@ -305,4 +399,62 @@ function TableConcat(t1,t2)
         t1[#t1+1] = t2[i]
     end
     return t1
+end
+function extractCluster(minTarget,maxTarget,dataSet)
+    local i, datapoint = next(dataSet,nil)
+    local index = 1
+    local cluster = {}
+    while i do
+        if(datapoint[1][1] > minTarget and datapoint[1][1] < maxTarget) then
+            cluster[index] = datapoint
+            index = index + 1
+        end
+        i, datapoint = next(dataSet,i)
+    end
+    return cluster
+end
+function findOutliers(minTarget,maxTarget,dataSet)
+    local i, datapoint = next(dataSet,nil)
+    local index = 1
+    local isOutlier;
+    local cluster = {}
+    while i do  --Go through all test cases
+        isOutlier = 0;
+        local j, atom = next(datapoint,nil) --should grab output
+        j, atom = next(datapoint,j)         --should grab first atom
+        while j do  --Go through all atoms in test case
+            for k = 1,40 do --Go throught all symettry functions in atom
+                if(atom[k] > minTarget and atom[k] < maxTarget) then
+                    isOutlier = 1;
+                end
+            end
+            j, atom = next(datapoint,j)
+        end
+        if isOutlier == 1 then
+            cluster[index] = i
+            index = index + 1
+        end
+        i, datapoint = next(dataSet,i)
+    end
+    return cluster
+end
+function findMaxIndex(dataSet2D)
+    local max= {}
+    for i = 1, #dataSet2D do
+        for k = 1, dataSet2D[1]["input"]:size()[2] do
+            for j = 1, dataSet2D[1]["input"]:size()[1] do
+                if max[j]==nil then
+                    local maxTable = {}
+                    maxTable["index"] = 0
+                    maxTable["value"] = -1
+                    max[j] = maxTable
+                end
+                if max[j]["value"] < dataSet2D[i]["input"][j][k] then
+                    max[j]["value"] = dataSet2D[i]["input"][j][k]
+                    max[j]["index"] = i
+                end
+            end
+        end
+    end
+    return max
 end

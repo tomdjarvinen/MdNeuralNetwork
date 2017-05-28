@@ -1,0 +1,280 @@
+Test 10 iterations, 0.01 training rate, annealling rate=1Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 1
+Run = 1 Training set Percent error: %147.24529238846 Test Set Percent error: %102.3346148304
+Run = 2 Training set Percent error: %150.14182547898 Test Set Percent error: %103.90835511944
+Run = 3 Training set Percent error: %150.25135300858 Test Set Percent error: %103.97104847137
+Run = 4 Training set Percent error: %150.27261182271 Test Set Percent error: %103.98100606004
+Run = 5 Training set Percent error: %150.29108557958 Test Set Percent error: %103.98928140849
+Run = 6 Training set Percent error: %150.30939904142 Test Set Percent error: %103.99744251225
+Run = 7 Training set Percent error: %150.3276339037 Test Set Percent error: %104.00553861607
+Run = 8 Training set Percent error: %150.34579289638 Test Set Percent error: %104.01357180682
+Run = 9 Training set Percent error: %150.36387625121 Test Set Percent error: %104.0215426795
+Run = 10 Training set Percent error: %150.38188410315 Test Set Percent error: %104.02945177118
+Test 10 iterations, 0.01 training rate, annealling rate=0.5Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.5
+Run = 1 Training set Percent error: %130.55088685211 Test Set Percent error: %92.904968591835
+Run = 2 Training set Percent error: %145.88396606888 Test Set Percent error: %101.79452436842
+Run = 3 Training set Percent error: %148.57708434964 Test Set Percent error: %103.29075135678
+Run = 4 Training set Percent error: %149.32460065893 Test Set Percent error: %103.6772641895
+Run = 5 Training set Percent error: %149.58298912834 Test Set Percent error: %103.81813982635
+Run = 6 Training set Percent error: %149.68876885722 Test Set Percent error: %103.88127408782
+Run = 7 Training set Percent error: %149.73638618987 Test Set Percent error: %103.90968708065
+Run = 8 Training set Percent error: %149.75894397868 Test Set Percent error: %103.92314527657
+Run = 9 Training set Percent error: %149.7699182446 Test Set Percent error: %103.92969213955
+Run = 10 Training set Percent error: %149.77533021266 Test Set Percent error: %103.93292060587
+Test 10 iterations, 0.01 training rate, annealling rate=0.33333333333333Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.33333333333333
+Run = 1 Training set Percent error: %118.0751242974 Test Set Percent error: %85.213850944105
+Run = 2 Training set Percent error: %131.12901944237 Test Set Percent error: %93.026279488141
+Run = 3 Training set Percent error: %134.69985890646 Test Set Percent error: %95.04048402292
+Run = 4 Training set Percent error: %135.81096340914 Test Set Percent error: %95.730630923801
+Run = 5 Training set Percent error: %136.16418193291 Test Set Percent error: %95.95002712415
+Run = 6 Training set Percent error: %136.28005668244 Test Set Percent error: %96.022000846241
+Run = 7 Training set Percent error: %136.31847592946 Test Set Percent error: %96.04586432909
+Run = 8 Training set Percent error: %136.33125954967 Test Set Percent error: %96.053804663248
+Run = 9 Training set Percent error: %136.33551822567 Test Set Percent error: %96.056449869257
+Run = 10 Training set Percent error: %136.33693750323 Test Set Percent error: %96.057331429971
+Test 10 iterations, 0.01 training rate, annealling rate=0.25Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.25
+Run = 1 Training set Percent error: %149.12992096517 Test Set Percent error: %103.25625084561
+Run = 2 Training set Percent error: %150.63104626996 Test Set Percent error: %104.10435972647
+Run = 3 Training set Percent error: %150.76717951011 Test Set Percent error: %104.1852776965
+Run = 4 Training set Percent error: %150.7903619275 Test Set Percent error: %104.1990370796
+Run = 5 Training set Percent error: %150.79553631785 Test Set Percent error: %104.20210650933
+Run = 6 Training set Percent error: %150.79679195024 Test Set Percent error: %104.20285122894
+Run = 7 Training set Percent error: %150.79710349885 Test Set Percent error: %104.20303600192
+Run = 8 Training set Percent error: %150.79718123874 Test Set Percent error: %104.20308210736
+Run = 9 Training set Percent error: %150.79720066452 Test Set Percent error: %104.20309362824
+Run = 10 Training set Percent error: %150.79720552038 Test Set Percent error: %104.20309650811
+Test 10 iterations, 0.01 training rate, annealling rate=0.2Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.2
+Run = 1 Training set Percent error: %128.58129502847 Test Set Percent error: %91.364102150157
+Run = 2 Training set Percent error: %136.14851304127 Test Set Percent error: %95.788246952289
+Run = 3 Training set Percent error: %137.49212874559 Test Set Percent error: %96.577140593393
+Run = 4 Training set Percent error: %137.75113390747 Test Set Percent error: %96.726295135396
+Run = 5 Training set Percent error: %137.80235105809 Test Set Percent error: %96.755789546703
+Run = 6 Training set Percent error: %137.81257125162 Test Set Percent error: %96.76167503758
+Run = 7 Training set Percent error: %137.81461436182 Test Set Percent error: %96.762851600649
+Run = 8 Training set Percent error: %137.81502294672 Test Set Percent error: %96.763086891863
+Run = 9 Training set Percent error: %137.81510466222 Test Set Percent error: %96.76313394925
+Run = 10 Training set Percent error: %137.81512100526 Test Set Percent error: %96.763143360693
+Test 10 iterations, training rate= 0.02, annealling rate=0.6Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.02 Annealling Rate: 1
+Run = 1 Training set Percent error: %140.29376285865 Test Set Percent error: %98.197566035434
+Run = 2 Training set Percent error: %140.45447348636 Test Set Percent error: %98.282253044204
+Run = 3 Training set Percent error: %140.60427850642 Test Set Percent error: %98.360536062521
+Run = 4 Training set Percent error: %140.75399725099 Test Set Percent error: %98.438677434138
+Run = 5 Training set Percent error: %140.9037322414 Test Set Percent error: %98.516747793974
+Run = 6 Training set Percent error: %141.05357869351 Test Set Percent error: %98.594813176124
+Run = 7 Training set Percent error: %141.20362530896 Test Set Percent error: %98.672935462629
+Run = 8 Training set Percent error: %141.3539538114 Test Set Percent error: %98.751172112906
+Run = 9 Training set Percent error: %141.50463859631 Test Set Percent error: %98.829575963475
+Run = 10 Training set Percent error: %141.65574647763 Test Set Percent error: %98.908195087475
+Test 10 iterations, training rate= 0.04, annealling rate=0.6Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.04 Annealling Rate: 0.5
+Run = 1 Training set Percent error: %134.71093077196 Test Set Percent error: %95.167563032098
+Run = 2 Training set Percent error: %146.26904796488 Test Set Percent error: %101.93218269473
+Run = 3 Training set Percent error: %150.48366285081 Test Set Percent error: %104.27271764814
+Run = 4 Training set Percent error: %151.14736340284 Test Set Percent error: %104.66509527161
+Run = 5 Training set Percent error: %151.1793556596 Test Set Percent error: %104.68207821408
+Run = 6 Training set Percent error: %151.13773200558 Test Set Percent error: %104.65775496268
+Run = 7 Training set Percent error: %151.10519205057 Test Set Percent error: %104.63891430241
+Run = 8 Training set Percent error: %151.08631533205 Test Set Percent error: %104.62800949686
+Run = 9 Training set Percent error: %151.07626509413 Test Set Percent error: %104.62220864914
+Run = 10 Training set Percent error: %151.07109192093 Test Set Percent error: %104.61922391391
+Test 10 iterations, training rate= 0.06, annealling rate=0.6Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.06 Annealling Rate: 0.33333333333333
+Run = 1 Training set Percent error: %126.7753121972 Test Set Percent error: %90.272521044647
+Run = 2 Training set Percent error: %146.76616776451 Test Set Percent error: %101.9114230963
+Run = 3 Training set Percent error: %150.89251127505 Test Set Percent error: %104.21132356586
+Run = 4 Training set Percent error: %151.2035996732 Test Set Percent error: %104.39619903325
+Run = 5 Training set Percent error: %151.23177188905 Test Set Percent error: %104.41281370805
+Run = 6 Training set Percent error: %151.23439818569 Test Set Percent error: %104.41432040183
+Run = 7 Training set Percent error: %151.23457827762 Test Set Percent error: %104.41440821508
+Run = 8 Training set Percent error: %151.2345630793 Test Set Percent error: %104.41439265011
+Run = 9 Training set Percent error: %151.23454972898 Test Set Percent error: %104.41438252444
+Run = 10 Training set Percent error: %151.23454436116 Test Set Percent error: %104.41437860226
+Test 10 iterations, training rate= 0.08, annealling rate=0.6Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.08 Annealling Rate: 0.25
+Run = 1 Training set Percent error: %134.04199741071 Test Set Percent error: %94.415690045428
+Run = 2 Training set Percent error: %149.92922883123 Test Set Percent error: %103.57059042934
+Run = 3 Training set Percent error: %150.82049810669 Test Set Percent error: %104.10044827565
+Run = 4 Training set Percent error: %150.91705670097 Test Set Percent error: %104.15774599819
+Run = 5 Training set Percent error: %150.93501835646 Test Set Percent error: %104.16839225538
+Run = 6 Training set Percent error: %150.93914732647 Test Set Percent error: %104.17083862519
+Run = 7 Training set Percent error: %150.94015735541 Test Set Percent error: %104.1714369922
+Run = 8 Training set Percent error: %150.94040848015 Test Set Percent error: %104.17158576085
+Run = 9 Training set Percent error: %150.94047117502 Test Set Percent error: %104.17162290162
+Run = 10 Training set Percent error: %150.94048684334 Test Set Percent error: %104.17163218361
+Test 10 iterations, training rate= 0.1, annealling rate=0.6Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.1 Annealling Rate: 0.2
+Run = 1 Training set Percent error: %128.40412541774 Test Set Percent error: %91.052330128482
+Run = 2 Training set Percent error: %149.64017932 Test Set Percent error: %103.24976665018
+Run = 3 Training set Percent error: %150.64812239231 Test Set Percent error: %103.83134128045
+Run = 4 Training set Percent error: %150.75733979842 Test Set Percent error: %103.89592009669
+Run = 5 Training set Percent error: %150.7761797489 Test Set Percent error: %103.90705463486
+Run = 6 Training set Percent error: %150.77983275144 Test Set Percent error: %103.90921334823
+Run = 7 Training set Percent error: %150.78055879302 Test Set Percent error: %103.90964238718
+Run = 8 Training set Percent error: %150.7807038193 Test Set Percent error: %103.90972808702
+Run = 9 Training set Percent error: %150.78073281728 Test Set Percent error: %103.90974522266
+Run = 10 Training set Percent error: %150.78073861658 Test Set Percent error: %103.90974864962

@@ -1,0 +1,2840 @@
+This run will test effect varying the number of hidden Nodes and Layers has on the NetworkNetwork: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 5)
+             (2): nn.Sigmoid
+             (3): nn.Linear(5 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.023561991408603 Test Set error: 0.022143952252916
+Run = 2 Training set error: 0.014876308491824 Test Set error: 0.012892648250456
+Run = 3 Training set error: 0.01201776882531 Test Set error: 0.010178535002892
+Run = 4 Training set error: 0.010791942709073 Test Set error: 0.0091343980974869
+Run = 5 Training set error: 0.01031753227082 Test Set error: 0.0087852407446781
+Run = 6 Training set error: 0.010148498390298 Test Set error: 0.00867787609516
+Run = 7 Training set error: 0.010092133407891 Test Set error: 0.0086523816825629
+Run = 8 Training set error: 0.010074087008801 Test Set error: 0.0086508729821078
+Run = 9 Training set error: 0.010069430904465 Test Set error: 0.0086548013964973
+Run = 10 Training set error: 0.0100687132936 Test Set error: 0.0086588614493656
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 10)
+             (2): nn.Sigmoid
+             (3): nn.Linear(10 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.041969086792923 Test Set error: 0.041617683083735
+Run = 2 Training set error: 0.023090545416081 Test Set error: 0.022231119214055
+Run = 3 Training set error: 0.017431204567464 Test Set error: 0.016270069648016
+Run = 4 Training set error: 0.015122669081607 Test Set error: 0.013866088205739
+Run = 5 Training set error: 0.014114775318649 Test Set error: 0.01282416070444
+Run = 6 Training set error: 0.01363703118022 Test Set error: 0.0123377922842
+Run = 7 Training set error: 0.013394438058212 Test Set error: 0.012090816584472
+Run = 8 Training set error: 0.013264098370726 Test Set error: 0.011958089374818
+Run = 9 Training set error: 0.013191665164109 Test Set error: 0.011883845161138
+Run = 10 Training set error: 0.013150182879768 Test Set error: 0.011841199748674
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 15)
+             (2): nn.Sigmoid
+             (3): nn.Linear(15 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.020434404967848 Test Set error: 0.019191723087332
+Run = 2 Training set error: 0.01328837524909 Test Set error: 0.01185712039429
+Run = 3 Training set error: 0.01092007813201 Test Set error: 0.0095032067069529
+Run = 4 Training set error: 0.0097891632316495 Test Set error: 0.0083852279725362
+Run = 5 Training set error: 0.0093077183972068 Test Set error: 0.0079343946306563
+Run = 6 Training set error: 0.009160366210003 Test Set error: 0.0078055233581874
+Run = 7 Training set error: 0.0091491054127616 Test Set error: 0.0078004768422845
+Run = 8 Training set error: 0.0091671667862188 Test Set error: 0.0078248690560541
+Run = 9 Training set error: 0.0091863779606614 Test Set error: 0.0078503353707495
+Run = 10 Training set error: 0.0092009156853224 Test Set error: 0.0078688283031322
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 20)
+             (2): nn.Sigmoid
+             (3): nn.Linear(20 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.03728421682971 Test Set error: 0.036705519753482
+Run = 2 Training set error: 0.020125710225538 Test Set error: 0.018665018121263
+Run = 3 Training set error: 0.01519029078146 Test Set error: 0.013696557892357
+Run = 4 Training set error: 0.013149814763875 Test Set error: 0.011686384630748
+Run = 5 Training set error: 0.012273350050723 Test Set error: 0.010844434754133
+Run = 6 Training set error: 0.011886675410202 Test Set error: 0.010475300462591
+Run = 7 Training set error: 0.011704422076129 Test Set error: 0.010302453977005
+Run = 8 Training set error: 0.011612443493379 Test Set error: 0.010215632912257
+Run = 9 Training set error: 0.01156339407558 Test Set error: 0.010169423617499
+Run = 10 Training set error: 0.011536097524238 Test Set error: 0.01014376696913
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 25)
+             (2): nn.Sigmoid
+             (3): nn.Linear(25 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.025450981271401 Test Set error: 0.024057312923422
+Run = 2 Training set error: 0.015220494674772 Test Set error: 0.013283613315839
+Run = 3 Training set error: 0.01206659009794 Test Set error: 0.010306303264748
+Run = 4 Training set error: 0.010735909530897 Test Set error: 0.0091849851225007
+Run = 5 Training set error: 0.010215030306819 Test Set error: 0.0087930361605363
+Run = 6 Training set error: 0.010027326866636 Test Set error: 0.0086648075949743
+Run = 7 Training set error: 0.0099658232590063 Test Set error: 0.0086290729764896
+Run = 8 Training set error: 0.0099449499514479 Test Set error: 0.0086222235511047
+Run = 9 Training set error: 0.0099380236251305 Test Set error: 0.0086232178353647
+Run = 10 Training set error: 0.0099358561775645 Test Set error: 0.0086256090374273
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 30)
+             (2): nn.Sigmoid
+             (3): nn.Linear(30 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.021002080036514 Test Set error: 0.019346011401874
+Run = 2 Training set error: 0.013794936782014 Test Set error: 0.011905191321657
+Run = 3 Training set error: 0.011317545714067 Test Set error: 0.0097405305984125
+Run = 4 Training set error: 0.010238158500723 Test Set error: 0.0088252779012677
+Run = 5 Training set error: 0.0098226097712651 Test Set error: 0.0084860324942578
+Run = 6 Training set error: 0.009693154621206 Test Set error: 0.0083873884419883
+Run = 7 Training set error: 0.0096619207191534 Test Set error: 0.0083696897725374
+Run = 8 Training set error: 0.0096588155043301 Test Set error: 0.0083738835591278
+Run = 9 Training set error: 0.0096625541822789 Test Set error: 0.0083815899963371
+Run = 10 Training set error: 0.009666752642427 Test Set error: 0.008388038804633
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 35)
+             (2): nn.Sigmoid
+             (3): nn.Linear(35 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.038770886333218 Test Set error: 0.03854492273003
+Run = 2 Training set error: 0.019725355238236 Test Set error: 0.018434080747143
+Run = 3 Training set error: 0.014774097160268 Test Set error: 0.013328979738778
+Run = 4 Training set error: 0.012675660480566 Test Set error: 0.011217743403851
+Run = 5 Training set error: 0.011749048068652 Test Set error: 0.010306462249755
+Run = 6 Training set error: 0.01136232009951 Test Set error: 0.0099342706844472
+Run = 7 Training set error: 0.011197833027887 Test Set error: 0.0097767518887035
+Run = 8 Training set error: 0.01112321196055 Test Set error: 0.0097056054695117
+Run = 9 Training set error: 0.011086827909899 Test Set error: 0.0096715024173814
+Run = 10 Training set error: 0.011067933285277 Test Set error: 0.0096541712290241
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 40)
+             (2): nn.Sigmoid
+             (3): nn.Linear(40 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.030212368200892 Test Set error: 0.029750383663239
+Run = 2 Training set error: 0.017021564042512 Test Set error: 0.015707372286766
+Run = 3 Training set error: 0.013331917379159 Test Set error: 0.011711301858532
+Run = 4 Training set error: 0.011747169013166 Test Set error: 0.010141950036147
+Run = 5 Training set error: 0.011087901158524 Test Set error: 0.0095596395810027
+Run = 6 Training set error: 0.010845096821038 Test Set error: 0.0093636110147343
+Run = 7 Training set error: 0.010757635798888 Test Set error: 0.0093117335346919
+Run = 8 Training set error: 0.010727914874233 Test Set error: 0.0092999586238575
+Run = 9 Training set error: 0.010717102466447 Test Set error: 0.0093003597890531
+Run = 10 Training set error: 0.010713084853379 Test Set error: 0.0093034417616634
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 45)
+             (2): nn.Sigmoid
+             (3): nn.Linear(45 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.023877717794361 Test Set error: 0.022707130555357
+Run = 2 Training set error: 0.014972264807195 Test Set error: 0.013521677304379
+Run = 3 Training set error: 0.012000020035956 Test Set error: 0.010570868908769
+Run = 4 Training set error: 0.01065508568194 Test Set error: 0.0092465295275091
+Run = 5 Training set error: 0.010085370055356 Test Set error: 0.0087096824272124
+Run = 6 Training set error: 0.0098759594365019 Test Set error: 0.0085173996221038
+Run = 7 Training set error: 0.0098034444209912 Test Set error: 0.0084531915694746
+Run = 8 Training set error: 0.009778965528494 Test Set error: 0.0084329625505333
+Run = 9 Training set error: 0.0097710261112979 Test Set error: 0.008427227499863
+Run = 10 Training set error: 0.0097686070362429 Test Set error: 0.0084260342879429
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.042554649991332 Test Set error: 0.040527376542866
+Run = 2 Training set error: 0.021720247278967 Test Set error: 0.019864402517545
+Run = 3 Training set error: 0.015525754739112 Test Set error: 0.013834321484408
+Run = 4 Training set error: 0.012989875102826 Test Set error: 0.011381907286995
+Run = 5 Training set error: 0.011894293782254 Test Set error: 0.010354357613779
+Run = 6 Training set error: 0.011435389689977 Test Set error: 0.0099319331938955
+Run = 7 Training set error: 0.011237037064056 Test Set error: 0.0097535294973479
+Run = 8 Training set error: 0.011145565923718 Test Set error: 0.0096731989870215
+Run = 9 Training set error: 0.011100314807861 Test Set error: 0.0096343516644191
+Run = 10 Training set error: 0.011076639806708 Test Set error: 0.0096143302106536
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 55)
+             (2): nn.Sigmoid
+             (3): nn.Linear(55 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.01838749506935 Test Set error: 0.017115060087747
+Run = 2 Training set error: 0.012791137938644 Test Set error: 0.011383370356269
+Run = 3 Training set error: 0.010701288899509 Test Set error: 0.0092937618129332
+Run = 4 Training set error: 0.0096724493224764 Test Set error: 0.0082764307580638
+Run = 5 Training set error: 0.0092397495569361 Test Set error: 0.0078746766832127
+Run = 6 Training set error: 0.0091352917857848 Test Set error: 0.007785503874009
+Run = 7 Training set error: 0.0091354714214083 Test Set error: 0.0078022468398156
+Run = 8 Training set error: 0.0091569481802779 Test Set error: 0.0078341015766199
+Run = 9 Training set error: 0.0091777898318956 Test Set error: 0.0078596418958021
+Run = 10 Training set error: 0.0091928705107255 Test Set error: 0.0078772247868145
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 60)
+             (2): nn.Sigmoid
+             (3): nn.Linear(60 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.025153247635169 Test Set error: 0.024051239392617
+Run = 2 Training set error: 0.01546645729584 Test Set error: 0.014010819905768
+Run = 3 Training set error: 0.012217309087759 Test Set error: 0.010756855803041
+Run = 4 Training set error: 0.01067175366368 Test Set error: 0.009218305146841
+Run = 5 Training set error: 0.0099769487706141 Test Set error: 0.008558240295312
+Run = 6 Training set error: 0.0097337307385763 Test Set error: 0.0083378084874245
+Run = 7 Training set error: 0.0096669643172137 Test Set error: 0.0082839483296298
+Run = 8 Training set error: 0.0096564787503113 Test Set error: 0.0082807797484514
+Run = 9 Training set error: 0.0096607282371432 Test Set error: 0.0082891917144636
+Run = 10 Training set error: 0.009667125941608 Test Set error: 0.0082978703101201
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 65)
+             (2): nn.Sigmoid
+             (3): nn.Linear(65 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.037383536551974 Test Set error: 0.037302972913973
+Run = 2 Training set error: 0.020073407335945 Test Set error: 0.019434566625244
+Run = 3 Training set error: 0.015161328867973 Test Set error: 0.014203302097865
+Run = 4 Training set error: 0.013098396338765 Test Set error: 0.01201686900388
+Run = 5 Training set error: 0.012188385166163 Test Set error: 0.011069252918604
+Run = 6 Training set error: 0.011786997058459 Test Set error: 0.010641159146475
+Run = 7 Training set error: 0.011596727441656 Test Set error: 0.01043953770893
+Run = 8 Training set error: 0.011499889322511 Test Set error: 0.010337683254985
+Run = 9 Training set error: 0.011447822210662 Test Set error: 0.010282635445896
+Run = 10 Training set error: 0.011418702304472 Test Set error: 0.010251736607054
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 70)
+             (2): nn.Sigmoid
+             (3): nn.Linear(70 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.02194543053547 Test Set error: 0.021683826666156
+Run = 2 Training set error: 0.013679228471379 Test Set error: 0.012321346793261
+Run = 3 Training set error: 0.011264201141398 Test Set error: 0.009828809908764
+Run = 4 Training set error: 0.010173261119031 Test Set error: 0.0087429099671305
+Run = 5 Training set error: 0.0097468806434882 Test Set error: 0.0083454811425354
+Run = 6 Training set error: 0.0096142978178502 Test Set error: 0.0082291324105481
+Run = 7 Training set error: 0.0095831324868764 Test Set error: 0.0082073203775904
+Run = 8 Training set error: 0.0095818386910795 Test Set error: 0.0082113715942107
+Run = 9 Training set error: 0.0095871780005843 Test Set error: 0.008219823223893
+Run = 10 Training set error: 0.0095926713396856 Test Set error: 0.0082270163717141
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 75)
+             (2): nn.Sigmoid
+             (3): nn.Linear(75 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.017004066229797 Test Set error: 0.01637989223676
+Run = 2 Training set error: 0.012204926730579 Test Set error: 0.010872618865802
+Run = 3 Training set error: 0.010407197697114 Test Set error: 0.009019737104856
+Run = 4 Training set error: 0.0094833047645911 Test Set error: 0.0080906191545754
+Run = 5 Training set error: 0.0091318709950364 Test Set error: 0.0077648908903022
+Run = 6 Training set error: 0.0090730878976239 Test Set error: 0.0077343657039145
+Run = 7 Training set error: 0.0090970380325911 Test Set error: 0.0077747201389925
+Run = 8 Training set error: 0.009132384034475 Test Set error: 0.0078181253988267
+Run = 9 Training set error: 0.0091607747883781 Test Set error: 0.0078509436087115
+Run = 10 Training set error: 0.0091805293625409 Test Set error: 0.0078730218134731
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 80)
+             (2): nn.Sigmoid
+             (3): nn.Linear(80 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.019391213196892 Test Set error: 0.018279543447722
+Run = 2 Training set error: 0.012628516213859 Test Set error: 0.011266851311125
+Run = 3 Training set error: 0.010598331471297 Test Set error: 0.0092312478943389
+Run = 4 Training set error: 0.0096843190642149 Test Set error: 0.0083430679965192
+Run = 5 Training set error: 0.0092366790723944 Test Set error: 0.0079176069423863
+Run = 6 Training set error: 0.0091065319963225 Test Set error: 0.0078108455575486
+Run = 7 Training set error: 0.0091057063573964 Test Set error: 0.007820240284081
+Run = 8 Training set error: 0.0091357963488135 Test Set error: 0.0078546044755396
+Run = 9 Training set error: 0.0091647839353663 Test Set error: 0.0078854689218408
+Run = 10 Training set error: 0.0091859883552538 Test Set error: 0.0079075889193296
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 85)
+             (2): nn.Sigmoid
+             (3): nn.Linear(85 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.037919553843055 Test Set error: 0.035979520889801
+Run = 2 Training set error: 0.018853528307283 Test Set error: 0.017194427105729
+Run = 3 Training set error: 0.013587241927388 Test Set error: 0.01202143281112
+Run = 4 Training set error: 0.011394090050333 Test Set error: 0.0098712168968484
+Run = 5 Training set error: 0.010403089963496 Test Set error: 0.008924045226229
+Run = 6 Training set error: 0.010020867733048 Test Set error: 0.0085762658008811
+Run = 7 Training set error: 0.0098927408420754 Test Set error: 0.0084666210337361
+Run = 8 Training set error: 0.0098538980559615 Test Set error: 0.0084381982701598
+Run = 9 Training set error: 0.0098442289212661 Test Set error: 0.0084343763188349
+Run = 10 Training set error: 0.0098431925504314 Test Set error: 0.008436732276551
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 90)
+             (2): nn.Sigmoid
+             (3): nn.Linear(90 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.033318871465726 Test Set error: 0.032431859411189
+Run = 2 Training set error: 0.018288689017087 Test Set error: 0.016918444598172
+Run = 3 Training set error: 0.013865937306049 Test Set error: 0.012527340523182
+Run = 4 Training set error: 0.011997233742363 Test Set error: 0.010684765727064
+Run = 5 Training set error: 0.011186264450944 Test Set error: 0.0099071668438337
+Run = 6 Training set error: 0.010841115940654 Test Set error: 0.0095771864262622
+Run = 7 Training set error: 0.01068648892068 Test Set error: 0.0094295998051995
+Run = 8 Training set error: 0.010611900818353 Test Set error: 0.0093585542465753
+Run = 9 Training set error: 0.0105734228977 Test Set error: 0.0093219751547241
+Run = 10 Training set error: 0.010552523450914 Test Set error: 0.0093021380662461
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 95)
+             (2): nn.Sigmoid
+             (3): nn.Linear(95 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.013215252720944 Test Set error: 0.012034954546437
+Run = 2 Training set error: 0.011464788910498 Test Set error: 0.010145119833202
+Run = 3 Training set error: 0.010288531344779 Test Set error: 0.0089357071711141
+Run = 4 Training set error: 0.0095662516355438 Test Set error: 0.0082114299934043
+Run = 5 Training set error: 0.0092586542000305 Test Set error: 0.0079272145108413
+Run = 6 Training set error: 0.0091901836797931 Test Set error: 0.0078738092350469
+Run = 7 Training set error: 0.0092021537762959 Test Set error: 0.0078927259053276
+Run = 8 Training set error: 0.0092288103572733 Test Set error: 0.0079230650524685
+Run = 9 Training set error: 0.0092517391342832 Test Set error: 0.0079478503601109
+Run = 10 Training set error: 0.0092679131647234 Test Set error: 0.0079650335375968
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 100)
+             (2): nn.Sigmoid
+             (3): nn.Linear(100 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.026362706897758 Test Set error: 0.02590780479796
+Run = 2 Training set error: 0.015514492177975 Test Set error: 0.013734233151991
+Run = 3 Training set error: 0.012384430009871 Test Set error: 0.010625378999867
+Run = 4 Training set error: 0.011046657261508 Test Set error: 0.0094830510582455
+Run = 5 Training set error: 0.010505037328721 Test Set error: 0.0090729385251013
+Run = 6 Training set error: 0.010292676262803 Test Set error: 0.0089246640955506
+Run = 7 Training set error: 0.010203541549779 Test Set error: 0.0088696180636335
+Run = 8 Training set error: 0.010164724013807 Test Set error: 0.0088484127369163
+Run = 9 Training set error: 0.010146743390637 Test Set error: 0.008839796627104
+Run = 10 Training set error: 0.010137552160519 Test Set error: 0.0088360663744323
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 5)
+             (2): nn.Sigmoid
+             (3): nn.Linear(5 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.032845442592895 Test Set error: 0.031812602356941
+Run = 2 Training set error: 0.017735794211301 Test Set error: 0.016154743918178
+Run = 3 Training set error: 0.013423174663528 Test Set error: 0.011872549455995
+Run = 4 Training set error: 0.011645315597453 Test Set error: 0.010132928078336
+Run = 5 Training set error: 0.010904327144026 Test Set error: 0.0094339371397561
+Run = 6 Training set error: 0.010608241808728 Test Set error: 0.009159174971092
+Run = 7 Training set error: 0.010486548765613 Test Set error: 0.0090487033937715
+Run = 8 Training set error: 0.010433278727174 Test Set error: 0.0090015880599317
+Run = 9 Training set error: 0.010408301036511 Test Set error: 0.0089800161368742
+Run = 10 Training set error: 0.010395811141659 Test Set error: 0.0089694275312908
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 10)
+             (2): nn.Sigmoid
+             (3): nn.Linear(10 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.031259381226499 Test Set error: 0.029540146125263
+Run = 2 Training set error: 0.017378931425967 Test Set error: 0.015754766610918
+Run = 3 Training set error: 0.013179177219289 Test Set error: 0.01165314383083
+Run = 4 Training set error: 0.011405265514118 Test Set error: 0.0099263854210712
+Run = 5 Training set error: 0.010652495421727 Test Set error: 0.0092191313282944
+Run = 6 Training set error: 0.010358766357078 Test Set error: 0.008949371903101
+Run = 7 Training set error: 0.010244767712719 Test Set error: 0.0088476386997286
+Run = 8 Training set error: 0.010198588151047 Test Set error: 0.0088080500007561
+Run = 9 Training set error: 0.010178814383887 Test Set error: 0.0087918060827742
+Run = 10 Training set error: 0.010169698204817 Test Set error: 0.0087846981312594
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 15)
+             (2): nn.Sigmoid
+             (3): nn.Linear(15 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.035061868505423 Test Set error: 0.034163136050451
+Run = 2 Training set error: 0.018528078570884 Test Set error: 0.016939932043325
+Run = 3 Training set error: 0.013911257814203 Test Set error: 0.012359650801427
+Run = 4 Training set error: 0.01200199187136 Test Set error: 0.010493222948865
+Run = 5 Training set error: 0.011191932589967 Test Set error: 0.0097274559545994
+Run = 6 Training set error: 0.010860638737645 Test Set error: 0.0094197932157198
+Run = 7 Training set error: 0.01072085611844 Test Set error: 0.0092920550785755
+Run = 8 Training set error: 0.010657867164505 Test Set error: 0.0092354625249291
+Run = 9 Training set error: 0.01062735416943 Test Set error: 0.0092085040531242
+Run = 10 Training set error: 0.010611603246455 Test Set error: 0.009194785829775
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 20)
+             (2): nn.Sigmoid
+             (3): nn.Linear(20 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.017910080616384 Test Set error: 0.01679089510278
+Run = 2 Training set error: 0.012406893191959 Test Set error: 0.011038353545985
+Run = 3 Training set error: 0.01043466446175 Test Set error: 0.0090635016755834
+Run = 4 Training set error: 0.0094620981866464 Test Set error: 0.008098781098024
+Run = 5 Training set error: 0.0091086896400393 Test Set error: 0.0077805325802874
+Run = 6 Training set error: 0.009042753983998 Test Set error: 0.0077430078023205
+Run = 7 Training set error: 0.0090594150996191 Test Set error: 0.0077701322918125
+Run = 8 Training set error: 0.009089385251355 Test Set error: 0.0078046519995471
+Run = 9 Training set error: 0.0091146102760835 Test Set error: 0.0078318039446884
+Run = 10 Training set error: 0.0091323154350446 Test Set error: 0.0078503627174572
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 25)
+             (2): nn.Sigmoid
+             (3): nn.Linear(25 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.030787175949526 Test Set error: 0.030810402830875
+Run = 2 Training set error: 0.017156430838079 Test Set error: 0.016154265227499
+Run = 3 Training set error: 0.013460156426637 Test Set error: 0.012170034328332
+Run = 4 Training set error: 0.011990436818996 Test Set error: 0.010657589438079
+Run = 5 Training set error: 0.011381103214979 Test Set error: 0.01004368129952
+Run = 6 Training set error: 0.01111990236043 Test Set error: 0.0097816525378197
+Run = 7 Training set error: 0.010999963090787 Test Set error: 0.0096616155506779
+Run = 8 Training set error: 0.010940929548565 Test Set error: 0.0096024492496076
+Run = 9 Training set error: 0.010910017492601 Test Set error: 0.0095714309148201
+Run = 10 Training set error: 0.010893051451832 Test Set error: 0.0095543979707551
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 30)
+             (2): nn.Sigmoid
+             (3): nn.Linear(30 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.015604443628842 Test Set error: 0.015843966334347
+Run = 2 Training set error: 0.011247898882361 Test Set error: 0.010243323926774
+Run = 3 Training set error: 0.010053177704588 Test Set error: 0.0088375924388889
+Run = 4 Training set error: 0.0094416353995245 Test Set error: 0.0081775610860086
+Run = 5 Training set error: 0.0092245665088627 Test Set error: 0.0079613951711814
+Run = 6 Training set error: 0.0091898372863723 Test Set error: 0.0079272771479533
+Run = 7 Training set error: 0.0092075514067286 Test Set error: 0.0079446712579947
+Run = 8 Training set error: 0.0092320230423619 Test Set error: 0.0079686668212587
+Run = 9 Training set error: 0.0092516387670775 Test Set error: 0.0079878174346038
+Run = 10 Training set error: 0.0092651781848537 Test Set error: 0.0080009789729259
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 35)
+             (2): nn.Sigmoid
+             (3): nn.Linear(35 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.038848470702531 Test Set error: 0.03864157988881
+Run = 2 Training set error: 0.020307236773837 Test Set error: 0.019873363077773
+Run = 3 Training set error: 0.015305022552401 Test Set error: 0.014500979180326
+Run = 4 Training set error: 0.013398099773399 Test Set error: 0.012461688839809
+Run = 5 Training set error: 0.012585186152741 Test Set error: 0.011589086218717
+Run = 6 Training set error: 0.01220760874192 Test Set error: 0.01118217240327
+Run = 7 Training set error: 0.012018531008211 Test Set error: 0.010977277590555
+Run = 8 Training set error: 0.011917955390563 Test Set error: 0.010867761391721
+Run = 9 Training set error: 0.011862094850141 Test Set error: 0.010806717141606
+Run = 10 Training set error: 0.011830159275054 Test Set error: 0.010771732976556
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 40)
+             (2): nn.Sigmoid
+             (3): nn.Linear(40 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.04150198004601 Test Set error: 0.04113730610664
+Run = 2 Training set error: 0.021262503415078 Test Set error: 0.020763480235794
+Run = 3 Training set error: 0.016014361776274 Test Set error: 0.015134977826059
+Run = 4 Training set error: 0.013993612260316 Test Set error: 0.012994426972262
+Run = 5 Training set error: 0.013118499585452 Test Set error: 0.012071854197345
+Run = 6 Training set error: 0.012706270604976 Test Set error: 0.011637794984026
+Run = 7 Training set error: 0.012497432268994 Test Set error: 0.011417467875544
+Run = 8 Training set error: 0.012385386778644 Test Set error: 0.011298972572965
+Run = 9 Training set error: 0.012322765527704 Test Set error: 0.011232636670937
+Run = 10 Training set error: 0.01228681652038 Test Set error: 0.011194511002396
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 45)
+             (2): nn.Sigmoid
+             (3): nn.Linear(45 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.027624828878669 Test Set error: 0.027857861864034
+Run = 2 Training set error: 0.014355133860593 Test Set error: 0.013887580921024
+Run = 3 Training set error: 0.011500262143787 Test Set error: 0.010530491367071
+Run = 4 Training set error: 0.01048121935734 Test Set error: 0.0093514798370488
+Run = 5 Training set error: 0.010106581518257 Test Set error: 0.0089321263544723
+Run = 6 Training set error: 0.009968039186477 Test Set error: 0.0087697656644939
+Run = 7 Training set error: 0.0099135684287372 Test Set error: 0.0087031518251544
+Run = 8 Training set error: 0.0098909828248332 Test Set error: 0.0086737852703695
+Run = 9 Training set error: 0.0098809549019724 Test Set error: 0.0086598546099271
+Run = 10 Training set error: 0.0098761717145179 Test Set error: 0.0086527943899729
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.021677225604327 Test Set error: 0.021618399806695
+Run = 2 Training set error: 0.013510595665458 Test Set error: 0.012204596666716
+Run = 3 Training set error: 0.011172901904138 Test Set error: 0.0097996348272091
+Run = 4 Training set error: 0.010117253562348 Test Set error: 0.0087480685564996
+Run = 5 Training set error: 0.0096948349632367 Test Set error: 0.0083519749822595
+Run = 6 Training set error: 0.0095522498165575 Test Set error: 0.0082222079126759
+Run = 7 Training set error: 0.0095096197325681 Test Set error: 0.00818606971403
+Run = 8 Training set error: 0.0094993914053639 Test Set error: 0.0081791753612161
+Run = 9 Training set error: 0.0094986513349708 Test Set error: 0.0081802103129543
+Run = 10 Training set error: 0.0095000918531717 Test Set error: 0.0081826489218056
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 55)
+             (2): nn.Sigmoid
+             (3): nn.Linear(55 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.025401751905078 Test Set error: 0.024950796080059
+Run = 2 Training set error: 0.015861524853081 Test Set error: 0.014748678142425
+Run = 3 Training set error: 0.012755028423551 Test Set error: 0.011532462932944
+Run = 4 Training set error: 0.011493507188456 Test Set error: 0.010275531093562
+Run = 5 Training set error: 0.010972101209184 Test Set error: 0.0097605389326576
+Run = 6 Training set error: 0.010746799486485 Test Set error: 0.0095377242247707
+Run = 7 Training set error: 0.010642091765813 Test Set error: 0.0094339324985288
+Run = 8 Training set error: 0.0105897657738 Test Set error: 0.0093819802969445
+Run = 9 Training set error: 0.01056209110032 Test Set error: 0.0093544089611097
+Run = 10 Training set error: 0.010546775834942 Test Set error: 0.0093391347214858
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 60)
+             (2): nn.Sigmoid
+             (3): nn.Linear(60 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.017825789394417 Test Set error: 0.017645075511361
+Run = 2 Training set error: 0.012056080423699 Test Set error: 0.010815571134958
+Run = 3 Training set error: 0.010323391934874 Test Set error: 0.0089808409017623
+Run = 4 Training set error: 0.0094988749552208 Test Set error: 0.0081446845157655
+Run = 5 Training set error: 0.0092051503912844 Test Set error: 0.007866470756468
+Run = 6 Training set error: 0.0091496085991772 Test Set error: 0.0078315010884463
+Run = 7 Training set error: 0.009160528261932 Test Set error: 0.0078517027950867
+Run = 8 Training set error: 0.0091820569225017 Test Set error: 0.0078771464515005
+Run = 9 Training set error: 0.0091999938534581 Test Set error: 0.0078970831700086
+Run = 10 Training set error: 0.0092126759350008 Test Set error: 0.0079106868800874
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 65)
+             (2): nn.Sigmoid
+             (3): nn.Linear(65 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.025185995851776 Test Set error: 0.024070545245949
+Run = 2 Training set error: 0.015146014291499 Test Set error: 0.013636106576494
+Run = 3 Training set error: 0.011996823456409 Test Set error: 0.010519197672189
+Run = 4 Training set error: 0.010602653580828 Test Set error: 0.0091529307417194
+Run = 5 Training set error: 0.010019331873278 Test Set error: 0.0086084005642985
+Run = 6 Training set error: 0.0098104857389463 Test Set error: 0.0084204773231105
+Run = 7 Training set error: 0.0097420784426373 Test Set error: 0.0083628982575681
+Run = 8 Training set error: 0.0097214769784333 Test Set error: 0.0083481544007636
+Run = 9 Training set error: 0.0097164472939835 Test Set error: 0.0083462533239537
+Run = 10 Training set error: 0.0097159664984593 Test Set error: 0.0083475542902059
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 70)
+             (2): nn.Sigmoid
+             (3): nn.Linear(70 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.013885392884883 Test Set error: 0.012867819412767
+Run = 2 Training set error: 0.011847586195618 Test Set error: 0.010567815571609
+Run = 3 Training set error: 0.010532500561539 Test Set error: 0.0091946652500613
+Run = 4 Training set error: 0.0096694359518926 Test Set error: 0.0083147512167288
+Run = 5 Training set error: 0.0092496608670976 Test Set error: 0.0079092922035551
+Run = 6 Training set error: 0.0091407671553854 Test Set error: 0.0078186216995802
+Run = 7 Training set error: 0.0091510293005962 Test Set error: 0.0078381511888345
+Run = 8 Training set error: 0.0091862716199734 Test Set error: 0.0078783465202906
+Run = 9 Training set error: 0.0092177949896695 Test Set error: 0.0079126110467508
+Run = 10 Training set error: 0.0092404865080838 Test Set error: 0.0079367430957251
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 75)
+             (2): nn.Sigmoid
+             (3): nn.Linear(75 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.037600945902695 Test Set error: 0.035680719643489
+Run = 2 Training set error: 0.019391679856257 Test Set error: 0.017698329148894
+Run = 3 Training set error: 0.014141775630025 Test Set error: 0.012558280680059
+Run = 4 Training set error: 0.011973256749062 Test Set error: 0.010446785912234
+Run = 5 Training set error: 0.011026511456638 Test Set error: 0.0095503804268179
+Run = 6 Training set error: 0.010644636384013 Test Set error: 0.0092003429205067
+Run = 7 Training set error: 0.010492663364508 Test Set error: 0.0090645304868693
+Run = 8 Training set error: 0.010429330847632 Test Set error: 0.0090098015463827
+Run = 9 Training set error: 0.010401116576088 Test Set error: 0.0089863259898996
+Run = 10 Training set error: 0.010387607351871 Test Set error: 0.0089755213787109
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 80)
+             (2): nn.Sigmoid
+             (3): nn.Linear(80 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.031357793617608 Test Set error: 0.029510068455393
+Run = 2 Training set error: 0.01719045671259 Test Set error: 0.015593993226812
+Run = 3 Training set error: 0.012934168133456 Test Set error: 0.01140054799541
+Run = 4 Training set error: 0.011117754933027 Test Set error: 0.0096209642256037
+Run = 5 Training set error: 0.010329721069193 Test Set error: 0.0088783139952816
+Run = 6 Training set error: 0.010033890190728 Test Set error: 0.0086117190604787
+Run = 7 Training set error: 0.0099320101143692 Test Set error: 0.0085252902571564
+Run = 8 Training set error: 0.0098984143683281 Test Set error: 0.0085002197505155
+Run = 9 Training set error: 0.0098880373908905 Test Set error: 0.0084945874438728
+Run = 10 Training set error: 0.0098852948494325 Test Set error: 0.0084945117466575
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 85)
+             (2): nn.Sigmoid
+             (3): nn.Linear(85 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.01744869639378 Test Set error: 0.016227459983545
+Run = 2 Training set error: 0.01253744475841 Test Set error: 0.011162559690732
+Run = 3 Training set error: 0.010590482349585 Test Set error: 0.0092034218982185
+Run = 4 Training set error: 0.0095885942417431 Test Set error: 0.0082051381155378
+Run = 5 Training set error: 0.0091967655816632 Test Set error: 0.0078397102456256
+Run = 6 Training set error: 0.009112146312843 Test Set error: 0.007786771833604
+Run = 7 Training set error: 0.009121473465652 Test Set error: 0.0078080239254546
+Run = 8 Training set error: 0.009148402531829 Test Set error: 0.0078403802478493
+Run = 9 Training set error: 0.0091721998827241 Test Set error: 0.0078667116875585
+Run = 10 Training set error: 0.0091892115983914 Test Set error: 0.0078849427225901
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 90)
+             (2): nn.Sigmoid
+             (3): nn.Linear(90 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.055862122493127 Test Set error: 0.054946702297211
+Run = 2 Training set error: 0.030998024043111 Test Set error: 0.029936964961302
+Run = 3 Training set error: 0.023026851903558 Test Set error: 0.021907205192051
+Run = 4 Training set error: 0.019731939545512 Test Set error: 0.018593199440774
+Run = 5 Training set error: 0.018214035182993 Test Set error: 0.017064911015595
+Run = 6 Training set error: 0.017451604303058 Test Set error: 0.016298493556913
+Run = 7 Training set error: 0.017044163996107 Test Set error: 0.015889111466264
+Run = 8 Training set error: 0.016816855040064 Test Set error: 0.015660764491983
+Run = 9 Training set error: 0.01668645496934 Test Set error: 0.015529778383808
+Run = 10 Training set error: 0.016610327464663 Test Set error: 0.015453310737739
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 95)
+             (2): nn.Sigmoid
+             (3): nn.Linear(95 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.022662117931929 Test Set error: 0.021364989131546
+Run = 2 Training set error: 0.014476844692249 Test Set error: 0.012555826383667
+Run = 3 Training set error: 0.011753094569622 Test Set error: 0.010065634088168
+Run = 4 Training set error: 0.01051785903139 Test Set error: 0.0089995769981264
+Run = 5 Training set error: 0.010014677704462 Test Set error: 0.0085993340039247
+Run = 6 Training set error: 0.0098606540444227 Test Set error: 0.0084898343896221
+Run = 7 Training set error: 0.0098244696485862 Test Set error: 0.008478042544476
+Run = 8 Training set error: 0.0098232630328864 Test Set error: 0.0084905205680825
+Run = 9 Training set error: 0.0098301787028167 Test Set error: 0.0085048933352251
+Run = 10 Training set error: 0.0098380621197193 Test Set error: 0.0085159423874871
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 100)
+             (2): nn.Sigmoid
+             (3): nn.Linear(100 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.018461246525139 Test Set error: 0.016727902454477
+Run = 2 Training set error: 0.012699678128775 Test Set error: 0.011150258079905
+Run = 3 Training set error: 0.010748054900552 Test Set error: 0.0093847999294821
+Run = 4 Training set error: 0.0098305481642706 Test Set error: 0.0085082277356796
+Run = 5 Training set error: 0.0094793706485449 Test Set error: 0.0081851327360748
+Run = 6 Training set error: 0.0093940673204323 Test Set error: 0.008109493223535
+Run = 7 Training set error: 0.0093925735188811 Test Set error: 0.0081126722825265
+Run = 8 Training set error: 0.0094095350472274 Test Set error: 0.0081321392428495
+Run = 9 Training set error: 0.0094261730103549 Test Set error: 0.0081499845507251
+Run = 10 Training set error: 0.0094383842111694 Test Set error: 0.0081628583849026
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 5)
+             (2): nn.Sigmoid
+             (3): nn.Linear(5 -> 5)
+             (4): nn.Sigmoid
+             (5): nn.Linear(5 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.03493837789564 Test Set error: 0.033849450272424
+Run = 2 Training set error: 0.019317377201858 Test Set error: 0.017805670363263
+Run = 3 Training set error: 0.014579997812437 Test Set error: 0.013081807618467
+Run = 4 Training set error: 0.012601261719749 Test Set error: 0.011133558872366
+Run = 5 Training set error: 0.011756088642832 Test Set error: 0.010325164452556
+Run = 6 Training set error: 0.011396782963813 Test Set error: 0.0099839670560636
+Run = 7 Training set error: 0.011235619611849 Test Set error: 0.0098322713612985
+Run = 8 Training set error: 0.011158128653674 Test Set error: 0.0097598286976004
+Run = 9 Training set error: 0.011118391987841 Test Set error: 0.0097228468521374
+Run = 10 Training set error: 0.01109690802425 Test Set error: 0.0097029378732805
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 10)
+             (2): nn.Sigmoid
+             (3): nn.Linear(10 -> 10)
+             (4): nn.Sigmoid
+             (5): nn.Linear(10 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.021392012934327 Test Set error: 0.020375579550003
+Run = 2 Training set error: 0.01361251881863 Test Set error: 0.012180925009614
+Run = 3 Training set error: 0.01110962699786 Test Set error: 0.0096818950711
+Run = 4 Training set error: 0.0099843924740032 Test Set error: 0.0085729765627395
+Run = 5 Training set error: 0.0095334678310028 Test Set error: 0.0081538223836408
+Run = 6 Training set error: 0.0093888128426562 Test Set error: 0.0080252371286012
+Run = 7 Training set error: 0.0093522813878413 Test Set error: 0.0079969467586347
+Run = 8 Training set error: 0.0093483901966226 Test Set error: 0.0079974795056557
+Run = 9 Training set error: 0.0093525294348272 Test Set error: 0.008003943234323
+Run = 10 Training set error: 0.0093572775779673 Test Set error: 0.0080099835758551
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 15)
+             (2): nn.Sigmoid
+             (3): nn.Linear(15 -> 15)
+             (4): nn.Sigmoid
+             (5): nn.Linear(15 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.054842249680961 Test Set error: 0.054051180424458
+Run = 2 Training set error: 0.026888005834901 Test Set error: 0.025518697644758
+Run = 3 Training set error: 0.019424994377248 Test Set error: 0.017850299062996
+Run = 4 Training set error: 0.016440731315525 Test Set error: 0.014876259107044
+Run = 5 Training set error: 0.015114055967696 Test Set error: 0.013577336985719
+Run = 6 Training set error: 0.014481322177275 Test Set error: 0.012961585695354
+Run = 7 Training set error: 0.01415761223462 Test Set error: 0.012647858850098
+Run = 8 Training set error: 0.013982787602465 Test Set error: 0.012478715998448
+Run = 9 Training set error: 0.013884607770223 Test Set error: 0.01238386373015
+Run = 10 Training set error: 0.013828063577716 Test Set error: 0.012329285157271
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 20)
+             (2): nn.Sigmoid
+             (3): nn.Linear(20 -> 20)
+             (4): nn.Sigmoid
+             (5): nn.Linear(20 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.029704165591917 Test Set error: 0.027964365009452
+Run = 2 Training set error: 0.016656202726854 Test Set error: 0.015054148531666
+Run = 3 Training set error: 0.012729993031381 Test Set error: 0.011219645460432
+Run = 4 Training set error: 0.011051953030557 Test Set error: 0.0095837667227007
+Run = 5 Training set error: 0.010335411822791 Test Set error: 0.0089093563469305
+Run = 6 Training set error: 0.01006396732214 Test Set error: 0.0086614969884781
+Run = 7 Training set error: 0.009965815951301 Test Set error: 0.0085751057165523
+Run = 8 Training set error: 0.0099302699095111 Test Set error: 0.0085456991574086
+Run = 9 Training set error: 0.0099171956351774 Test Set error: 0.0085359168076667
+Run = 10 Training set error: 0.0099122299543414 Test Set error: 0.0085328083913212
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 25)
+             (2): nn.Sigmoid
+             (3): nn.Linear(25 -> 25)
+             (4): nn.Sigmoid
+             (5): nn.Linear(25 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.03416738639897 Test Set error: 0.033251610449093
+Run = 2 Training set error: 0.019333361207776 Test Set error: 0.017943419144148
+Run = 3 Training set error: 0.014759954411762 Test Set error: 0.01334946780922
+Run = 4 Training set error: 0.012864292917047 Test Set error: 0.011474191563084
+Run = 5 Training set error: 0.01205957329058 Test Set error: 0.010695426805372
+Run = 6 Training set error: 0.011710238967682 Test Set error: 0.010359414432502
+Run = 7 Training set error: 0.011548405545257 Test Set error: 0.010204793212177
+Run = 8 Training set error: 0.011468174926063 Test Set error: 0.010128371035926
+Run = 9 Training set error: 0.01142588527308 Test Set error: 0.010088225178198
+Run = 10 Training set error: 0.011402571175761 Test Set error: 0.010066147477806
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 30)
+             (2): nn.Sigmoid
+             (3): nn.Linear(30 -> 30)
+             (4): nn.Sigmoid
+             (5): nn.Linear(30 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.070287559758785 Test Set error: 0.068134837264782
+Run = 2 Training set error: 0.038970763049634 Test Set error: 0.038646285781155
+Run = 3 Training set error: 0.028435836916318 Test Set error: 0.028392396656781
+Run = 4 Training set error: 0.024057791723668 Test Set error: 0.023983323847656
+Run = 5 Training set error: 0.022019253568598 Test Set error: 0.021839287937443
+Run = 6 Training set error: 0.020953974687937 Test Set error: 0.02071133783893
+Run = 7 Training set error: 0.020364988768504 Test Set error: 0.020087141487891
+Run = 8 Training set error: 0.020032929894613 Test Set error: 0.019730616382023
+Run = 9 Training set error: 0.019841280332797 Test Set error: 0.019522981286544
+Run = 10 Training set error: 0.01972837387314 Test Set error: 0.019400618946403
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 35)
+             (2): nn.Sigmoid
+             (3): nn.Linear(35 -> 35)
+             (4): nn.Sigmoid
+             (5): nn.Linear(35 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.021361491304204 Test Set error: 0.020093633510699
+Run = 2 Training set error: 0.014081197334345 Test Set error: 0.012737918942228
+Run = 3 Training set error: 0.011527093532436 Test Set error: 0.010180980349173
+Run = 4 Training set error: 0.010429533592345 Test Set error: 0.0090979217782464
+Run = 5 Training set error: 0.0099958908032416 Test Set error: 0.0086843819982555
+Run = 6 Training set error: 0.0098365597694433 Test Set error: 0.0085340605000913
+Run = 7 Training set error: 0.0097780561095018 Test Set error: 0.0084799752804285
+Run = 8 Training set error: 0.0097559628225101 Test Set error: 0.008460181871125
+Run = 9 Training set error: 0.009747380937529 Test Set error: 0.0084527293183292
+Run = 10 Training set error: 0.0097438527808867 Test Set error: 0.0084498148957184
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 40)
+             (2): nn.Sigmoid
+             (3): nn.Linear(40 -> 40)
+             (4): nn.Sigmoid
+             (5): nn.Linear(40 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.03368362699316 Test Set error: 0.032120424894363
+Run = 2 Training set error: 0.01725218038417 Test Set error: 0.015639242222049
+Run = 3 Training set error: 0.01280696121597 Test Set error: 0.011291620571678
+Run = 4 Training set error: 0.010957948507705 Test Set error: 0.0094852391574694
+Run = 5 Training set error: 0.010156850871617 Test Set error: 0.0087278371481799
+Run = 6 Training set error: 0.0098567140363099 Test Set error: 0.0084541917976341
+Run = 7 Training set error: 0.0097543171184284 Test Set error: 0.0083651802145576
+Run = 8 Training set error: 0.0097212603306308 Test Set error: 0.0083392679509811
+Run = 9 Training set error: 0.009711413180921 Test Set error: 0.0083333911776843
+Run = 10 Training set error: 0.0097091069273388 Test Set error: 0.0083332616231053
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 45)
+             (2): nn.Sigmoid
+             (3): nn.Linear(45 -> 45)
+             (4): nn.Sigmoid
+             (5): nn.Linear(45 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.017693989569117 Test Set error: 0.016503053841778
+Run = 2 Training set error: 0.012697301932523 Test Set error: 0.011331800772656
+Run = 3 Training set error: 0.010720794923224 Test Set error: 0.0093461641455928
+Run = 4 Training set error: 0.0096947180935126 Test Set error: 0.0083301087908626
+Run = 5 Training set error: 0.0092574821311741 Test Set error: 0.0079248675208236
+Run = 6 Training set error: 0.0091340672086202 Test Set error: 0.0078210278374805
+Run = 7 Training set error: 0.0091285688403393 Test Set error: 0.0078274606141016
+Run = 8 Training set error: 0.0091507718254982 Test Set error: 0.0078565665699506
+Run = 9 Training set error: 0.0091735756666962 Test Set error: 0.0078825701171059
+Run = 10 Training set error: 0.0091905064214934 Test Set error: 0.0079011617237242
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.016204437156416 Test Set error: 0.014732927294894
+Run = 2 Training set error: 0.011910243494033 Test Set error: 0.010319051532549
+Run = 3 Training set error: 0.010361212906934 Test Set error: 0.0089431042793581
+Run = 4 Training set error: 0.009710334524145 Test Set error: 0.0083606703952379
+Run = 5 Training set error: 0.0094975090745227 Test Set error: 0.008185965809862
+Run = 6 Training set error: 0.0094563714512745 Test Set error: 0.0081592947081853
+Run = 7 Training set error: 0.0094650774306239 Test Set error: 0.0081727408753616
+Run = 8 Training set error: 0.0094814347884635 Test Set error: 0.0081912259940701
+Run = 9 Training set error: 0.0094950803477986 Test Set error: 0.008205974964739
+Run = 10 Training set error: 0.0095045950048501 Test Set error: 0.0082161153654555
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 55)
+             (2): nn.Sigmoid
+             (3): nn.Linear(55 -> 55)
+             (4): nn.Sigmoid
+             (5): nn.Linear(55 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.033702005257677 Test Set error: 0.033232176056005
+Run = 2 Training set error: 0.019366987431547 Test Set error: 0.018417311312403
+Run = 3 Training set error: 0.014866934932065 Test Set error: 0.013783665740737
+Run = 4 Training set error: 0.01302251011414 Test Set error: 0.011914196414588
+Run = 5 Training set error: 0.012222289291971 Test Set error: 0.011102053591455
+Run = 6 Training set error: 0.011853774294908 Test Set error: 0.010723034399106
+Run = 7 Training set error: 0.011670493123267 Test Set error: 0.010532677063538
+Run = 8 Training set error: 0.011573199462491 Test Set error: 0.010431161878756
+Run = 9 Training set error: 0.011519224066132 Test Set error: 0.010375106602738
+Run = 10 Training set error: 0.011488388097193 Test Set error: 0.010343625642783
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 60)
+             (2): nn.Sigmoid
+             (3): nn.Linear(60 -> 60)
+             (4): nn.Sigmoid
+             (5): nn.Linear(60 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.022172679692371 Test Set error: 0.020295798061038
+Run = 2 Training set error: 0.014483479563128 Test Set error: 0.01251011227648
+Run = 3 Training set error: 0.011754821390149 Test Set error: 0.010063629278724
+Run = 4 Training set error: 0.01052883999234 Test Set error: 0.0090159265625604
+Run = 5 Training set error: 0.010035579571528 Test Set error: 0.0086317095996897
+Run = 6 Training set error: 0.0098850372881804 Test Set error: 0.0085285651956328
+Run = 7 Training set error: 0.0098493999782547 Test Set error: 0.0085186985258754
+Run = 8 Training set error: 0.0098478505436523 Test Set error: 0.008531570425959
+Run = 9 Training set error: 0.009853892534719 Test Set error: 0.0085459056726562
+Run = 10 Training set error: 0.0098611843348529 Test Set error: 0.0085568356763353
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 65)
+             (2): nn.Sigmoid
+             (3): nn.Linear(65 -> 65)
+             (4): nn.Sigmoid
+             (5): nn.Linear(65 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.019632980648932 Test Set error: 0.020134545299986
+Run = 2 Training set error: 0.012105499526315 Test Set error: 0.011487640616793
+Run = 3 Training set error: 0.010304895556786 Test Set error: 0.009253028395016
+Run = 4 Training set error: 0.0096381771674654 Test Set error: 0.0084841910868627
+Run = 5 Training set error: 0.009411277412502 Test Set error: 0.0082215567997912
+Run = 6 Training set error: 0.0093423596442239 Test Set error: 0.008136336462007
+Run = 7 Training set error: 0.0093321805616179 Test Set error: 0.0081152968603419
+Run = 8 Training set error: 0.0093380700381244 Test Set error: 0.0081151276061947
+Run = 9 Training set error: 0.009344972568976 Test Set error: 0.0081194008608991
+Run = 10 Training set error: 0.0093504131144361 Test Set error: 0.0081234208729701
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 70)
+             (2): nn.Sigmoid
+             (3): nn.Linear(70 -> 70)
+             (4): nn.Sigmoid
+             (5): nn.Linear(70 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.034014935924202 Test Set error: 0.032621816219129
+Run = 2 Training set error: 0.017482946551057 Test Set error: 0.01576753812115
+Run = 3 Training set error: 0.012928343780559 Test Set error: 0.01131661271136
+Run = 4 Training set error: 0.011049354814912 Test Set error: 0.0094954272947498
+Run = 5 Training set error: 0.010257278814447 Test Set error: 0.0087611324354219
+Run = 6 Training set error: 0.0099639446434244 Test Set error: 0.0084990707456092
+Run = 7 Training set error: 0.0098624232673399 Test Set error: 0.008414663425426
+Run = 8 Training set error: 0.0098284237007311 Test Set error: 0.0083903347972161
+Run = 9 Training set error: 0.0098176703310385 Test Set error: 0.0083849770397185
+Run = 10 Training set error: 0.0098145639464619 Test Set error: 0.0083850095383754
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 75)
+             (2): nn.Sigmoid
+             (3): nn.Linear(75 -> 75)
+             (4): nn.Sigmoid
+             (5): nn.Linear(75 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.01602018123434 Test Set error: 0.014967953325963
+Run = 2 Training set error: 0.011964368681839 Test Set error: 0.010627658819646
+Run = 3 Training set error: 0.010243800521293 Test Set error: 0.0088599882715437
+Run = 4 Training set error: 0.0094317698351413 Test Set error: 0.008058651776931
+Run = 5 Training set error: 0.009117958736449 Test Set error: 0.0077751737022523
+Run = 6 Training set error: 0.0090600571316189 Test Set error: 0.0077433574734863
+Run = 7 Training set error: 0.0090852166333752 Test Set error: 0.007781190699398
+Run = 8 Training set error: 0.0091219843600344 Test Set error: 0.0078250296962325
+Run = 9 Training set error: 0.0091518297134622 Test Set error: 0.0078588088124589
+Run = 10 Training set error: 0.0091725233515616 Test Set error: 0.0078817080405572
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 80)
+             (2): nn.Sigmoid
+             (3): nn.Linear(80 -> 80)
+             (4): nn.Sigmoid
+             (5): nn.Linear(80 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.035942351529224 Test Set error: 0.035193897774737
+Run = 2 Training set error: 0.020910881468726 Test Set error: 0.019946472191575
+Run = 3 Training set error: 0.016054398729508 Test Set error: 0.014988651983592
+Run = 4 Training set error: 0.014063539028712 Test Set error: 0.012969700720746
+Run = 5 Training set error: 0.01320390858941 Test Set error: 0.012105461059745
+Run = 6 Training set error: 0.012810283827413 Test Set error: 0.011709561634063
+Run = 7 Training set error: 0.012616519708525 Test Set error: 0.011514452429487
+Run = 8 Training set error: 0.012514928249252 Test Set error: 0.011412033179916
+Run = 9 Training set error: 0.012459095240183 Test Set error: 0.011356028081768
+Run = 10 Training set error: 0.012427401995836 Test Set error: 0.011324371973882
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 85)
+             (2): nn.Sigmoid
+             (3): nn.Linear(85 -> 85)
+             (4): nn.Sigmoid
+             (5): nn.Linear(85 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.030268810415052 Test Set error: 0.030239191159862
+Run = 2 Training set error: 0.01779132500116 Test Set error: 0.016536618286888
+Run = 3 Training set error: 0.013983812469743 Test Set error: 0.012642428616841
+Run = 4 Training set error: 0.012127339595493 Test Set error: 0.010792757787694
+Run = 5 Training set error: 0.011202481665183 Test Set error: 0.0098783178502387
+Run = 6 Training set error: 0.010796576404468 Test Set error: 0.0094895360902663
+Run = 7 Training set error: 0.010626712723226 Test Set error: 0.009326366216469
+Run = 8 Training set error: 0.010551893902484 Test Set error: 0.0092537913577148
+Run = 9 Training set error: 0.010516261427827 Test Set error: 0.0092189291702042
+Run = 10 Training set error: 0.010498044116062 Test Set error: 0.0092009852821027
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 90)
+             (2): nn.Sigmoid
+             (3): nn.Linear(90 -> 90)
+             (4): nn.Sigmoid
+             (5): nn.Linear(90 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.020811953868153 Test Set error: 0.019253557621713
+Run = 2 Training set error: 0.013794380645269 Test Set error: 0.012382347090723
+Run = 3 Training set error: 0.011277322277832 Test Set error: 0.0098792077511288
+Run = 4 Training set error: 0.010013139728932 Test Set error: 0.0086267574748288
+Run = 5 Training set error: 0.0094224531980111 Test Set error: 0.0080581629111
+Run = 6 Training set error: 0.0092178522304224 Test Set error: 0.0078743739625922
+Run = 7 Training set error: 0.009180174884829 Test Set error: 0.0078427236685332
+Run = 8 Training set error: 0.0091903661964899 Test Set error: 0.0078579596306366
+Run = 9 Training set error: 0.0092073995718674 Test Set error: 0.0078781554125267
+Run = 10 Training set error: 0.0092213434915547 Test Set error: 0.0078941820683583
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 95)
+             (2): nn.Sigmoid
+             (3): nn.Linear(95 -> 95)
+             (4): nn.Sigmoid
+             (5): nn.Linear(95 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.021894117002537 Test Set error: 0.021201378441277
+Run = 2 Training set error: 0.014211752107752 Test Set error: 0.012840309957524
+Run = 3 Training set error: 0.011603472752008 Test Set error: 0.010225379822341
+Run = 4 Training set error: 0.01032316104473 Test Set error: 0.0089593333748514
+Run = 5 Training set error: 0.0097394388766794 Test Set error: 0.0084004390158922
+Run = 6 Training set error: 0.0095242679643976 Test Set error: 0.008203629028922
+Run = 7 Training set error: 0.0094553860647946 Test Set error: 0.0081424856466279
+Run = 8 Training set error: 0.009435753386125 Test Set error: 0.0081264947053521
+Run = 9 Training set error: 0.0094316145676802 Test Set error: 0.0081241020043977
+Run = 10 Training set error: 0.0094317696909364 Test Set error: 0.0081251744066182
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 100)
+             (2): nn.Sigmoid
+             (3): nn.Linear(100 -> 100)
+             (4): nn.Sigmoid
+             (5): nn.Linear(100 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.020161455027105 Test Set error: 0.019050528713934
+Run = 2 Training set error: 0.012738290156867 Test Set error: 0.011359645353128
+Run = 3 Training set error: 0.010617126194485 Test Set error: 0.0092357738762253
+Run = 4 Training set error: 0.0096902944069838 Test Set error: 0.0083396417520862
+Run = 5 Training set error: 0.0092477453912645 Test Set error: 0.0079237536404222
+Run = 6 Training set error: 0.0091191109321262 Test Set error: 0.0078192154396836
+Run = 7 Training set error: 0.0091167687892922 Test Set error: 0.0078273906707777
+Run = 8 Training set error: 0.009144598170228 Test Set error: 0.0078599291667658
+Run = 9 Training set error: 0.0091717245656488 Test Set error: 0.0078892920402347
+Run = 10 Training set error: 0.0091916215974045 Test Set error: 0.0079103653877814
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 5)
+             (2): nn.Sigmoid
+             (3): nn.Linear(5 -> 5)
+             (4): nn.Sigmoid
+             (5): nn.Linear(5 -> 5)
+             (6): nn.Sigmoid
+             (7): nn.Linear(5 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.029953048989517 Test Set error: 0.02873529103987
+Run = 2 Training set error: 0.017062949121593 Test Set error: 0.015596050474205
+Run = 3 Training set error: 0.013114019209629 Test Set error: 0.011677199165953
+Run = 4 Training set error: 0.011412819318628 Test Set error: 0.0099988358758762
+Run = 5 Training set error: 0.01068628322052 Test Set error: 0.0093064974923641
+Run = 6 Training set error: 0.010400449281724 Test Set error: 0.0090379457315471
+Run = 7 Training set error: 0.01028775211479 Test Set error: 0.0089338251240636
+Run = 8 Training set error: 0.010241078132743 Test Set error: 0.0088916501034127
+Run = 9 Training set error: 0.010220483991756 Test Set error: 0.0088734459557259
+Run = 10 Training set error: 0.010210770636038 Test Set error: 0.0088650179861542
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 10)
+             (2): nn.Sigmoid
+             (3): nn.Linear(10 -> 10)
+             (4): nn.Sigmoid
+             (5): nn.Linear(10 -> 10)
+             (6): nn.Sigmoid
+             (7): nn.Linear(10 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.017493524664322 Test Set error: 0.016805406310698
+Run = 2 Training set error: 0.012145359398017 Test Set error: 0.010810955316205
+Run = 3 Training set error: 0.010323172745887 Test Set error: 0.0089490785689859
+Run = 4 Training set error: 0.0094374551846499 Test Set error: 0.0080595743307391
+Run = 5 Training set error: 0.0091415697417306 Test Set error: 0.0078052885483279
+Run = 6 Training set error: 0.0090898844782865 Test Set error: 0.007771885477516
+Run = 7 Training set error: 0.009108778347962 Test Set error: 0.0077975736294168
+Run = 8 Training set error: 0.0091384262869528 Test Set error: 0.0078300740777938
+Run = 9 Training set error: 0.0091624539537371 Test Set error: 0.0078564416176562
+Run = 10 Training set error: 0.0091790162473755 Test Set error: 0.007874314380699
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 15)
+             (2): nn.Sigmoid
+             (3): nn.Linear(15 -> 15)
+             (4): nn.Sigmoid
+             (5): nn.Linear(15 -> 15)
+             (6): nn.Sigmoid
+             (7): nn.Linear(15 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.044565201867581 Test Set error: 0.044151075636961
+Run = 2 Training set error: 0.023078422297159 Test Set error: 0.022030737936461
+Run = 3 Training set error: 0.017167767839763 Test Set error: 0.015798186428959
+Run = 4 Training set error: 0.014832174910549 Test Set error: 0.013424406963885
+Run = 5 Training set error: 0.013809333589879 Test Set error: 0.012397015623676
+Run = 6 Training set error: 0.01332698768253 Test Set error: 0.011915403883065
+Run = 7 Training set error: 0.013082665736151 Test Set error: 0.011672316520436
+Run = 8 Training set error: 0.012951670177977 Test Set error: 0.011542203949909
+Run = 9 Training set error: 0.012878590685404 Test Set error: 0.011469612675451
+Run = 10 Training set error: 0.012836660118725 Test Set error: 0.011427985874628
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 20)
+             (2): nn.Sigmoid
+             (3): nn.Linear(20 -> 20)
+             (4): nn.Sigmoid
+             (5): nn.Linear(20 -> 20)
+             (6): nn.Sigmoid
+             (7): nn.Linear(20 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.032375780586852 Test Set error: 0.030219576372686
+Run = 2 Training set error: 0.017635036579852 Test Set error: 0.015851897404472
+Run = 3 Training set error: 0.013218012365232 Test Set error: 0.011582763822332
+Run = 4 Training set error: 0.01141443179842 Test Set error: 0.0098516516663766
+Run = 5 Training set error: 0.010667368439916 Test Set error: 0.0091639799824612
+Run = 6 Training set error: 0.010375903034083 Test Set error: 0.0089033249665648
+Run = 7 Training set error: 0.010260935449679 Test Set error: 0.0088046884311874
+Run = 8 Training set error: 0.010213204475894 Test Set error: 0.0087659412198123
+Run = 9 Training set error: 0.010192125220723 Test Set error: 0.0087498326534321
+Run = 10 Training set error: 0.010182097882757 Test Set error: 0.00874267561052
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 25)
+             (2): nn.Sigmoid
+             (3): nn.Linear(25 -> 25)
+             (4): nn.Sigmoid
+             (5): nn.Linear(25 -> 25)
+             (6): nn.Sigmoid
+             (7): nn.Linear(25 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.024741891446175 Test Set error: 0.024105939304846
+Run = 2 Training set error: 0.015099767787851 Test Set error: 0.013687528631953
+Run = 3 Training set error: 0.012156554094274 Test Set error: 0.010695532938169
+Run = 4 Training set error: 0.010920767454444 Test Set error: 0.0094827965488444
+Run = 5 Training set error: 0.010427352158041 Test Set error: 0.0090168676683236
+Run = 6 Training set error: 0.010238778463346 Test Set error: 0.0088427479882943
+Run = 7 Training set error: 0.01016499005956 Test Set error: 0.008776855567392
+Run = 8 Training set error: 0.010134570059832 Test Set error: 0.008750837300387
+Run = 9 Training set error: 0.010121293655022 Test Set error: 0.0087399551187533
+Run = 10 Training set error: 0.010115044647031 Test Set error: 0.0087350921326129
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 30)
+             (2): nn.Sigmoid
+             (3): nn.Linear(30 -> 30)
+             (4): nn.Sigmoid
+             (5): nn.Linear(30 -> 30)
+             (6): nn.Sigmoid
+             (7): nn.Linear(30 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.028190028749635 Test Set error: 0.027380861673301
+Run = 2 Training set error: 0.016223580601722 Test Set error: 0.014742907378352
+Run = 3 Training set error: 0.012682055940328 Test Set error: 0.011215850822387
+Run = 4 Training set error: 0.011121117679507 Test Set error: 0.0096818210201358
+Run = 5 Training set error: 0.010447516508798 Test Set error: 0.0090437300352309
+Run = 6 Training set error: 0.010187457397776 Test Set error: 0.0088036931098688
+Run = 7 Training set error: 0.010089708825447 Test Set error: 0.0087156052242038
+Run = 8 Training set error: 0.010051995118261 Test Set error: 0.0086827621711423
+Run = 9 Training set error: 0.010036681930627 Test Set error: 0.0086700501235544
+Run = 10 Training set error: 0.010030055683639 Test Set error: 0.0086648754509084
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 35)
+             (2): nn.Sigmoid
+             (3): nn.Linear(35 -> 35)
+             (4): nn.Sigmoid
+             (5): nn.Linear(35 -> 35)
+             (6): nn.Sigmoid
+             (7): nn.Linear(35 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.016507427733177 Test Set error: 0.015961742338859
+Run = 2 Training set error: 0.011318611696512 Test Set error: 0.0099901099552976
+Run = 3 Training set error: 0.010068894271609 Test Set error: 0.0087318123532248
+Run = 4 Training set error: 0.009411675643424 Test Set error: 0.0080803196937523
+Run = 5 Training set error: 0.0091554372563417 Test Set error: 0.0078453057195549
+Run = 6 Training set error: 0.0091118991660922 Test Set error: 0.0078142639208489
+Run = 7 Training set error: 0.0091345150157703 Test Set error: 0.007842753515038
+Run = 8 Training set error: 0.0091659682853381 Test Set error: 0.0078771289460028
+Run = 9 Training set error: 0.0091912829341572 Test Set error: 0.0079038473321637
+Run = 10 Training set error: 0.0092086971935672 Test Set error: 0.0079220223584621
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 40)
+             (2): nn.Sigmoid
+             (3): nn.Linear(40 -> 40)
+             (4): nn.Sigmoid
+             (5): nn.Linear(40 -> 40)
+             (6): nn.Sigmoid
+             (7): nn.Linear(40 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.034936150232168 Test Set error: 0.034161130367568
+Run = 2 Training set error: 0.019365083447287 Test Set error: 0.017930555531047
+Run = 3 Training set error: 0.014735678501915 Test Set error: 0.013076793551948
+Run = 4 Training set error: 0.01283809538997 Test Set error: 0.011143771574527
+Run = 5 Training set error: 0.012019365925106 Test Set error: 0.010381417364204
+Run = 6 Training set error: 0.011650489079959 Test Set error: 0.010045800706154
+Run = 7 Training set error: 0.011470800919499 Test Set error: 0.0099004738975542
+Run = 8 Training set error: 0.011377025482338 Test Set error: 0.0098281684373664
+Run = 9 Training set error: 0.011325643253636 Test Set error: 0.0097897953969188
+Run = 10 Training set error: 0.011296530978757 Test Set error: 0.0097683140734892
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 45)
+             (2): nn.Sigmoid
+             (3): nn.Linear(45 -> 45)
+             (4): nn.Sigmoid
+             (5): nn.Linear(45 -> 45)
+             (6): nn.Sigmoid
+             (7): nn.Linear(45 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.067998968391122 Test Set error: 0.066754501556029
+Run = 2 Training set error: 0.035620070110898 Test Set error: 0.034338579061199
+Run = 3 Training set error: 0.025597630088598 Test Set error: 0.024110891006549
+Run = 4 Training set error: 0.021310726564952 Test Set error: 0.019772068454564
+Run = 5 Training set error: 0.019301316738356 Test Set error: 0.017770503584502
+Run = 6 Training set error: 0.018321145568237 Test Set error: 0.01679712667965
+Run = 7 Training set error: 0.017813478664697 Test Set error: 0.016292683351144
+Run = 8 Training set error: 0.017536766876205 Test Set error: 0.016017661222737
+Run = 9 Training set error: 0.017380393357594 Test Set error: 0.015862382490771
+Run = 10 Training set error: 0.017289944834178 Test Set error: 0.015772771463877
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.053672955135829 Test Set error: 0.052399208129507
+Run = 2 Training set error: 0.030734509969519 Test Set error: 0.02935729233973
+Run = 3 Training set error: 0.022980904387471 Test Set error: 0.021566941210378
+Run = 4 Training set error: 0.019713880765847 Test Set error: 0.018318768126873
+Run = 5 Training set error: 0.018193577951762 Test Set error: 0.016804180757943
+Run = 6 Training set error: 0.017423541980823 Test Set error: 0.016042088498769
+Run = 7 Training set error: 0.017008801680962 Test Set error: 0.01563383558466
+Run = 8 Training set error: 0.016776302595446 Test Set error: 0.01540496675569
+Run = 9 Training set error: 0.016642475596142 Test Set error: 0.015273255670966
+Run = 10 Training set error: 0.016564182353909 Test Set error: 0.015196209266984
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 55)
+             (2): nn.Sigmoid
+             (3): nn.Linear(55 -> 55)
+             (4): nn.Sigmoid
+             (5): nn.Linear(55 -> 55)
+             (6): nn.Sigmoid
+             (7): nn.Linear(55 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.020228276804573 Test Set error: 0.019783791655672
+Run = 2 Training set error: 0.012366338371815 Test Set error: 0.011083380788708
+Run = 3 Training set error: 0.010264454069189 Test Set error: 0.0088944085248832
+Run = 4 Training set error: 0.0094072446886132 Test Set error: 0.0080389825863715
+Run = 5 Training set error: 0.0090819867452714 Test Set error: 0.0077496566657168
+Run = 6 Training set error: 0.0090229957444682 Test Set error: 0.0077085293468367
+Run = 7 Training set error: 0.009049569994937 Test Set error: 0.0077442605091066
+Run = 8 Training set error: 0.0090889353600773 Test Set error: 0.0077882562610417
+Run = 9 Training set error: 0.0091207956178033 Test Set error: 0.0078226384032142
+Run = 10 Training set error: 0.0091428824564207 Test Set error: 0.0078460782880412
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 60)
+             (2): nn.Sigmoid
+             (3): nn.Linear(60 -> 60)
+             (4): nn.Sigmoid
+             (5): nn.Linear(60 -> 60)
+             (6): nn.Sigmoid
+             (7): nn.Linear(60 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.018947250361337 Test Set error: 0.01768152817088
+Run = 2 Training set error: 0.012690121103997 Test Set error: 0.01126609410734
+Run = 3 Training set error: 0.010566260395395 Test Set error: 0.0091540811386192
+Run = 4 Training set error: 0.0095391471527575 Test Set error: 0.008139086590516
+Run = 5 Training set error: 0.0091570370290005 Test Set error: 0.0077904497001569
+Run = 6 Training set error: 0.0090823590651354 Test Set error: 0.007746374756063
+Run = 7 Training set error: 0.0090960447087856 Test Set error: 0.0077717784943428
+Run = 8 Training set error: 0.0091252939715336 Test Set error: 0.0078061688149535
+Run = 9 Training set error: 0.009150430666321 Test Set error: 0.0078335651864426
+Run = 10 Training set error: 0.0091682890307442 Test Set error: 0.0078523829660882
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 65)
+             (2): nn.Sigmoid
+             (3): nn.Linear(65 -> 65)
+             (4): nn.Sigmoid
+             (5): nn.Linear(65 -> 65)
+             (6): nn.Sigmoid
+             (7): nn.Linear(65 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.04790857803156 Test Set error: 0.046047451932147
+Run = 2 Training set error: 0.025994167092581 Test Set error: 0.024229991380354
+Run = 3 Training set error: 0.019000919223074 Test Set error: 0.017364019124559
+Run = 4 Training set error: 0.016117069270985 Test Set error: 0.014563697429686
+Run = 5 Training set error: 0.014829905153288 Test Set error: 0.013332028248131
+Run = 6 Training set error: 0.014217280429357 Test Set error: 0.012748238901707
+Run = 7 Training set error: 0.013904605493076 Test Set error: 0.012451420617673
+Run = 8 Training set error: 0.013735956831252 Test Set error: 0.012291679888915
+Run = 9 Training set error: 0.013641383737394 Test Set error: 0.012202208385997
+Run = 10 Training set error: 0.013586951198383 Test Set error: 0.012150765083437
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 70)
+             (2): nn.Sigmoid
+             (3): nn.Linear(70 -> 70)
+             (4): nn.Sigmoid
+             (5): nn.Linear(70 -> 70)
+             (6): nn.Sigmoid
+             (7): nn.Linear(70 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.038784040427949 Test Set error: 0.038640870398241
+Run = 2 Training set error: 0.018504794377144 Test Set error: 0.017158506037727
+Run = 3 Training set error: 0.014054113007645 Test Set error: 0.012560740873016
+Run = 4 Training set error: 0.012233473310858 Test Set error: 0.010752109478728
+Run = 5 Training set error: 0.011462773283642 Test Set error: 0.01001483307097
+Run = 6 Training set error: 0.011137900333781 Test Set error: 0.0097083193721151
+Run = 7 Training set error: 0.010993691517395 Test Set error: 0.0095736917168508
+Run = 8 Training set error: 0.010924898886163 Test Set error: 0.009510090234526
+Run = 9 Training set error: 0.010889796841104 Test Set error: 0.0094779050573118
+Run = 10 Training set error: 0.010870903174589 Test Set error: 0.0094606911262222
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 75)
+             (2): nn.Sigmoid
+             (3): nn.Linear(75 -> 75)
+             (4): nn.Sigmoid
+             (5): nn.Linear(75 -> 75)
+             (6): nn.Sigmoid
+             (7): nn.Linear(75 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.045816641116301 Test Set error: 0.043584539217408
+Run = 2 Training set error: 0.023801813821719 Test Set error: 0.024030204978486
+Run = 3 Training set error: 0.016953375484185 Test Set error: 0.017453996706328
+Run = 4 Training set error: 0.014371873152686 Test Set error: 0.014836898740007
+Run = 5 Training set error: 0.013249509201345 Test Set error: 0.013622050431481
+Run = 6 Training set error: 0.012745477758758 Test Set error: 0.013014703593337
+Run = 7 Training set error: 0.0124923431056 Test Set error: 0.012691970448594
+Run = 8 Training set error: 0.012353053956772 Test Set error: 0.012512775230614
+Run = 9 Training set error: 0.012273954321279 Test Set error: 0.012410325398725
+Run = 10 Training set error: 0.012228115025341 Test Set error: 0.012350649653183
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 80)
+             (2): nn.Sigmoid
+             (3): nn.Linear(80 -> 80)
+             (4): nn.Sigmoid
+             (5): nn.Linear(80 -> 80)
+             (6): nn.Sigmoid
+             (7): nn.Linear(80 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.016770388593889 Test Set error: 0.015527521494734
+Run = 2 Training set error: 0.012646584643205 Test Set error: 0.011300824337788
+Run = 3 Training set error: 0.010792774356436 Test Set error: 0.0094428113010873
+Run = 4 Training set error: 0.0098116936621767 Test Set error: 0.0084813058915358
+Run = 5 Training set error: 0.009326160781884 Test Set error: 0.0080044446840529
+Run = 6 Training set error: 0.0091679774092622 Test Set error: 0.0078705581921634
+Run = 7 Training set error: 0.0091493340219725 Test Set error: 0.0078620456092917
+Run = 8 Training set error: 0.0091677767488099 Test Set error: 0.0078845394558444
+Run = 9 Training set error: 0.0091891978376369 Test Set error: 0.007907815810883
+Run = 10 Training set error: 0.0092056635200616 Test Set error: 0.0079251968519104
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 85)
+             (2): nn.Sigmoid
+             (3): nn.Linear(85 -> 85)
+             (4): nn.Sigmoid
+             (5): nn.Linear(85 -> 85)
+             (6): nn.Sigmoid
+             (7): nn.Linear(85 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.034816462270386 Test Set error: 0.032822414689703
+Run = 2 Training set error: 0.01741038192381 Test Set error: 0.01580787948729
+Run = 3 Training set error: 0.012799651128653 Test Set error: 0.01128652820493
+Run = 4 Training set error: 0.010884243619098 Test Set error: 0.009414364414845
+Run = 5 Training set error: 0.010019726171505 Test Set error: 0.0085854674998154
+Run = 6 Training set error: 0.0096916624108833 Test Set error: 0.0082896401001002
+Run = 7 Training set error: 0.0095868869181306 Test Set error: 0.008200738578459
+Run = 8 Training set error: 0.0095585998359574 Test Set error: 0.0081808547427603
+Run = 9 Training set error: 0.0095540100921695 Test Set error: 0.0081807492084241
+Run = 10 Training set error: 0.0095556023862923 Test Set error: 0.0081848324120406
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 90)
+             (2): nn.Sigmoid
+             (3): nn.Linear(90 -> 90)
+             (4): nn.Sigmoid
+             (5): nn.Linear(90 -> 90)
+             (6): nn.Sigmoid
+             (7): nn.Linear(90 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.079997593535805 Test Set error: 0.076729849134577
+Run = 2 Training set error: 0.04091293734798 Test Set error: 0.04051653378998
+Run = 3 Training set error: 0.028878324319028 Test Set error: 0.028546399223756
+Run = 4 Training set error: 0.024214914243961 Test Set error: 0.023708383661921
+Run = 5 Training set error: 0.022056846149405 Test Set error: 0.021445067556831
+Run = 6 Training set error: 0.02095170502225 Test Set error: 0.020283073104442
+Run = 7 Training set error: 0.020348479241285 Test Set error: 0.019651186774445
+Run = 8 Training set error: 0.020006888473522 Test Set error: 0.019305950287
+Run = 9 Training set error: 0.019809009941296 Test Set error: 0.019105993436627
+Run = 10 Training set error: 0.019692777055132 Test Set error: 0.018988549265551
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 95)
+             (2): nn.Sigmoid
+             (3): nn.Linear(95 -> 95)
+             (4): nn.Sigmoid
+             (5): nn.Linear(95 -> 95)
+             (6): nn.Sigmoid
+             (7): nn.Linear(95 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.021295531584363 Test Set error: 0.021854376770332
+Run = 2 Training set error: 0.011897009057251 Test Set error: 0.010762698785553
+Run = 3 Training set error: 0.010357332114007 Test Set error: 0.0090856770626301
+Run = 4 Training set error: 0.0096641638708582 Test Set error: 0.0083841442308245
+Run = 5 Training set error: 0.0094278269246872 Test Set error: 0.0081557384790542
+Run = 6 Training set error: 0.0093766633407845 Test Set error: 0.0081068501406867
+Run = 7 Training set error: 0.0093804310788607 Test Set error: 0.0081114930223207
+Run = 8 Training set error: 0.0093949918182156 Test Set error: 0.0081263033611526
+Run = 9 Training set error: 0.0094081135054417 Test Set error: 0.0081393936771534
+Run = 10 Training set error: 0.0094175042402203 Test Set error: 0.0081487256075386
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+             (1): nn.Linear(40 -> 100)
+             (2): nn.Sigmoid
+             (3): nn.Linear(100 -> 100)
+             (4): nn.Sigmoid
+             (5): nn.Linear(100 -> 100)
+             (6): nn.Sigmoid
+             (7): nn.Linear(100 -> 1)
+             (8): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.08447649267723 Test Set error: 0.081301788180007
+Run = 2 Training set error: 0.049707617941362 Test Set error: 0.048873665923274
+Run = 3 Training set error: 0.03681152787164 Test Set error: 0.036546073483528
+Run = 4 Training set error: 0.031088488488096 Test Set error: 0.03101643753569
+Run = 5 Training set error: 0.028270277816336 Test Set error: 0.028257202985343
+Run = 6 Training set error: 0.026772644744198 Test Set error: 0.026781376147484
+Run = 7 Training set error: 0.025946543091563 Test Set error: 0.025956091126335
+Run = 8 Training set error: 0.02547175785833 Test Set error: 0.025481645018018
+Run = 9 Training set error: 0.025194198215674 Test Set error: 0.025204235551114
+Run = 10 Training set error: 0.025030250908797 Test Set error: 0.025040359403591
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 5)
+             (2): nn.Sigmoid
+             (3): nn.Linear(5 -> 5)
+             (4): nn.Sigmoid
+             (5): nn.Linear(5 -> 5)
+             (6): nn.Sigmoid
+             (7): nn.Linear(5 -> 5)
+             (8): nn.Sigmoid
+             (9): nn.Linear(5 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.065847218666321 Test Set error: 0.06459815212774
+Run = 2 Training set error: 0.034617085275291 Test Set error: 0.033615878568052
+Run = 3 Training set error: 0.025013271307964 Test Set error: 0.023822021752515
+Run = 4 Training set error: 0.021106103314532 Test Set error: 0.019843102416929
+Run = 5 Training set error: 0.019297480565343 Test Set error: 0.018003513764544
+Run = 6 Training set error: 0.01838398745186 Test Set error: 0.01707648219921
+Run = 7 Training set error: 0.017893555005893 Test Set error: 0.016579146993069
+Run = 8 Training set error: 0.017620235702227 Test Set error: 0.016300850260903
+Run = 9 Training set error: 0.017463478818719 Test Set error: 0.016140866574607
+Run = 10 Training set error: 0.017371829575331 Test Set error: 0.016047341115008
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 10)
+             (2): nn.Sigmoid
+             (3): nn.Linear(10 -> 10)
+             (4): nn.Sigmoid
+             (5): nn.Linear(10 -> 10)
+             (6): nn.Sigmoid
+             (7): nn.Linear(10 -> 10)
+             (8): nn.Sigmoid
+             (9): nn.Linear(10 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.058375419265422 Test Set error: 0.05741625114127
+Run = 2 Training set error: 0.029626318117812 Test Set error: 0.02835197706936
+Run = 3 Training set error: 0.021283524920848 Test Set error: 0.019806729976035
+Run = 4 Training set error: 0.017926834936731 Test Set error: 0.016442066224422
+Run = 5 Training set error: 0.016417872051814 Test Set error: 0.014944332126987
+Run = 6 Training set error: 0.015683355302791 Test Set error: 0.014218083141819
+Run = 7 Training set error: 0.015300815588831 Test Set error: 0.013840733569767
+Run = 8 Training set error: 0.015091352246599 Test Set error: 0.013634327936668
+Run = 9 Training set error: 0.01497272868216 Test Set error: 0.013517440814146
+Run = 10 Training set error: 0.014904014412965 Test Set error: 0.013449757136758
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 15)
+             (2): nn.Sigmoid
+             (3): nn.Linear(15 -> 15)
+             (4): nn.Sigmoid
+             (5): nn.Linear(15 -> 15)
+             (6): nn.Sigmoid
+             (7): nn.Linear(15 -> 15)
+             (8): nn.Sigmoid
+             (9): nn.Linear(15 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.0343619398152 Test Set error: 0.033566165598831
+Run = 2 Training set error: 0.019062069671898 Test Set error: 0.017653205312088
+Run = 3 Training set error: 0.014490376720487 Test Set error: 0.013057006603585
+Run = 4 Training set error: 0.012582380706454 Test Set error: 0.011168339457959
+Run = 5 Training set error: 0.011774076867027 Test Set error: 0.010390480137123
+Run = 6 Training set error: 0.011432019796522 Test Set error: 0.010063903732622
+Run = 7 Training set error: 0.011279031503441 Test Set error: 0.0099192545172634
+Run = 8 Training set error: 0.011205733286519 Test Set error: 0.009850412271372
+Run = 9 Training set error: 0.011168218102639 Test Set error: 0.0098153756479414
+Run = 10 Training set error: 0.011147975330877 Test Set error: 0.0097965600575191
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 20)
+             (2): nn.Sigmoid
+             (3): nn.Linear(20 -> 20)
+             (4): nn.Sigmoid
+             (5): nn.Linear(20 -> 20)
+             (6): nn.Sigmoid
+             (7): nn.Linear(20 -> 20)
+             (8): nn.Sigmoid
+             (9): nn.Linear(20 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.01998390591394 Test Set error: 0.018680085304005
+Run = 2 Training set error: 0.013127160145011 Test Set error: 0.011683225994833
+Run = 3 Training set error: 0.010810296251241 Test Set error: 0.009383021765293
+Run = 4 Training set error: 0.009713162786228 Test Set error: 0.008300484624833
+Run = 5 Training set error: 0.009259785343016 Test Set error: 0.007880009128967
+Run = 6 Training set error: 0.0091294451430064 Test Set error: 0.0077668891991839
+Run = 7 Training set error: 0.0091257141564866 Test Set error: 0.0077705573821532
+Run = 8 Training set error: 0.0091469248267505 Test Set error: 0.0077983342437046
+Run = 9 Training set error: 0.0091674188405471 Test Set error: 0.0078259875962357
+Run = 10 Training set error: 0.0091826063874163 Test Set error: 0.0078451039840784
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 25)
+             (2): nn.Sigmoid
+             (3): nn.Linear(25 -> 25)
+             (4): nn.Sigmoid
+             (5): nn.Linear(25 -> 25)
+             (6): nn.Sigmoid
+             (7): nn.Linear(25 -> 25)
+             (8): nn.Sigmoid
+             (9): nn.Linear(25 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.041015085920198 Test Set error: 0.039419499271056
+Run = 2 Training set error: 0.021564433695977 Test Set error: 0.019720797761981
+Run = 3 Training set error: 0.015713895215 Test Set error: 0.014007341212604
+Run = 4 Training set error: 0.013319410687903 Test Set error: 0.011695368679138
+Run = 5 Training set error: 0.012291929667194 Test Set error: 0.010731991899192
+Run = 6 Training set error: 0.011848191766551 Test Set error: 0.010321353105608
+Run = 7 Training set error: 0.011645586029171 Test Set error: 0.010136750384019
+Run = 8 Training set error: 0.011546358073174 Test Set error: 0.010047647045484
+Run = 9 Training set error: 0.011494633467871 Test Set error: 0.010001747923105
+Run = 10 Training set error: 0.011466460141757 Test Set error: 0.0099768685361874
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 30)
+             (2): nn.Sigmoid
+             (3): nn.Linear(30 -> 30)
+             (4): nn.Sigmoid
+             (5): nn.Linear(30 -> 30)
+             (6): nn.Sigmoid
+             (7): nn.Linear(30 -> 30)
+             (8): nn.Sigmoid
+             (9): nn.Linear(30 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.031393340439582 Test Set error: 0.029966385583419
+Run = 2 Training set error: 0.017908614058239 Test Set error: 0.016404898999723
+Run = 3 Training set error: 0.013660834599051 Test Set error: 0.01219440548908
+Run = 4 Training set error: 0.011811845301714 Test Set error: 0.010369077485424
+Run = 5 Training set error: 0.011015584412478 Test Set error: 0.0096115801072463
+Run = 6 Training set error: 0.01070435896182 Test Set error: 0.0093224027997735
+Run = 7 Training set error: 0.010584359121989 Test Set error: 0.0092144733988454
+Run = 8 Training set error: 0.010536412251015 Test Set error: 0.0091732518152095
+Run = 9 Training set error: 0.010516257926879 Test Set error: 0.0091567813959703
+Run = 10 Training set error: 0.01050715440149 Test Set error: 0.0091498066250941
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 35)
+             (2): nn.Sigmoid
+             (3): nn.Linear(35 -> 35)
+             (4): nn.Sigmoid
+             (5): nn.Linear(35 -> 35)
+             (6): nn.Sigmoid
+             (7): nn.Linear(35 -> 35)
+             (8): nn.Sigmoid
+             (9): nn.Linear(35 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.02977545030542 Test Set error: 0.028291029736251
+Run = 2 Training set error: 0.015908790952756 Test Set error: 0.014338190143935
+Run = 3 Training set error: 0.012111014128565 Test Set error: 0.010613095104084
+Run = 4 Training set error: 0.010473922846109 Test Set error: 0.0090099577570508
+Run = 5 Training set error: 0.0097570270659587 Test Set error: 0.0083330946188529
+Run = 6 Training set error: 0.0095032890986248 Test Set error: 0.0081060450084111
+Run = 7 Training set error: 0.0094306065278895 Test Set error: 0.0080470665181644
+Run = 8 Training set error: 0.0094164302177609 Test Set error: 0.0080402845113698
+Run = 9 Training set error: 0.0094183143645229 Test Set error: 0.0080463048176068
+Run = 10 Training set error: 0.0094231832108381 Test Set error: 0.0080534617567014
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 40)
+             (2): nn.Sigmoid
+             (3): nn.Linear(40 -> 40)
+             (4): nn.Sigmoid
+             (5): nn.Linear(40 -> 40)
+             (6): nn.Sigmoid
+             (7): nn.Linear(40 -> 40)
+             (8): nn.Sigmoid
+             (9): nn.Linear(40 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.022091339588057 Test Set error: 0.021348791996096
+Run = 2 Training set error: 0.014597914009441 Test Set error: 0.013261844084162
+Run = 3 Training set error: 0.011896576143078 Test Set error: 0.010497092006683
+Run = 4 Training set error: 0.01055834805902 Test Set error: 0.0091460165224741
+Run = 5 Training set error: 0.0099669677859435 Test Set error: 0.008578300739895
+Run = 6 Training set error: 0.0097672970987818 Test Set error: 0.0083940955760137
+Run = 7 Training set error: 0.0097160734268977 Test Set error: 0.0083515017841932
+Run = 8 Training set error: 0.0097107504613992 Test Set error: 0.0083509968759552
+Run = 9 Training set error: 0.00971659557804 Test Set error: 0.0083595520935465
+Run = 10 Training set error: 0.0097234056862721 Test Set error: 0.0083678072933742
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 45)
+             (2): nn.Sigmoid
+             (3): nn.Linear(45 -> 45)
+             (4): nn.Sigmoid
+             (5): nn.Linear(45 -> 45)
+             (6): nn.Sigmoid
+             (7): nn.Linear(45 -> 45)
+             (8): nn.Sigmoid
+             (9): nn.Linear(45 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.031882541571993 Test Set error: 0.03138228668531
+Run = 2 Training set error: 0.017414013068073 Test Set error: 0.01652861039476
+Run = 3 Training set error: 0.013462242499829 Test Set error: 0.012214561884141
+Run = 4 Training set error: 0.011847396331861 Test Set error: 0.01055521347189
+Run = 5 Training set error: 0.011187072234204 Test Set error: 0.009904843168533
+Run = 6 Training set error: 0.010932195290253 Test Set error: 0.009683470683557
+Run = 7 Training set error: 0.010837759739012 Test Set error: 0.0096033181078749
+Run = 8 Training set error: 0.010800705566891 Test Set error: 0.0095737311225267
+Run = 9 Training set error: 0.01078533649082 Test Set error: 0.0095626798550079
+Run = 10 Training set error: 0.010778621191423 Test Set error: 0.0095586196132504
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 50)
+             (6): nn.Sigmoid
+             (7): nn.Linear(50 -> 50)
+             (8): nn.Sigmoid
+             (9): nn.Linear(50 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.014545529569947 Test Set error: 0.013494815196981
+Run = 2 Training set error: 0.011331374211929 Test Set error: 0.009991852777586
+Run = 3 Training set error: 0.010140570591867 Test Set error: 0.0088079011311178
+Run = 4 Training set error: 0.0094466264350819 Test Set error: 0.0081176864427982
+Run = 5 Training set error: 0.0091625955768716 Test Set error: 0.0078548255097024
+Run = 6 Training set error: 0.0091089100053766 Test Set error: 0.0078140853856467
+Run = 7 Training set error: 0.0091293351365648 Test Set error: 0.0078406783547965
+Run = 8 Training set error: 0.0091610013658981 Test Set error: 0.0078754871505883
+Run = 9 Training set error: 0.0091870258590896 Test Set error: 0.0079030278547916
+Run = 10 Training set error: 0.0092051394974333 Test Set error: 0.0079218937633445
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 55)
+             (2): nn.Sigmoid
+             (3): nn.Linear(55 -> 55)
+             (4): nn.Sigmoid
+             (5): nn.Linear(55 -> 55)
+             (6): nn.Sigmoid
+             (7): nn.Linear(55 -> 55)
+             (8): nn.Sigmoid
+             (9): nn.Linear(55 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.028478959251459 Test Set error: 0.027347989250086
+Run = 2 Training set error: 0.016191504995529 Test Set error: 0.014543685370878
+Run = 3 Training set error: 0.012572080009613 Test Set error: 0.011000022046605
+Run = 4 Training set error: 0.011055640700496 Test Set error: 0.0095369011126801
+Run = 5 Training set error: 0.010430655029811 Test Set error: 0.0089609253275313
+Run = 6 Training set error: 0.01019105210279 Test Set error: 0.0087472910621172
+Run = 7 Training set error: 0.010098983434869 Test Set error: 0.0086687882783068
+Run = 8 Training set error: 0.010062088699232 Test Set error: 0.0086392113605684
+Run = 9 Training set error: 0.010046338277333 Test Set error: 0.0086275803972437
+Run = 10 Training set error: 0.010039130418289 Test Set error: 0.008622748688945
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 60)
+             (2): nn.Sigmoid
+             (3): nn.Linear(60 -> 60)
+             (4): nn.Sigmoid
+             (5): nn.Linear(60 -> 60)
+             (6): nn.Sigmoid
+             (7): nn.Linear(60 -> 60)
+             (8): nn.Sigmoid
+             (9): nn.Linear(60 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.035450924827184 Test Set error: 0.033588033482237
+Run = 2 Training set error: 0.017718503238873 Test Set error: 0.016089272014978
+Run = 3 Training set error: 0.01298078619987 Test Set error: 0.011459772193125
+Run = 4 Training set error: 0.010999962992022 Test Set error: 0.0095224572438619
+Run = 5 Training set error: 0.010109478896302 Test Set error: 0.0086720592019265
+Run = 6 Training set error: 0.0097719624177061 Test Set error: 0.0083647415975974
+Run = 7 Training set error: 0.0096622697452695 Test Set error: 0.0082703359327639
+Run = 8 Training set error: 0.0096312606717737 Test Set error: 0.0082475127212239
+Run = 9 Training set error: 0.009624978472611 Test Set error: 0.0082457830848075
+Run = 10 Training set error: 0.0096255421511435 Test Set error: 0.008248948272865
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 65)
+             (2): nn.Sigmoid
+             (3): nn.Linear(65 -> 65)
+             (4): nn.Sigmoid
+             (5): nn.Linear(65 -> 65)
+             (6): nn.Sigmoid
+             (7): nn.Linear(65 -> 65)
+             (8): nn.Sigmoid
+             (9): nn.Linear(65 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.053032508399826 Test Set error: 0.051998869061394
+Run = 2 Training set error: 0.028784484618791 Test Set error: 0.028810504086819
+Run = 3 Training set error: 0.02099576514649 Test Set error: 0.020653522941856
+Run = 4 Training set error: 0.017844635632144 Test Set error: 0.017228429433847
+Run = 5 Training set error: 0.016437595246424 Test Set error: 0.015762922784811
+Run = 6 Training set error: 0.015790261476775 Test Set error: 0.015067300176729
+Run = 7 Training set error: 0.015469198383316 Test Set error: 0.014714798199138
+Run = 8 Training set error: 0.015299379327696 Test Set error: 0.014525807863653
+Run = 9 Training set error: 0.015204995056052 Test Set error: 0.014420271809772
+Run = 10 Training set error: 0.01515107420388 Test Set error: 0.014359719054383
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 70)
+             (2): nn.Sigmoid
+             (3): nn.Linear(70 -> 70)
+             (4): nn.Sigmoid
+             (5): nn.Linear(70 -> 70)
+             (6): nn.Sigmoid
+             (7): nn.Linear(70 -> 70)
+             (8): nn.Sigmoid
+             (9): nn.Linear(70 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.03760305577265 Test Set error: 0.037113077301796
+Run = 2 Training set error: 0.0194067084431 Test Set error: 0.017817701015275
+Run = 3 Training set error: 0.014530966327187 Test Set error: 0.012963575316303
+Run = 4 Training set error: 0.012461976738616 Test Set error: 0.010940151200415
+Run = 5 Training set error: 0.011545193459969 Test Set error: 0.010064291090737
+Run = 6 Training set error: 0.011158594483469 Test Set error: 0.0097039139729773
+Run = 7 Training set error: 0.010991625417696 Test Set error: 0.0095495961862771
+Run = 8 Training set error: 0.010914466418472 Test Set error: 0.009478939801109
+Run = 9 Training set error: 0.010876157695585 Test Set error: 0.0094441606808771
+Run = 10 Training set error: 0.010855959088589 Test Set error: 0.009425951680145
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 75)
+             (2): nn.Sigmoid
+             (3): nn.Linear(75 -> 75)
+             (4): nn.Sigmoid
+             (5): nn.Linear(75 -> 75)
+             (6): nn.Sigmoid
+             (7): nn.Linear(75 -> 75)
+             (8): nn.Sigmoid
+             (9): nn.Linear(75 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.014669029654223 Test Set error: 0.013342196609474
+Run = 2 Training set error: 0.011787156438956 Test Set error: 0.010498624613237
+Run = 3 Training set error: 0.010434943222031 Test Set error: 0.0091124051252502
+Run = 4 Training set error: 0.0096624383152936 Test Set error: 0.008329380961182
+Run = 5 Training set error: 0.0093345347563598 Test Set error: 0.0080184287134391
+Run = 6 Training set error: 0.0092535375773075 Test Set error: 0.0079482305794582
+Run = 7 Training set error: 0.0092567663450395 Test Set error: 0.0079557729045987
+Run = 8 Training set error: 0.009277666311778 Test Set error: 0.0079785374376506
+Run = 9 Training set error: 0.0092969882459699 Test Set error: 0.0079986045196935
+Run = 10 Training set error: 0.0093109301203158 Test Set error: 0.0080128919457787
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 80)
+             (2): nn.Sigmoid
+             (3): nn.Linear(80 -> 80)
+             (4): nn.Sigmoid
+             (5): nn.Linear(80 -> 80)
+             (6): nn.Sigmoid
+             (7): nn.Linear(80 -> 80)
+             (8): nn.Sigmoid
+             (9): nn.Linear(80 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.020767348157639 Test Set error: 0.018908005234567
+Run = 2 Training set error: 0.013542878587522 Test Set error: 0.011755315495988
+Run = 3 Training set error: 0.011138189756026 Test Set error: 0.0096739614821757
+Run = 4 Training set error: 0.010060646585528 Test Set error: 0.008710841108344
+Run = 5 Training set error: 0.0096354776259982 Test Set error: 0.0083423868410373
+Run = 6 Training set error: 0.0095095527737332 Test Set error: 0.0082427587040287
+Run = 7 Training set error: 0.0094909893972764 Test Set error: 0.0082326240469842
+Run = 8 Training set error: 0.0094997653994951 Test Set error: 0.0082444775786362
+Run = 9 Training set error: 0.0095116214454871 Test Set error: 0.0082578770963858
+Run = 10 Training set error: 0.0095210306263274 Test Set error: 0.008268123781067
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 85)
+             (2): nn.Sigmoid
+             (3): nn.Linear(85 -> 85)
+             (4): nn.Sigmoid
+             (5): nn.Linear(85 -> 85)
+             (6): nn.Sigmoid
+             (7): nn.Linear(85 -> 85)
+             (8): nn.Sigmoid
+             (9): nn.Linear(85 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.031217945773639 Test Set error: 0.031081515418509
+Run = 2 Training set error: 0.017146193878834 Test Set error: 0.015776620990087
+Run = 3 Training set error: 0.013295386751066 Test Set error: 0.01189706287035
+Run = 4 Training set error: 0.011680063148715 Test Set error: 0.01030377017336
+Run = 5 Training set error: 0.01100644436238 Test Set error: 0.0096631178753849
+Run = 6 Training set error: 0.01073129105455 Test Set error: 0.0094046035986964
+Run = 7 Training set error: 0.010613540372696 Test Set error: 0.0092957804127387
+Run = 8 Training set error: 0.010559480901987 Test Set error: 0.0092466627478187
+Run = 9 Training set error: 0.010532963914023 Test Set error: 0.009222831949883
+Run = 10 Training set error: 0.010519097715761 Test Set error: 0.0092105155425035
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 90)
+             (2): nn.Sigmoid
+             (3): nn.Linear(90 -> 90)
+             (4): nn.Sigmoid
+             (5): nn.Linear(90 -> 90)
+             (6): nn.Sigmoid
+             (7): nn.Linear(90 -> 90)
+             (8): nn.Sigmoid
+             (9): nn.Linear(90 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.039703060740792 Test Set error: 0.038066120612063
+Run = 2 Training set error: 0.021274011753134 Test Set error: 0.019769875263461
+Run = 3 Training set error: 0.015704976550251 Test Set error: 0.014247694018965
+Run = 4 Training set error: 0.013412720943546 Test Set error: 0.011993391849012
+Run = 5 Training set error: 0.012432223803912 Test Set error: 0.011058408069909
+Run = 6 Training set error: 0.012008692194818 Test Set error: 0.010660207979428
+Run = 7 Training set error: 0.011814602699416 Test Set error: 0.010480558024862
+Run = 8 Training set error: 0.011719269825475 Test Set error: 0.010393428907703
+Run = 9 Training set error: 0.01166949866866 Test Set error: 0.010348349360555
+Run = 10 Training set error: 0.0116422260901 Test Set error: 0.010323830775074
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 95)
+             (2): nn.Sigmoid
+             (3): nn.Linear(95 -> 95)
+             (4): nn.Sigmoid
+             (5): nn.Linear(95 -> 95)
+             (6): nn.Sigmoid
+             (7): nn.Linear(95 -> 95)
+             (8): nn.Sigmoid
+             (9): nn.Linear(95 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.017839398009953 Test Set error: 0.01668864453368
+Run = 2 Training set error: 0.012490871207695 Test Set error: 0.010897166262888
+Run = 3 Training set error: 0.010663578949557 Test Set error: 0.0092773068094228
+Run = 4 Training set error: 0.0098341948041045 Test Set error: 0.008508538098137
+Run = 5 Training set error: 0.0095256006195376 Test Set error: 0.0082394410795288
+Run = 6 Training set error: 0.0094514313668953 Test Set error: 0.0081758184423443
+Run = 7 Training set error: 0.009447898458311 Test Set error: 0.0081763312778155
+Run = 8 Training set error: 0.0094605838464372 Test Set error: 0.0081904511715733
+Run = 9 Training set error: 0.0094735863955241 Test Set error: 0.0082037611050929
+Run = 10 Training set error: 0.0094831438177893 Test Set error: 0.0082134477001732
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> (9) -> (10) -> output]
+             (1): nn.Linear(40 -> 100)
+             (2): nn.Sigmoid
+             (3): nn.Linear(100 -> 100)
+             (4): nn.Sigmoid
+             (5): nn.Linear(100 -> 100)
+             (6): nn.Sigmoid
+             (7): nn.Linear(100 -> 100)
+             (8): nn.Sigmoid
+             (9): nn.Linear(100 -> 1)
+             (10): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.047742505077681 Test Set error: 0.046644215059346
+Run = 2 Training set error: 0.028320440928308 Test Set error: 0.028393569351861
+Run = 3 Training set error: 0.021276551502367 Test Set error: 0.021530064778092
+Run = 4 Training set error: 0.018304229644603 Test Set error: 0.018527402332333
+Run = 5 Training set error: 0.016932716395177 Test Set error: 0.017066905665627
+Run = 6 Training set error: 0.016242422325687 Test Set error: 0.01630121098437
+Run = 7 Training set error: 0.015862877475054 Test Set error: 0.015878941913144
+Run = 8 Training set error: 0.015647088103899 Test Set error: 0.01563837499451
+Run = 9 Training set error: 0.015521814771455 Test Set error: 0.015498516009464
+Run = 10 Training set error: 0.015448177558449 Test Set error: 0.015416186920193

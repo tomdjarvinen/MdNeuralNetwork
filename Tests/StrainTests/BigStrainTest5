@@ -1,0 +1,312 @@
+Big strain test, w/ better documentation 
+Testing three neural networks trained exclusively on strain dataSet with 70% being used as data, and 30% for validation.
+Train the networks: 
+Do 5 training iterations
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.6
+Run = 1 Training set Percent error: %13.901350596624 Test Set Percent error: %13.7862778239
+Run = 2 Training set Percent error: %10.20344458631 Test Set Percent error: %10.502425358104
+Run = 3 Training set Percent error: %8.0724702281781 Test Set Percent error: %8.6317765411274
+Run = 4 Training set Percent error: %6.6262984574981 Test Set Percent error: %7.3256497341522
+Run = 5 Training set Percent error: %5.8827656371178 Test Set Percent error: %6.6539148122117
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.75
+Run = 1 Training set Percent error: %16.276110886185 Test Set Percent error: %16.265073367491
+Run = 2 Training set Percent error: %10.568411010496 Test Set Percent error: %10.815906059321
+Run = 3 Training set Percent error: %8.3320888556575 Test Set Percent error: %8.8417567127258
+Run = 4 Training set Percent error: %7.1336156235499 Test Set Percent error: %7.766152528351
+Run = 5 Training set Percent error: %6.4377905031247 Test Set Percent error: %7.1411336719427
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.9
+Run = 1 Training set Percent error: %12.447138314988 Test Set Percent error: %12.304941615767
+Run = 2 Training set Percent error: %10.129325837719 Test Set Percent error: %10.311090257625
+Run = 3 Training set Percent error: %9.3637374410296 Test Set Percent error: %9.6873989463883
+Run = 4 Training set Percent error: %8.9089002603255 Test Set Percent error: %9.3242285504413
+Run = 5 Training set Percent error: %8.5244369530757 Test Set Percent error: %9.0013818131054
+
+Now test the networks.
+ Net one (50-50-1):
+Strain test set average error (denormalized): 0.21832792641941
+ Mean Denormalized on Big-Strain: 0.17006982448347
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -41.40501:-42.596609190027:1.1915991900266
+Big-strain[34]: -18.70887:-19.508543573897:0.79967357389683
+Big-strain[51]: -19.51199:-19.508292468213:0.0036975317866847
+Big-strain[68]: -9.807728:-9.862178154902:0.054450154902051
+Big-strain[85]: -43.39018:-42.597355425695:0.79282457430529
+
+Now test the networks.
+ Net two (50-50-50-1):
+Strain test set average error (denormalized): 0.25716661441911
+ Mean Denormalized on Big-Strain: 0.21404544953333
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -41.40501:-42.585097965484:1.1800879654839
+Big-strain[34]: -18.70887:-19.50467892963:0.79580892963024
+Big-strain[51]: -19.51199:-19.504375809009:0.0076141909908181
+Big-strain[68]: -9.807728:-10.26495628289:0.45722828289022
+Big-strain[85]: -43.39018:-42.586311993959:0.80386800604055
+
+Now test the networks.
+ Net two (50-50-50-50-1):
+Strain test set average error (denormalized): 0.23807178176621
+ Mean Denormalized on Big-Strain: 0.19571832346225
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -41.40501:-42.585097965484:1.1800879654839
+Big-strain[34]: -18.70887:-19.50467892963:0.79580892963024
+Big-strain[51]: -19.51199:-19.504375809009:0.0076141909908181
+Big-strain[68]: -9.807728:-10.26495628289:0.45722828289022
+Big-strain[85]: -43.39018:-42.586311993959:0.80386800604055
+Do 5 training iterations
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.6
+Run = 1 Training set Percent error: %11.506458687335 Test Set Percent error: %11.664267437666
+Run = 2 Training set Percent error: %9.612695750811 Test Set Percent error: %9.963810821444
+Run = 3 Training set Percent error: %7.8508765598876 Test Set Percent error: %8.4172460234588
+Run = 4 Training set Percent error: %6.5203563965356 Test Set Percent error: %7.2126377010915
+Run = 5 Training set Percent error: %5.823198101518 Test Set Percent error: %6.5820516637197
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.75
+Run = 1 Training set Percent error: %8.9008518898552 Test Set Percent error: %9.3572063495381
+Run = 2 Training set Percent error: %7.8870015264522 Test Set Percent error: %8.4627365418482
+Run = 3 Training set Percent error: %7.0680087373393 Test Set Percent error: %7.7167094004447
+Run = 4 Training set Percent error: %6.4244060124968 Test Set Percent error: %7.1271440654615
+Run = 5 Training set Percent error: %5.9886055335675 Test Set Percent error: %6.7290057821139
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.9
+Run = 1 Training set Percent error: %10.043281982676 Test Set Percent error: %10.337157018961
+Run = 2 Training set Percent error: %9.6501767613803 Test Set Percent error: %9.9933096414435
+Run = 3 Training set Percent error: %9.2615214556777 Test Set Percent error: %9.6524932544381
+Run = 4 Training set Percent error: %8.8815729887062 Test Set Percent error: %9.3194599733654
+Run = 5 Training set Percent error: %8.5147626823702 Test Set Percent error: %8.9996047645853
+
+Now test the networks.
+ Net one (50-50-1):
+Strain test set average error (denormalized): 0.21087512780288
+ Mean Denormalized on Big-Strain: 0.16422918528375
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -41.40501:-42.590412531107:1.1854025311074
+Big-strain[34]: -18.70887:-19.508711998893:0.79984199889279
+Big-strain[51]: -19.51199:-19.508461247305:0.0035287526950647
+Big-strain[68]: -9.807728:-9.6921821223077:0.11554587769228
+Big-strain[85]: -43.39018:-42.591157523759:0.7990224762412
+
+Now test the networks.
+ Net two (50-50-50-1):
+Strain test set average error (denormalized): 0.21264727218589
+ Mean Denormalized on Big-Strain: 0.16600689196457
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -41.40501:-42.58536468012:1.1803546801204
+Big-strain[34]: -18.70887:-19.505112873809:0.79624287380916
+Big-strain[51]: -19.51199:-19.504810771502:0.0071792284978152
+Big-strain[68]: -9.807728:-9.7017985453353:0.10592945466468
+Big-strain[85]: -43.39018:-42.586574947186:0.80360505281369
+
+Now test the networks.
+ Net two (50-50-50-50-1):
+Strain test set average error (denormalized): 0.23803756660579
+ Mean Denormalized on Big-Strain: 0.19481577781583
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -41.40501:-42.58536468012:1.1803546801204
+Big-strain[34]: -18.70887:-19.505112873809:0.79624287380916
+Big-strain[51]: -19.51199:-19.504810771502:0.0071792284978152
+Big-strain[68]: -9.807728:-9.7017985453353:0.10592945466468
+Big-strain[85]: -43.39018:-42.586574947186:0.80360505281369
+Do 5 training iterations
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.6
+Run = 1 Training set Percent error: %11.51304466352 Test Set Percent error: %11.664535140748
+Run = 2 Training set Percent error: %9.614479416457 Test Set Percent error: %9.9637041797756
+Run = 3 Training set Percent error: %7.8515814315442 Test Set Percent error: %8.4170804477515
+Run = 4 Training set Percent error: %6.5207684836069 Test Set Percent error: %7.2124958265306
+Run = 5 Training set Percent error: %5.8235407722958 Test Set Percent error: %6.5819783976547
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.75
+Run = 1 Training set Percent error: %8.8605794525233 Test Set Percent error: %9.3018050221193
+Run = 2 Training set Percent error: %7.9008159440238 Test Set Percent error: %8.4600456167168
+Run = 3 Training set Percent error: %7.0769935915703 Test Set Percent error: %7.7163996682605
+Run = 4 Training set Percent error: %6.430155472693 Test Set Percent error: %7.1267312935788
+Run = 5 Training set Percent error: %5.9925036567926 Test Set Percent error: %6.7286358056437
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 50)
+             (4): nn.Sigmoid
+             (5): nn.Linear(50 -> 1)
+             (6): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01 Annealling Rate: 0.9
+Run = 1 Training set Percent error: %10.040234424691 Test Set Percent error: %10.335741374108
+Run = 2 Training set Percent error: %9.6483812573905 Test Set Percent error: %9.9920137246135
+Run = 3 Training set Percent error: %9.2600154243344 Test Set Percent error: %9.6512382438806
+Run = 4 Training set Percent error: %8.8801620259271 Test Set Percent error: %9.3182571505682
+Run = 5 Training set Percent error: %8.5134326969171 Test Set Percent error: %8.9984554908892
+
+Now test the networks.
+ Net one (50-50-1):
+Strain test set average error (denormalized): 0.21087492655378
+ Mean Denormalized on Big-Strain: 0.16427765082964
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -41.40501:-42.590363074906:1.1853530749061
+Big-strain[34]: -18.70887:-19.508714236162:0.79984423616195
+Big-strain[51]: -19.51199:-19.508463734669:0.003526265330855
+Big-strain[68]: -9.807728:-9.6909439159289:0.11678408407105
+Big-strain[85]: -43.39018:-42.591107340523:0.79907265947693
+
+Now test the networks.
+ Net two (50-50-50-1):
+Strain test set average error (denormalized): 0.21265450873896
+ Mean Denormalized on Big-Strain: 0.16650734391272
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -41.40501:-42.58455066564:1.1795406656399
+Big-strain[34]: -18.70887:-19.505127025524:0.79625702552435
+Big-strain[51]: -19.51199:-19.50482549198:0.0071645080204519
+Big-strain[68]: -9.807728:-9.689267046417:0.11846095358301
+Big-strain[85]: -43.39018:-42.585760012949:0.80441998705125
+
+Now test the networks.
+ Net two (50-50-50-50-1):
+Strain test set average error (denormalized): 0.2380241947185
+ Mean Denormalized on Big-Strain: 0.19479940775055
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -41.40501:-42.58455066564:1.1795406656399
+Big-strain[34]: -18.70887:-19.505127025524:0.79625702552435
+Big-strain[51]: -19.51199:-19.50482549198:0.0071645080204519
+Big-strain[68]: -9.807728:-9.689267046417:0.11846095358301
+Big-strain[85]: -43.39018:-42.585760012949:0.80441998705125

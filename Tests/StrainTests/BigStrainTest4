@@ -1,0 +1,105 @@
+Big strain test, trying to document overfit
+Testing three neural networks trained exclusively on strain dataSet with 70% being used as data, and 30% for validation.
+Train the networks: 
+Do 5 training iterations
+
+Now test the networks.
+ Net one (50-50-1):
+Strain test set average error (denormalized): 0.23541366574015
+ Mean Denormalized on Big-Strain: 0.18914528393958
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -43.2492:-42.518791359418:0.73040864058223
+Big-strain[34]: -19.00118:-19.503553695091:0.50237369509086
+Big-strain[51]: -19.60389:-19.503480929829:0.10040907017052
+Big-strain[68]: -9.80902:-10.008072348315:0.19905234831501
+Big-strain[85]: -42.73371:-42.51752905515:0.21618094484955
+
+Now test the networks.
+ Net two (50-50-50-1):
+Strain test set average error (denormalized): 0.23461865776139
+ Mean Denormalized on Big-Strain: 0.18540071680579
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -43.2492:-42.510730699299:0.73846930070093
+Big-strain[34]: -19.00118:-19.47095384499:0.46977384499028
+Big-strain[51]: -19.60389:-19.470953485536:0.13293651446437
+Big-strain[68]: -9.80902:-9.6938145772947:0.11520542270531
+Big-strain[85]: -42.73371:-42.511156761465:0.22255323853484
+
+Now test the networks.
+ Net two (50-50-50-50-1):
+Strain test set average error (denormalized): 5.7037428507651
+ Mean Denormalized on Big-Strain: 6.470659807911
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -43.2492:-42.510730699299:0.73846930070093
+Big-strain[34]: -19.00118:-19.47095384499:0.46977384499028
+Big-strain[51]: -19.60389:-19.470953485536:0.13293651446437
+Big-strain[68]: -9.80902:-9.6938145772947:0.11520542270531
+Big-strain[85]: -42.73371:-42.511156761465:0.22255323853484
+Do 5 training iterations
+
+Now test the networks.
+ Net one (50-50-1):
+Strain test set average error (denormalized): 0.21768980839683
+ Mean Denormalized on Big-Strain: 0.16728567944602
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -43.2492:-42.515923004069:0.73327699593122
+Big-strain[34]: -19.00118:-19.503495001654:0.5023150016542
+Big-strain[51]: -19.60389:-19.503422196333:0.10046780366651
+Big-strain[68]: -9.80902:-9.6844439116634:0.12457608833663
+Big-strain[85]: -42.73371:-42.514660733096:0.21904926690391
+
+Now test the networks.
+ Net two (50-50-50-1):
+Strain test set average error (denormalized): 0.23472152004146
+ Mean Denormalized on Big-Strain: 0.18553302244752
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -43.2492:-42.511692980037:0.73750701996295
+Big-strain[34]: -19.00118:-19.470970022006:0.46979002200584
+Big-strain[51]: -19.60389:-19.470969727702:0.1329202722977
+Big-strain[68]: -9.80902:-9.6878596290745:0.12116037092549
+Big-strain[85]: -42.73371:-42.512118199337:0.22159180066294
+
+Now test the networks.
+ Net two (50-50-50-50-1):
+Strain test set average error (denormalized): 5.7037428507651
+ Mean Denormalized on Big-Strain: 6.470659807911
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -43.2492:-42.511692980037:0.73750701996295
+Big-strain[34]: -19.00118:-19.470970022006:0.46979002200584
+Big-strain[51]: -19.60389:-19.470969727702:0.1329202722977
+Big-strain[68]: -9.80902:-9.6878596290745:0.12116037092549
+Big-strain[85]: -42.73371:-42.512118199337:0.22159180066294
+Do 5 training iterations
+
+Now test the networks.
+ Net one (50-50-1):
+Strain test set average error (denormalized): 0.21784407834178
+ Mean Denormalized on Big-Strain: 0.16746031114627
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -43.2492:-42.515850520093:0.73334947990685
+Big-strain[34]: -19.00118:-19.503494119339:0.50231411933894
+Big-strain[51]: -19.60389:-19.503421238259:0.10046876174081
+Big-strain[68]: -9.80902:-9.6787604597784:0.13025954022163
+Big-strain[85]: -42.73371:-42.514587508967:0.21912249103292
+
+Now test the networks.
+ Net two (50-50-50-1):
+Strain test set average error (denormalized): 0.23471397481618
+ Mean Denormalized on Big-Strain: 0.18552522495263
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -43.2492:-42.511700001807:0.73749999819285
+Big-strain[34]: -19.00118:-19.470983299685:0.46980329968518
+Big-strain[51]: -19.60389:-19.470983070166:0.13290692983367
+Big-strain[68]: -9.80902:-9.6878572981118:0.12116270188822
+Big-strain[85]: -42.73371:-42.512124356985:0.22158564301547
+
+Now test the networks.
+ Net two (50-50-50-50-1):
+Strain test set average error (denormalized): 5.7037428507651
+ Mean Denormalized on Big-Strain: 6.470659807911
+Some forward passes formatted as target:result:error (all values denormalized) 
+Big-strain[17]: -43.2492:-42.511700001807:0.73749999819285
+Big-strain[34]: -19.00118:-19.470983299685:0.46980329968518
+Big-strain[51]: -19.60389:-19.470983070166:0.13290692983367
+Big-strain[68]: -9.80902:-9.6878572981118:0.12116270188822
+Big-strain[85]: -42.73371:-42.512124356985:0.22158564301547

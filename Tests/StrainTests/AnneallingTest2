@@ -1,0 +1,1371 @@
+Data Set Used: Only strain data.  70% of data is allocated as a training set, 30% is left for validation.
+This run will test further test variations on learning rates.
+Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 1
+Run = 1 Training set error: 0.022598790496875 Test Set error: 0.025168557483714
+Run = 2 Training set error: 0.015327228717254 Test Set error: 0.015762734603129
+Run = 3 Training set error: 0.013536336628599 Test Set error: 0.013213428583757
+Run = 4 Training set error: 0.013198411472715 Test Set error: 0.012855851478152
+Run = 5 Training set error: 0.013218400596621 Test Set error: 0.01289818142876
+Run = 6 Training set error: 0.013232921455383 Test Set error: 0.012910677846324
+Run = 7 Training set error: 0.013237149968008 Test Set error: 0.012914301597319
+Run = 8 Training set error: 0.013238317346986 Test Set error: 0.012915286461825
+Run = 9 Training set error: 0.01323857413624 Test Set error: 0.012915486340859
+Run = 10 Training set error: 0.013238560014655 Test Set error: 0.012915452676756
+Run = 11 Training set error: 0.013238465276501 Test Set error: 0.012915349514871
+Run = 12 Training set error: 0.013238346536189 Test Set error: 0.012915225660331
+Run = 13 Training set error: 0.01323822063837 Test Set error: 0.012915095634285
+Run = 14 Training set error: 0.01323809259527 Test Set error: 0.01291496375759
+Run = 15 Training set error: 0.013237963898428 Test Set error: 0.012914831316058
+Run = 16 Training set error: 0.013237834991745 Test Set error: 0.012914698692365
+Run = 17 Training set error: 0.013237706007354 Test Set error: 0.012914566000427
+Run = 18 Training set error: 0.013237576984602 Test Set error: 0.012914433274174
+Run = 19 Training set error: 0.013237447935222 Test Set error: 0.012914300523727
+Run = 20 Training set error: 0.013237318862727 Test Set error: 0.012914167752123
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52224524435533 Denormalized Target: -9.802783 Denormalized Result: -9.682920045181Target: 0.52291157405912 Result: 0.52223607823104 Denormalized Target: -9.668726 Denormalized Result: -9.6831153004452Target: 0.54059188216237 Result: 0.52223131443454 Denormalized Target: -9.292103 Denormalized Result: -9.6832167780507Target: 0.516588128115 Result: 0.52224888796283 Denormalized Target: -9.803427 Denormalized Result: -9.6828424296565Target: 0.51890985301725 Result: 0.5222586601492 Denormalized Target: -9.75397 Denormalized Result: -9.6826342641581Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.8
+Run = 1 Training set error: 0.013237189768182 Test Set error: 0.012914034960287
+Run = 2 Training set error: 0.012461094729116 Test Set error: 0.012048425966019
+Run = 3 Training set error: 0.011762150454497 Test Set error: 0.011278111824687
+Run = 4 Training set error: 0.011128728833367 Test Set error: 0.010596191085281
+Run = 5 Training set error: 0.010569808917167 Test Set error: 0.0099953837564801
+Run = 6 Training set error: 0.010085697767018 Test Set error: 0.0094743408391487
+Run = 7 Training set error: 0.0096968986868435 Test Set error: 0.0090514515878864
+Run = 8 Training set error: 0.0094042395262523 Test Set error: 0.0087352613760156
+Run = 9 Training set error: 0.009205202185527 Test Set error: 0.0085196234932984
+Run = 10 Training set error: 0.0090855289638673 Test Set error: 0.0083904174495791
+Run = 11 Training set error: 0.0090249449269363 Test Set error: 0.0083257417027476
+Run = 12 Training set error: 0.0090038440540005 Test Set error: 0.0083027923995004
+Run = 13 Training set error: 0.0090067726103396 Test Set error: 0.0083047271782209
+Run = 14 Training set error: 0.0090226854880375 Test Set error: 0.008320098506674
+Run = 15 Training set error: 0.0090444548657368 Test Set error: 0.008341734471757
+Run = 16 Training set error: 0.0090677639728295 Test Set error: 0.008365295087819
+Run = 17 Training set error: 0.0090902157743468 Test Set error: 0.0083880873310712
+Run = 18 Training set error: 0.0091106183226278 Test Set error: 0.008409350753265
+Run = 19 Training set error: 0.0091285015844624 Test Set error: 0.0084283042757677
+Run = 20 Training set error: 0.009143805095141 Test Set error: 0.0084445995232934
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52292413043883 Denormalized Target: -9.802783 Denormalized Result: -9.6684585260756Target: 0.52291157405912 Result: 0.52291481634698 Denormalized Target: -9.668726 Denormalized Result: -9.6686569333202Target: 0.54059188216237 Result: 0.52290996794857 Denormalized Target: -9.292103 Denormalized Result: -9.6687602131014Target: 0.516588128115 Result: 0.52292782969888 Denormalized Target: -9.803427 Denormalized Result: -9.6683797250495Target: 0.51890985301725 Result: 0.52293774523763 Denormalized Target: -9.75397 Denormalized Result: -9.6681685058825Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.6
+Run = 1 Training set error: 0.013259954264001 Test Set error: 0.01293694114246
+Run = 2 Training set error: 0.011574804572647 Test Set error: 0.011077669544785
+Run = 3 Training set error: 0.010273438722764 Test Set error: 0.0096797075262397
+Run = 4 Training set error: 0.009433483834821 Test Set error: 0.0087698991995451
+Run = 5 Training set error: 0.0090802870453987 Test Set error: 0.0083879432262303
+Run = 6 Training set error: 0.0090078854545039 Test Set error: 0.0083094318194299
+Run = 7 Training set error: 0.0090269922113959 Test Set error: 0.0083274808883666
+Run = 8 Training set error: 0.0090617155798037 Test Set error: 0.0083623957125223
+Run = 9 Training set error: 0.0090908123657705 Test Set error: 0.0083920197412476
+Run = 10 Training set error: 0.0091111908084542 Test Set error: 0.0084130875502513
+Run = 11 Training set error: 0.0091244540340998 Test Set error: 0.0084268210239877
+Run = 12 Training set error: 0.0091327812999576 Test Set error: 0.0084354506631701
+Run = 13 Training set error: 0.0091379097720059 Test Set error: 0.0084407678022531
+Run = 14 Training set error: 0.009141034226676 Test Set error: 0.0084440080561249
+Run = 15 Training set error: 0.0091429259115673 Test Set error: 0.0084459701542862
+Run = 16 Training set error: 0.0091440670377606 Test Set error: 0.0084471538641784
+Run = 17 Training set error: 0.0091447539129932 Test Set error: 0.0084478664104057
+Run = 18 Training set error: 0.0091451668295295 Test Set error: 0.0084482947729985
+Run = 19 Training set error: 0.0091454148642613 Test Set error: 0.0084485520910054
+Run = 20 Training set error: 0.0091455637876118 Test Set error: 0.0084487065899509
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52258102832513 Denormalized Target: -9.802783 Denormalized Result: -9.6757672305739Target: 0.52291157405912 Result: 0.52257158821142 Denormalized Target: -9.668726 Denormalized Result: -9.6759683223153Target: 0.54059188216237 Result: 0.52256666924245 Denormalized Target: -9.292103 Denormalized Result: -9.6760731053792Target: 0.516588128115 Result: 0.52258477559906 Denormalized Target: -9.803427 Denormalized Result: -9.6756874067642Target: 0.51890985301725 Result: 0.52259481605304 Denormalized Target: -9.75397 Denormalized Result: -9.6754735266736Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.01Annealling Rate: 0.4
+Run = 1 Training set error: 0.01325682967225 Test Set error: 0.012933414255884
+Run = 2 Training set error: 0.010512745943481 Test Set error: 0.0099348704785733
+Run = 3 Training set error: 0.0092032585714613 Test Set error: 0.0085242424614689
+Run = 4 Training set error: 0.0090529572533319 Test Set error: 0.0083602742460725
+Run = 5 Training set error: 0.0090760986452581 Test Set error: 0.0083825613401858
+Run = 6 Training set error: 0.0090976873595701 Test Set error: 0.0084044382143104
+Run = 7 Training set error: 0.009108204493297 Test Set error: 0.0084151674326944
+Run = 8 Training set error: 0.0091127060326143 Test Set error: 0.0084197690138702
+Run = 9 Training set error: 0.0091145533790964 Test Set error: 0.0084216587916065
+Run = 10 Training set error: 0.0091152997675439 Test Set error: 0.0084224225376612
+Run = 11 Training set error: 0.0091155995131614 Test Set error: 0.0084227292878601
+Run = 12 Training set error: 0.0091157196017349 Test Set error: 0.0084228521881074
+Run = 13 Training set error: 0.0091157676676093 Test Set error: 0.0084229013802256
+Run = 14 Training set error: 0.0091157868988302 Test Set error: 0.0084229210621959
+Run = 15 Training set error: 0.009115794592098 Test Set error: 0.0084229289358037
+Run = 16 Training set error: 0.0091157976695292 Test Set error: 0.0084229320853773
+Run = 17 Training set error: 0.0091157989005214 Test Set error: 0.0084229333452275
+Run = 18 Training set error: 0.0091157993929212 Test Set error: 0.0084229338491707
+Run = 19 Training set error: 0.0091157995898814 Test Set error: 0.0084229340507483
+Run = 20 Training set error: 0.0091157996686656 Test Set error: 0.0084229341313794
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52226836744897 Denormalized Target: -9.802783 Denormalized Result: -9.6824274808634Target: 0.52291157405912 Result: 0.52225884776116 Denormalized Target: -9.668726 Denormalized Result: -9.6826302676791Target: 0.54059188216237 Result: 0.52225388422173 Denormalized Target: -9.292103 Denormalized Result: -9.6827360001755Target: 0.516588128115 Result: 0.52227214503577 Denormalized Target: -9.803427 Denormalized Result: -9.682347011334Target: 0.51890985301725 Result: 0.52228226434217 Denormalized Target: -9.75397 Denormalized Result: -9.6821314515421Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.009Annealling Rate: 1
+Run = 1 Training set error: 0.012876006430034 Test Set error: 0.012515328973806
+Run = 2 Training set error: 0.012861684439285 Test Set error: 0.012499665275225
+Run = 3 Training set error: 0.012859512606778 Test Set error: 0.012497676886766
+Run = 4 Training set error: 0.012858810450405 Test Set error: 0.012497054542626
+Run = 5 Training set error: 0.012858517953215 Test Set error: 0.012496784674491
+Run = 6 Training set error: 0.012858360519562 Test Set error: 0.012496630571516
+Run = 7 Training set error: 0.012858248464784 Test Set error: 0.012496515348137
+Run = 8 Training set error: 0.012858151679657 Test Set error: 0.012496413206925
+Run = 9 Training set error: 0.012858060026789 Test Set error: 0.012496315462707
+Run = 10 Training set error: 0.012857970091903 Test Set error: 0.012496219190332
+Run = 11 Training set error: 0.012857880724981 Test Set error: 0.012496123404535
+Run = 12 Training set error: 0.012857791538654 Test Set error: 0.012496027773446
+Run = 13 Training set error: 0.012857702402443 Test Set error: 0.012495932185284
+Run = 14 Training set error: 0.012857613272406 Test Set error: 0.012495836602407
+Run = 15 Training set error: 0.012857524133751 Test Set error: 0.012495741012149
+Run = 16 Training set error: 0.01285743498151 Test Set error: 0.012495645410258
+Run = 17 Training set error: 0.012857345814021 Test Set error: 0.012495549795318
+Run = 18 Training set error: 0.012857256630738 Test Set error: 0.012495454166867
+Run = 19 Training set error: 0.012857167431492 Test Set error: 0.012495358524765
+Run = 20 Training set error: 0.012857078216239 Test Set error: 0.01249526286898
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52225184839606 Denormalized Target: -9.802783 Denormalized Result: -9.6827793669973Target: 0.52291157405912 Result: 0.52224131345662 Denormalized Target: -9.668726 Denormalized Result: -9.6830037805355Target: 0.54059188216237 Result: 0.52223578189323 Denormalized Target: -9.292103 Denormalized Result: -9.6831216129841Target: 0.516588128115 Result: 0.52225601301415 Denormalized Target: -9.803427 Denormalized Result: -9.6826906529913Target: 0.51890985301725 Result: 0.52226713975419 Denormalized Target: -9.75397 Denormalized Result: -9.6824536330146Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.009Annealling Rate: 0.8
+Run = 1 Training set error: 0.012856988984977 Test Set error: 0.012495167199518
+Run = 2 Training set error: 0.012122078818369 Test Set error: 0.011669608649698
+Run = 3 Training set error: 0.01145213850777 Test Set error: 0.010947335543411
+Run = 4 Training set error: 0.010854482107044 Test Set error: 0.010298647855624
+Run = 5 Training set error: 0.010328875913831 Test Set error: 0.0097376678168685
+Run = 6 Training set error: 0.0098886942857294 Test Set error: 0.0092588767935131
+Run = 7 Training set error: 0.0095454392500301 Test Set error: 0.008887328525821
+Run = 8 Training set error: 0.0092976812145879 Test Set error: 0.0086201330659266
+Run = 9 Training set error: 0.0091384338073944 Test Set error: 0.0084477328876827
+Run = 10 Training set error: 0.0090493916472603 Test Set error: 0.0083520949035503
+Run = 11 Training set error: 0.0090096352699535 Test Set error: 0.0083094863983812
+Run = 12 Training set error: 0.0090015521907329 Test Set error: 0.0083000713277105
+Run = 13 Training set error: 0.009011700239919 Test Set error: 0.0083094904635761
+Run = 14 Training set error: 0.009031082573114 Test Set error: 0.0083284660912108
+Run = 15 Training set error: 0.0090539875226008 Test Set error: 0.0083514722986415
+Run = 16 Training set error: 0.0090771115496599 Test Set error: 0.0083749003081709
+Run = 17 Training set error: 0.0090986991637822 Test Set error: 0.008396844386408
+Run = 18 Training set error: 0.0091179473252453 Test Set error: 0.0084170678449653
+Run = 19 Training set error: 0.0091346097994037 Test Set error: 0.0084347752570297
+Run = 20 Training set error: 0.0091487465441313 Test Set error: 0.0084498690029232
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52292936092502 Denormalized Target: -9.802783 Denormalized Result: -9.6683471071236Target: 0.52291157405912 Result: 0.52291868868005 Denormalized Target: -9.668726 Denormalized Result: -9.6685744455213Target: 0.54059188216237 Result: 0.5229130787028 Denormalized Target: -9.292103 Denormalized Result: -9.6686939483292Target: 0.516588128115 Result: 0.52293357722404 Denormalized Target: -9.803427 Denormalized Result: -9.668257292219Target: 0.51890985301725 Result: 0.52294483716551 Denormalized Target: -9.75397 Denormalized Result: -9.6680174348074Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.009Annealling Rate: 0.6
+Run = 1 Training set error: 0.012880228548381 Test Set error: 0.012520272184148
+Run = 2 Training set error: 0.011276121200278 Test Set error: 0.010755455090786
+Run = 3 Training set error: 0.010057460654032 Test Set error: 0.0094459717437878
+Run = 4 Training set error: 0.0093244235579803 Test Set error: 0.0086524177962308
+Run = 5 Training set error: 0.0090501107636841 Test Set error: 0.0083556620087107
+Run = 6 Training set error: 0.0090074873070371 Test Set error: 0.0083089534516694
+Run = 7 Training set error: 0.0090333714930782 Test Set error: 0.0083341831462609
+Run = 8 Training set error: 0.0090677292117514 Test Set error: 0.0083688187896458
+Run = 9 Training set error: 0.0090950140515986 Test Set error: 0.0083967224238251
+Run = 10 Training set error: 0.0091137436437503 Test Set error: 0.008416091718878
+Run = 11 Training set error: 0.0091258191041245 Test Set error: 0.0084285967951786
+Run = 12 Training set error: 0.0091333632217807 Test Set error: 0.0084364150479896
+Run = 13 Training set error: 0.0091379966525568 Test Set error: 0.0084412188236402
+Run = 14 Training set error: 0.0091408150781038 Test Set error: 0.0084441415608291
+Run = 15 Training set error: 0.0091425199151294 Test Set error: 0.0084459097411597
+Run = 16 Training set error: 0.0091435477721128 Test Set error: 0.0084469758760998
+Run = 17 Training set error: 0.0091441662685753 Test Set error: 0.0084476174371812
+Run = 18 Training set error: 0.0091445380077577 Test Set error: 0.008448006099244
+Run = 19 Training set error: 0.0091447612820702 Test Set error: 0.0084482414634195
+Run = 20 Training set error: 0.0091448953297319 Test Set error: 0.008448382771077
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52261196982476 Denormalized Target: -9.802783 Denormalized Result: -9.6751081198646Target: 0.52291157405912 Result: 0.52260118384387 Denormalized Target: -9.668726 Denormalized Result: -9.6753378810463Target: 0.54059188216237 Result: 0.52259551017135 Denormalized Target: -9.292103 Denormalized Result: -9.6754587406802Target: 0.516588128115 Result: 0.52261622945473 Denormalized Target: -9.803427 Denormalized Result: -9.6750173819314Target: 0.51890985301725 Result: 0.52262760212363 Denormalized Target: -9.75397 Denormalized Result: -9.6747751232187Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.009Annealling Rate: 0.4
+Run = 1 Training set error: 0.012876972548343 Test Set error: 0.012516547497497
+Run = 2 Training set error: 0.010275557564223 Test Set error: 0.0096811955917559
+Run = 3 Training set error: 0.0091559262839156 Test Set error: 0.0084731219099292
+Run = 4 Training set error: 0.0090532820966473 Test Set error: 0.0083601674378479
+Run = 5 Training set error: 0.0090789565908595 Test Set error: 0.0083853332604098
+Run = 6 Training set error: 0.0090991316266691 Test Set error: 0.0084058109440724
+Run = 7 Training set error: 0.0091087191786063 Test Set error: 0.0084155976130595
+Run = 8 Training set error: 0.0091127923609088 Test Set error: 0.0084197627251823
+Run = 9 Training set error: 0.0091144594353137 Test Set error: 0.0084214685231758
+Run = 10 Training set error: 0.0091151322936674 Test Set error: 0.008422157182349
+Run = 11 Training set error: 0.0091154024003217 Test Set error: 0.0084224336590959
+Run = 12 Training set error: 0.0091155105970328 Test Set error: 0.0084225444118027
+Run = 13 Training set error: 0.0091155539003602 Test Set error: 0.0084225887388015
+Run = 14 Training set error: 0.0091155712256341 Test Set error: 0.0084226064737477
+Run = 15 Training set error: 0.0091155781563741 Test Set error: 0.0084226135683893
+Run = 16 Training set error: 0.0091155809287709 Test Set error: 0.0084226164063519
+Run = 17 Training set error: 0.009115582037746 Test Set error: 0.0084226175415541
+Run = 18 Training set error: 0.0091155824813385 Test Set error: 0.0084226179956376
+Run = 19 Training set error: 0.0091155826587764 Test Set error: 0.0084226181772719
+Run = 20 Training set error: 0.0091155827297507 Test Set error: 0.0084226182499248
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52232681615637 Denormalized Target: -9.802783 Denormalized Result: -9.6811824161622Target: 0.52291157405912 Result: 0.52231595841449 Denormalized Target: -9.668726 Denormalized Result: -9.6814137059845Target: 0.54059188216237 Result: 0.52231024454216 Denormalized Target: -9.292103 Denormalized Result: -9.6815354219481Target: 0.516588128115 Result: 0.5223311031205 Denormalized Target: -9.803427 Denormalized Result: -9.681091095961Target: 0.51890985301725 Result: 0.52234254688835 Denormalized Target: -9.75397 Denormalized Result: -9.6808473227103Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.008Annealling Rate: 1
+Run = 1 Training set error: 0.012480454807225 Test Set error: 0.012068635301761
+Run = 2 Training set error: 0.012465385621612 Test Set error: 0.012051962671236
+Run = 3 Training set error: 0.012463019640336 Test Set error: 0.012049479596142
+Run = 4 Training set error: 0.012462245346967 Test Set error: 0.012048800546735
+Run = 5 Training set error: 0.012461919639285 Test Set error: 0.012048508617586
+Run = 6 Training set error: 0.012461757163225 Test Set error: 0.012048356394997
+Run = 7 Training set error: 0.012461656498829 Test Set error: 0.012048257016972
+Run = 8 Training set error: 0.012461579360422 Test Set error: 0.012048177749296
+Run = 9 Training set error: 0.012461511178177 Test Set error: 0.012048106137514
+Run = 10 Training set error: 0.012461446401525 Test Set error: 0.012048037437065
+Run = 11 Training set error: 0.012461382915547 Test Set error: 0.012047969840149
+Run = 12 Training set error: 0.012461319914357 Test Set error: 0.012047902657908
+Run = 13 Training set error: 0.012461257090867 Test Set error: 0.012047835627854
+Run = 14 Training set error: 0.012461194328059 Test Set error: 0.012047768649963
+Run = 15 Training set error: 0.012461131581347 Test Set error: 0.01204770168613
+Run = 16 Training set error: 0.012461068833746 Test Set error: 0.01204763472184
+Run = 17 Training set error: 0.012461006078792 Test Set error: 0.012047567751574
+Run = 18 Training set error: 0.01246094331403 Test Set error: 0.012047500773236
+Run = 19 Training set error: 0.012460880538532 Test Set error: 0.012047433786038
+Run = 20 Training set error: 0.012460817751954 Test Set error: 0.012047366789692
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52227410166088 Denormalized Target: -9.802783 Denormalized Result: -9.6823053316293Target: 0.52291157405912 Result: 0.52226233771333 Denormalized Target: -9.668726 Denormalized Result: -9.6825559252951Target: 0.54059188216237 Result: 0.52225611680241 Denormalized Target: -9.292103 Denormalized Result: -9.682688442111Target: 0.516588128115 Result: 0.52227873407507 Denormalized Target: -9.803427 Denormalized Result: -9.6822066527082Target: 0.51890985301725 Result: 0.52229107701659 Denormalized Target: -9.75397 Denormalized Result: -9.6819437254087Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.008Annealling Rate: 0.8
+Run = 1 Training set error: 0.012460754954172 Test Set error: 0.012047299784095
+Run = 2 Training set error: 0.011760175708244 Test Set error: 0.01127619319618
+Run = 3 Training set error: 0.011126404461915 Test Set error: 0.01059403506815
+Run = 4 Training set error: 0.010567465210884 Test Set error: 0.0099930998345607
+Run = 5 Training set error: 0.010083390013619 Test Set error: 0.009472074328881
+Run = 6 Training set error: 0.0096944718638214 Test Set error: 0.0090492548673578
+Run = 7 Training set error: 0.0094017001096463 Test Set error: 0.0087330126782522
+Run = 8 Training set error: 0.009202609589714 Test Set error: 0.0085173098555885
+Run = 9 Training set error: 0.009082836360675 Test Set error: 0.0083879805704978
+Run = 10 Training set error: 0.0090221971665116 Test Set error: 0.0083232112380617
+Run = 11 Training set error: 0.009001072239073 Test Set error: 0.0083002755891927
+Run = 12 Training set error: 0.0090040108051446 Test Set error: 0.0083021985364532
+Run = 13 Training set error: 0.0090199044607728 Test Set error: 0.008317571481671
+Run = 14 Training set error: 0.0090416850635233 Test Set error: 0.0083391703340837
+Run = 15 Training set error: 0.0090650085470173 Test Set error: 0.0083627439617501
+Run = 16 Training set error: 0.0090874754263457 Test Set error: 0.0083855502481446
+Run = 17 Training set error: 0.0091078923702644 Test Set error: 0.0084063895145326
+Run = 18 Training set error: 0.0091257886569283 Test Set error: 0.008425389532878
+Run = 19 Training set error: 0.0091411035572961 Test Set error: 0.0084416841814349
+Run = 20 Training set error: 0.0091539922518707 Test Set error: 0.0084554802750892
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52293547319168 Denormalized Target: -9.802783 Denormalized Result: -9.6682169046296Target: 0.52291157405912 Result: 0.52292358209783 Denormalized Target: -9.668726 Denormalized Result: -9.6684702067448Target: 0.54059188216237 Result: 0.52291728868046 Denormalized Target: -9.292103 Denormalized Result: -9.6686042680812Target: 0.516588128115 Result: 0.5229401535071 Denormalized Target: -9.803427 Denormalized Result: -9.6681172053245Target: 0.51890985301725 Result: 0.52295261999897 Denormalized Target: -9.75397 Denormalized Result: -9.6678516461759Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.008Annealling Rate: 0.6
+Run = 1 Training set error: 0.012485709746897 Test Set error: 0.01207491295076
+Run = 2 Training set error: 0.010961103520579 Test Set error: 0.010413811922657
+Run = 3 Training set error: 0.0098428531212891 Test Set error: 0.009211011818185
+Run = 4 Training set error: 0.009227518512739 Test Set error: 0.0085472860409823
+Run = 5 Training set error: 0.0090277252427653 Test Set error: 0.008332169026341
+Run = 6 Training set error: 0.009010428906473 Test Set error: 0.0083119409308345
+Run = 7 Training set error: 0.0090411556186254 Test Set error: 0.0083423512637498
+Run = 8 Training set error: 0.0090744377280218 Test Set error: 0.0083759738410014
+Run = 9 Training set error: 0.0090996576370229 Test Set error: 0.0084018954193182
+Run = 10 Training set error: 0.0091166478000078 Test Set error: 0.0084194711841209
+Run = 11 Training set error: 0.0091275025821482 Test Set error: 0.0084307134515873
+Run = 12 Training set error: 0.0091342513474042 Test Set error: 0.0084377076265952
+Run = 13 Training set error: 0.0091383850876813 Test Set error: 0.0084419932436469
+Run = 14 Training set error: 0.0091408956471736 Test Set error: 0.0084445965919245
+Run = 15 Training set error: 0.0091424128749225 Test Set error: 0.0084461700905529
+Run = 16 Training set error: 0.0091433271280339 Test Set error: 0.0084471207856444
+Run = 17 Training set error: 0.0091438770888119 Test Set error: 0.0084477004574978
+Run = 18 Training set error: 0.0091442075722662 Test Set error: 0.0084480488046795
+Run = 19 Training set error: 0.0091444060448065 Test Set error: 0.0084482580088029
+Run = 20 Training set error: 0.0091445251940088 Test Set error: 0.0084483836017591
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52264972543426 Denormalized Target: -9.802783 Denormalized Result: -9.6743038561135Target: 0.52291157405912 Result: 0.5226377331963 Denormalized Target: -9.668726 Denormalized Result: -9.6745593127839Target: 0.54059188216237 Result: 0.52263138312689 Denormalized Target: -9.292103 Denormalized Result: -9.6746945809125Target: 0.516588128115 Result: 0.52265444427979 Denormalized Target: -9.803427 Denormalized Result: -9.6742033360462Target: 0.51890985301725 Result: 0.52266701100193 Denormalized Target: -9.75397 Denormalized Result: -9.673935641809Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.008Annealling Rate: 0.4
+Run = 1 Training set error: 0.012482342671248 Test Set error: 0.012070997617092
+Run = 2 Training set error: 0.010036170464884 Test Set error: 0.009422408928827
+Run = 3 Training set error: 0.009119102752815 Test Set error: 0.0084330272663118
+Run = 4 Training set error: 0.0090557998548522 Test Set error: 0.0083622745819655
+Run = 5 Training set error: 0.0090827051823789 Test Set error: 0.008389131458507
+Run = 6 Training set error: 0.0091012424332801 Test Set error: 0.0084081519693311
+Run = 7 Training set error: 0.0091098532264458 Test Set error: 0.0084170202255056
+Run = 8 Training set error: 0.0091134856034939 Test Set error: 0.0084207656965687
+Run = 9 Training set error: 0.0091149684293984 Test Set error: 0.0084222953672023
+Run = 10 Training set error: 0.0091155663259434 Test Set error: 0.008422912258114
+Run = 11 Training set error: 0.0091158062462634 Test Set error: 0.008423159817174
+Run = 12 Training set error: 0.0091159023362064 Test Set error: 0.0084232601443305
+Run = 13 Training set error: 0.0091159407916707 Test Set error: 0.008423300457284
+Run = 14 Training set error: 0.0091159561769741 Test Set error: 0.0084233165858076
+Run = 15 Training set error: 0.0091159623315938 Test Set error: 0.0084233230377512
+Run = 16 Training set error: 0.0091159647935216 Test Set error: 0.0084233256186144
+Run = 17 Training set error: 0.0091159657783059 Test Set error: 0.0084233266509737
+Run = 18 Training set error: 0.0091159661722213 Test Set error: 0.0084233270639193
+Run = 19 Training set error: 0.0091159663297882 Test Set error: 0.0084233272290983
+Run = 20 Training set error: 0.0091159663928147 Test Set error: 0.0084233272951696
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52239347330772 Denormalized Target: -9.802783 Denormalized Result: -9.6797624965451Target: 0.52291157405912 Result: 0.52238141730839 Denormalized Target: -9.668726 Denormalized Result: -9.6800193114494Target: 0.54059188216237 Result: 0.52237503151355 Denormalized Target: -9.292103 Denormalized Result: -9.6801553405953Target: 0.516588128115 Result: 0.52239821643736 Denormalized Target: -9.803427 Denormalized Result: -9.6796614591815Target: 0.51890985301725 Result: 0.52241084631881 Denormalized Target: -9.75397 Denormalized Result: -9.6793924195352Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.007Annealling Rate: 1
+Run = 1 Training set error: 0.012056461909392 Test Set error: 0.011594237167664
+Run = 2 Training set error: 0.012040439946661 Test Set error: 0.011579268950316
+Run = 3 Training set error: 0.012037814491895 Test Set error: 0.011576423835407
+Run = 4 Training set error: 0.012036960259942 Test Set error: 0.011575521110559
+Run = 5 Training set error: 0.012036588508349 Test Set error: 0.011575198445951
+Run = 6 Training set error: 0.012036404898318 Test Set error: 0.011575038303024
+Run = 7 Training set error: 0.012036300935366 Test Set error: 0.011574947130159
+Run = 8 Training set error: 0.012036231174445 Test Set error: 0.011574885586737
+Run = 9 Training set error: 0.01203617613303 Test Set error: 0.011574836796081
+Run = 10 Training set error: 0.012036127426451 Test Set error: 0.011574793494214
+Run = 11 Training set error: 0.012036081443843 Test Set error: 0.01157475255284
+Run = 12 Training set error: 0.012036036629978 Test Set error: 0.011574712624579
+Run = 13 Training set error: 0.012035992314981 Test Set error: 0.011574673129081
+Run = 14 Training set error: 0.012035948210316 Test Set error: 0.011574633816373
+Run = 15 Training set error: 0.012035904191696 Test Set error: 0.011574594578781
+Run = 16 Training set error: 0.012035860205591 Test Set error: 0.011574555369933
+Run = 17 Training set error: 0.012035816228944 Test Set error: 0.011574516169855
+Run = 18 Training set error: 0.012035772251829 Test Set error: 0.011574476969953
+Run = 19 Training set error: 0.012035728269973 Test Set error: 0.011574437766529
+Run = 20 Training set error: 0.012035684281543 Test Set error: 0.011574398557995
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52231441564947 Denormalized Target: -9.802783 Denormalized Result: -9.6814465697098Target: 0.52291157405912 Result: 0.52230156324975 Denormalized Target: -9.668726 Denormalized Result: -9.6817203494038Target: 0.54059188216237 Result: 0.52229473182595 Denormalized Target: -9.292103 Denormalized Result: -9.6818658712641Target: 0.516588128115 Result: 0.52231946235838 Denormalized Target: -9.803427 Denormalized Result: -9.681339065551Target: 0.51890985301725 Result: 0.52233288240027 Denormalized Target: -9.75397 Denormalized Result: -9.6810531940376Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.007Annealling Rate: 0.8
+Run = 1 Training set error: 0.012035640285753 Test Set error: 0.011574359343676
+Run = 2 Training set error: 0.011372283644744 Test Set error: 0.010860822907511
+Run = 3 Training set error: 0.010783213909003 Test Set error: 0.010222866497983
+Run = 4 Training set error: 0.010266400385374 Test Set error: 0.0096704466614895
+Run = 5 Training set error: 0.0098382889475525 Test Set error: 0.0092043418385559
+Run = 6 Training set error: 0.0095070576552709 Test Set error: 0.0088463126674699
+Run = 7 Training set error: 0.0092709570494027 Test Set error: 0.0085914675948021
+Run = 8 Training set error: 0.0091215389519372 Test Set error: 0.0084298369860613
+Run = 9 Training set error: 0.0090397448792171 Test Set error: 0.0083421977508233
+Run = 10 Training set error: 0.0090048123507719 Test Set error: 0.0083047220473534
+Run = 11 Training set error: 0.008999670174044 Test Set error: 0.0082983017813078
+Run = 12 Training set error: 0.0090113650764582 Test Set error: 0.0083093404438094
+Run = 13 Training set error: 0.0090314473227877 Test Set error: 0.0083290461206241
+Run = 14 Training set error: 0.0090545304356867 Test Set error: 0.0083522529621377
+Run = 15 Training set error: 0.00907754345551 Test Set error: 0.0083755788216292
+Run = 16 Training set error: 0.009098877024907 Test Set error: 0.0083972699146501
+Run = 17 Training set error: 0.0091178153995221 Test Set error: 0.0084169151600966
+Run = 18 Training set error: 0.0091341617390417 Test Set error: 0.0084342860064161
+Run = 19 Training set error: 0.0091480019230328 Test Set error: 0.0084491054242518
+Run = 20 Training set error: 0.0091595609831576 Test Set error: 0.0084615638877359
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52294309809289 Denormalized Target: -9.802783 Denormalized Result: -9.6680544802448Target: 0.52291157405912 Result: 0.52293012846137 Denormalized Target: -9.668726 Denormalized Result: -9.6683307571911Target: 0.54059188216237 Result: 0.52292323030181 Denormalized Target: -9.292103 Denormalized Result: -9.6684777006455Target: 0.516588128115 Result: 0.52294818901665 Denormalized Target: -9.803427 Denormalized Result: -9.6679460342286Target: 0.51890985301725 Result: 0.5229617232005 Denormalized Target: -9.75397 Denormalized Result: -9.6676577312819Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.007Annealling Rate: 0.6
+Run = 1 Training set error: 0.01206289808139 Test Set error: 0.011601771396677
+Run = 2 Training set error: 0.010631294571763 Test Set error: 0.010061410540375
+Run = 3 Training set error: 0.0096334582158008 Test Set error: 0.0089859684083381
+Run = 4 Training set error: 0.0091454868758662 Test Set error: 0.0084592926287791
+Run = 5 Training set error: 0.0090135186205264 Test Set error: 0.0083171218099942
+Run = 6 Training set error: 0.0090167560504448 Test Set error: 0.0083184268827162
+Run = 7 Training set error: 0.0090503725611847 Test Set error: 0.0083520008749182
+Run = 8 Training set error: 0.0090818713307863 Test Set error: 0.0083839053691491
+Run = 9 Training set error: 0.0091047741265893 Test Set error: 0.0084075582285168
+Run = 10 Training set error: 0.0091199342509038 Test Set error: 0.0084232457635522
+Run = 11 Training set error: 0.0091295352568071 Test Set error: 0.0084331908225632
+Run = 12 Training set error: 0.0091354763080228 Test Set error: 0.008439348185253
+Run = 13 Training set error: 0.0091391056014479 Test Set error: 0.0084431108088567
+Run = 14 Training set error: 0.0091413063901276 Test Set error: 0.0084453928682583
+Run = 15 Training set error: 0.0091426352054483 Test Set error: 0.0084467722897101
+Run = 16 Training set error: 0.0091434354946595 Test Set error: 0.0084476157409257
+Run = 17 Training set error: 0.0091439167475118 Test Set error: 0.0084481229698848
+Run = 18 Training set error: 0.0091442058876328 Test Set error: 0.0084484277240662
+Run = 19 Training set error: 0.0091443795115008 Test Set error: 0.0084486107265911
+Run = 20 Training set error: 0.0091444837361407 Test Set error: 0.0084487205821041
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52269502426391 Denormalized Target: -9.802783 Denormalized Result: -9.6733389079339Target: 0.52291157405912 Result: 0.52268196641614 Denormalized Target: -9.668726 Denormalized Result: -9.6736170640481Target: 0.54059188216237 Result: 0.52267501883281 Denormalized Target: -9.292103 Denormalized Result: -9.6737650603196Target: 0.516588128115 Result: 0.52270014878762 Denormalized Target: -9.803427 Denormalized Result: -9.6732297461771Target: 0.51890985301725 Result: 0.52271377036567 Denormalized Target: -9.75397 Denormalized Result: -9.6729395815736Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.007Annealling Rate: 0.4
+Run = 1 Training set error: 0.012059328641277 Test Set error: 0.011597670187073
+Run = 2 Training set error: 0.0098000097989696 Test Set error: 0.0091652830472906
+Run = 3 Training set error: 0.009092546024159 Test Set error: 0.0084036278663092
+Run = 4 Training set error: 0.0090605844122171 Test Set error: 0.0083672517918323
+Run = 5 Training set error: 0.0090874774122528 Test Set error: 0.00839447527461
+Run = 6 Training set error: 0.0091041609587915 Test Set error: 0.0084116074817088
+Run = 7 Training set error: 0.0091117494414026 Test Set error: 0.0084194245000119
+Run = 8 Training set error: 0.0091149290113956 Test Set error: 0.0084227032290437
+Run = 9 Training set error: 0.0091162237623306 Test Set error: 0.0084240388757815
+Run = 10 Training set error: 0.009116745321012 Test Set error: 0.0084245831905996
+Run = 11 Training set error: 0.0091169545292129 Test Set error: 0.0084248024926231
+Run = 12 Training set error: 0.0091170383060113 Test Set error: 0.0084248903136788
+Run = 13 Training set error: 0.0091170718316916 Test Set error: 0.0084249254581385
+Run = 14 Training set error: 0.009117085244357 Test Set error: 0.0084249395184878
+Run = 15 Training set error: 0.0091170906098065 Test Set error: 0.0084249451430385
+Run = 16 Training set error: 0.0091170927560471 Test Set error: 0.0084249473929239
+Run = 17 Training set error: 0.0091170936145534 Test Set error: 0.0084249482928889
+Run = 18 Training set error: 0.0091170939579582 Test Set error: 0.0084249486528773
+Run = 19 Training set error: 0.0091170940953197 Test Set error: 0.0084249487968722
+Run = 20 Training set error: 0.0091170941502648 Test Set error: 0.0084249488544707
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52246941595402 Denormalized Target: -9.802783 Denormalized Result: -9.6781447788497Target: 0.52291157405912 Result: 0.52245630250062 Denormalized Target: -9.668726 Denormalized Result: -9.6784241194658Target: 0.54059188216237 Result: 0.52244932375331 Denormalized Target: -9.292103 Denormalized Result: -9.6785727795873Target: 0.516588128115 Result: 0.5224745616522 Denormalized Target: -9.803427 Denormalized Result: -9.6780351660378Target: 0.51890985301725 Result: 0.52248823829467 Denormalized Target: -9.75397 Denormalized Result: -9.6777438284611Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.006Annealling Rate: 1
+Run = 1 Training set error: 0.011594361453265 Test Set error: 0.011095633594868
+Run = 2 Training set error: 0.011577845658016 Test Set error: 0.011081294402499
+Run = 3 Training set error: 0.01157487357996 Test Set error: 0.011078244505855
+Run = 4 Training set error: 0.011573928511756 Test Set error: 0.011077147912316
+Run = 5 Training set error: 0.01157350512286 Test Set error: 0.011076640957151
+Run = 6 Training set error: 0.011573288368842 Test Set error: 0.011076384238124
+Run = 7 Training set error: 0.011573167350203 Test Set error: 0.011076245536827
+Run = 8 Training set error: 0.011573092417568 Test Set error: 0.011076163871165
+Run = 9 Training set error: 0.011573039853838 Test Set error: 0.011076109913159
+Run = 10 Training set error: 0.011572998165056 Test Set error: 0.011076069429256
+Run = 11 Training set error: 0.011572961763836 Test Set error: 0.011076035498235
+Run = 12 Training set error: 0.011572927932279 Test Set error: 0.01107600475316
+Run = 13 Training set error: 0.011572895348104 Test Set error: 0.01107597555597
+Run = 14 Training set error: 0.01157286336798 Test Set error: 0.011075947109692
+Run = 15 Training set error: 0.011572831678899 Test Set error: 0.011075919026567
+Run = 16 Training set error: 0.011572800128569 Test Set error: 0.011075891117932
+Run = 17 Training set error: 0.011572768642891 Test Set error: 0.011075863291994
+Run = 18 Training set error: 0.011572737185815 Test Set error: 0.01107583550409
+Run = 19 Training set error: 0.011572705739801 Test Set error: 0.011075807732492
+Run = 20 Training set error: 0.011572674296318 Test Set error: 0.011075779966631
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52237498770875 Denormalized Target: -9.802783 Denormalized Result: -9.6801562737178Target: 0.52291157405912 Result: 0.5223611887554 Denormalized Target: -9.668726 Denormalized Result: -9.6804502167408Target: 0.54059188216237 Result: 0.522353826401 Denormalized Target: -9.292103 Denormalized Result: -9.6806070483968Target: 0.516588128115 Result: 0.52238039469787 Denormalized Target: -9.803427 Denormalized Result: -9.6800410949296Target: 0.51890985301725 Result: 0.52239475140131 Denormalized Target: -9.75397 Denormalized Result: -9.6797352708067Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.006Annealling Rate: 0.8
+Run = 1 Training set error: 0.011572642851215 Test Set error: 0.011075752201368
+Run = 2 Training set error: 0.010957232188656 Test Set error: 0.010409823265611
+Run = 3 Training set error: 0.010418111104369 Test Set error: 0.0098338083509588
+Run = 4 Training set error: 0.0099602182511982 Test Set error: 0.0093379763249119
+Run = 5 Training set error: 0.0095985955684695 Test Set error: 0.0089459950081484
+Run = 6 Training set error: 0.0093334204458504 Test Set error: 0.0086596022533336
+Run = 7 Training set error: 0.0091589788417557 Test Set error: 0.0084706431490796
+Run = 8 Training set error: 0.0090583708805641 Test Set error: 0.008362198456642
+Run = 9 Training set error: 0.009010896003598 Test Set error: 0.0083114777622987
+Run = 10 Training set error: 0.0089981012729223 Test Set error: 0.0082971899510665
+Run = 11 Training set error: 0.0090056720767753 Test Set error: 0.0083039287437807
+Run = 12 Training set error: 0.0090238356242548 Test Set error: 0.0083216586721184
+Run = 13 Training set error: 0.0090464023485525 Test Set error: 0.0083441632598779
+Run = 14 Training set error: 0.0090696632613759 Test Set error: 0.008367706400227
+Run = 15 Training set error: 0.0090916265866255 Test Set error: 0.0083900184061003
+Run = 16 Training set error: 0.0091113472147923 Test Set error: 0.0084101935093335
+Run = 17 Training set error: 0.0091284979477728 Test Set error: 0.0084282806622685
+Run = 18 Training set error: 0.0091430958136568 Test Set error: 0.0084439638864208
+Run = 19 Training set error: 0.0091553338873185 Test Set error: 0.0084571543645624
+Run = 20 Training set error: 0.0091654815303413 Test Set error: 0.0084680870967585
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52295335516987 Denormalized Target: -9.802783 Denormalized Result: -9.667835985687Target: 0.52291157405912 Result: 0.52293944889621 Denormalized Target: -9.668726 Denormalized Result: -9.6681322148291Target: 0.54059188216237 Result: 0.52293202557478 Denormalized Target: -9.292103 Denormalized Result: -9.6682903451949Target: 0.516588128115 Result: 0.52295880268841 Denormalized Target: -9.803427 Denormalized Result: -9.6677199435476Target: 0.51890985301725 Result: 0.52297326412726 Denormalized Target: -9.75397 Denormalized Result: -9.6674118883682Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.006Annealling Rate: 0.6
+Run = 1 Training set error: 0.011601993507234 Test Set error: 0.011103422583905
+Run = 2 Training set error: 0.010281558569317 Test Set error: 0.009687719265706
+Run = 3 Training set error: 0.0094365556478164 Test Set error: 0.0087735958052347
+Run = 4 Training set error: 0.0090812108154966 Test Set error: 0.0083901821877036
+Run = 5 Training set error: 0.0090078346134658 Test Set error: 0.0083108351279838
+Run = 6 Training set error: 0.0090265264255249 Test Set error: 0.0083284334175729
+Run = 7 Training set error: 0.0090610648221415 Test Set error: 0.0083631409472566
+Run = 8 Training set error: 0.0090900733050418 Test Set error: 0.0083927062471752
+Run = 9 Training set error: 0.0091104067420664 Test Set error: 0.0084137214523359
+Run = 10 Training set error: 0.0091236457825099 Test Set error: 0.0084274262023358
+Run = 11 Training set error: 0.0091319595388473 Test Set error: 0.0084360396169362
+Run = 12 Training set error: 0.0091370802627882 Test Set error: 0.0084413473819214
+Run = 13 Training set error: 0.0091402001966682 Test Set error: 0.0084445821405354
+Run = 14 Training set error: 0.0091420892150456 Test Set error: 0.0084465409879141
+Run = 15 Training set error: 0.0091432287578453 Test Set error: 0.008447733083277
+Run = 16 Training set error: 0.0091439146889805 Test Set error: 0.0084484560320312
+Run = 17 Training set error: 0.0091443270411945 Test Set error: 0.0084488906527705
+Run = 18 Training set error: 0.0091445747381011 Test Set error: 0.0084491517316496
+Run = 19 Training set error: 0.009144723459034 Test Set error: 0.0084493084892735
+Run = 20 Training set error: 0.0091448127285929 Test Set error: 0.0084494025835494
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52274841942827 Denormalized Target: -9.802783 Denormalized Result: -9.672201492971Target: 0.52291157405912 Result: 0.52273443818522 Denormalized Target: -9.668726 Denormalized Result: -9.6724993190988Target: 0.54059188216237 Result: 0.5227269728445 Denormalized Target: -9.292103 Denormalized Result: -9.6726583445525Target: 0.516588128115 Result: 0.52275389549411 Denormalized Target: -9.803427 Denormalized Result: -9.6720848427218Target: 0.51890985301725 Result: 0.52276843117061 Denormalized Target: -9.75397 Denormalized Result: -9.6717752061443Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.006Annealling Rate: 0.4
+Run = 1 Training set error: 0.011598199864881 Test Set error: 0.01109968120709
+Run = 2 Training set error: 0.0095748957428086 Test Set error: 0.0089229985272802
+Run = 3 Training set error: 0.0090750798936923 Test Set error: 0.0083848056287188
+Run = 4 Training set error: 0.0090673217242952 Test Set error: 0.0083743328898011
+Run = 5 Training set error: 0.0090931331828047 Test Set error: 0.0084005876319617
+Run = 6 Training set error: 0.0091077944909516 Test Set error: 0.0084156577015333
+Run = 7 Training set error: 0.0091143313967809 Test Set error: 0.0084223941269224
+Run = 8 Training set error: 0.0091170523088929 Test Set error: 0.0084252005408433
+Run = 9 Training set error: 0.0091181575648442 Test Set error: 0.0084263418266294
+Run = 10 Training set error: 0.0091186023638296 Test Set error: 0.0084268081430414
+Run = 11 Training set error: 0.009118780714497 Test Set error: 0.0084269951316532
+Run = 12 Training set error: 0.0091188521237118 Test Set error: 0.008427070001
+Run = 13 Training set error: 0.0091188806984271 Test Set error: 0.0084270999605607
+Run = 14 Training set error: 0.0091188921300781 Test Set error: 0.0084271119462766
+Run = 15 Training set error: 0.009118896703021 Test Set error: 0.0084271167408657
+Run = 16 Training set error: 0.0091188985322436 Test Set error: 0.0084271186587502
+Run = 17 Training set error: 0.0091188992639396 Test Set error: 0.0084271194259113
+Run = 18 Training set error: 0.0091188995566194 Test Set error: 0.0084271197327773
+Run = 19 Training set error: 0.0091188996736906 Test Set error: 0.0084271198555229
+Run = 20 Training set error: 0.0091188997205192 Test Set error: 0.0084271199046214
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52255587643716 Denormalized Target: -9.802783 Denormalized Result: -9.676303011933Target: 0.52291157405912 Result: 0.52254184783612 Denormalized Target: -9.668726 Denormalized Result: -9.6766018468728Target: 0.54059188216237 Result: 0.52253435594459 Denormalized Target: -9.292103 Denormalized Result: -9.6767614379076Target: 0.516588128115 Result: 0.52256137053293 Denormalized Target: -9.803427 Denormalized Result: -9.6761859776133Target: 0.51890985301725 Result: 0.5225759530885 Denormalized Target: -9.75397 Denormalized Result: -9.6758753424256Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.005Annealling Rate: 1
+Run = 1 Training set error: 0.011090342409739 Test Set error: 0.010549660855307
+Run = 2 Training set error: 0.011074429627265 Test Set error: 0.010536366080989
+Run = 3 Training set error: 0.011071052715674 Test Set error: 0.010533136529185
+Run = 4 Training set error: 0.011069991918413 Test Set error: 0.010531968319777
+Run = 5 Training set error: 0.011069517146144 Test Set error: 0.010531408112008
+Run = 6 Training set error: 0.011069262897715 Test Set error: 0.010531104408292
+Run = 7 Training set error: 0.011069114794075 Test Set error: 0.010530930141433
+Run = 8 Training set error: 0.011069022773029 Test Set error: 0.010530825271242
+Run = 9 Training set error: 0.011068961224591 Test Set error: 0.010530758263321
+Run = 10 Training set error: 0.01106891636209 Test Set error: 0.010530712011651
+Run = 11 Training set error: 0.011068880654941 Test Set error: 0.010530677152944
+Run = 12 Training set error: 0.011068849973342 Test Set error: 0.010530648549422
+Run = 13 Training set error: 0.011068822050028 Test Set error: 0.010530623380013
+Run = 14 Training set error: 0.011068795639893 Test Set error: 0.010530600095413
+Run = 15 Training set error: 0.011068770059106 Test Set error: 0.010530577844714
+Run = 16 Training set error: 0.011068744932084 Test Set error: 0.010530556160565
+Run = 17 Training set error: 0.011068720052541 Test Set error: 0.010530534786277
+Run = 18 Training set error: 0.011068695307173 Test Set error: 0.010530513580864
+Run = 19 Training set error: 0.011068670633751 Test Set error: 0.010530492466891
+Run = 20 Training set error: 0.011068645998092 Test Set error: 0.010530471401825
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52245739680971 Denormalized Target: -9.802783 Denormalized Result: -9.6784008086745Target: 0.52291157405912 Result: 0.52244279517356 Denormalized Target: -9.668726 Denormalized Result: -9.6787118503136Target: 0.54059188216237 Result: 0.5224349825706 Denormalized Target: -9.292103 Denormalized Result: -9.6788782730902Target: 0.516588128115 Result: 0.52246310931126 Denormalized Target: -9.803427 Denormalized Result: -9.678279121911Target: 0.51890985301725 Result: 0.52247826027461 Denormalized Target: -9.75397 Denormalized Result: -9.6779563785948Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.005Annealling Rate: 0.8
+Run = 1 Training set error: 0.011068621381424 Test Set error: 0.010530450362306
+Run = 2 Training set error: 0.010513277482111 Test Set error: 0.0099355960653828
+Run = 3 Training set error: 0.010037265333533 Test Set error: 0.0094225636436039
+Run = 4 Training set error: 0.0096577642289245 Test Set error: 0.0090103012196856
+Run = 5 Training set error: 0.0093746671490096 Test Set error: 0.0087045831669133
+Run = 6 Training set error: 0.009184568818844 Test Set error: 0.0084985308842908
+Run = 7 Training set error: 0.0090717939805152 Test Set error: 0.0083767248751557
+Run = 8 Training set error: 0.0090160220759342 Test Set error: 0.0083171521183152
+Run = 9 Training set error: 0.0089980258556618 Test Set error: 0.0082975075980614
+Run = 10 Training set error: 0.0090027074208321 Test Set error: 0.0083012310241328
+Run = 11 Training set error: 0.0090194458444472 Test Set error: 0.0083174929944063
+Run = 12 Training set error: 0.0090415367344418 Test Set error: 0.0083394005438312
+Run = 13 Training set error: 0.0090648512155509 Test Set error: 0.0083629724401002
+Run = 14 Training set error: 0.0090871419028606 Test Set error: 0.0083856022963284
+Run = 15 Training set error: 0.0091073084320404 Test Set error: 0.008406175163375
+Run = 16 Training set error: 0.0091249340435349 Test Set error: 0.0084246425822051
+Run = 17 Training set error: 0.0091399873912361 Test Set error: 0.0084408745419917
+Run = 18 Training set error: 0.0091526381018653 Test Set error: 0.0084545076594379
+Run = 19 Training set error: 0.0091631466351609 Test Set error: 0.0084658273182497
+Run = 20 Training set error: 0.0091718010538552 Test Set error: 0.0084752430913691
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52296823488794 Denormalized Target: -9.802783 Denormalized Result: -9.6675190203927Target: 0.52291157405912 Result: 0.52295353603816 Denormalized Target: -9.668726 Denormalized Result: -9.6678321328605Target: 0.54059188216237 Result: 0.52294566834532 Denormalized Target: -9.292103 Denormalized Result: -9.6679997291525Target: 0.516588128115 Result: 0.52297398415872 Denormalized Target: -9.803427 Denormalized Result: -9.6673965503771Target: 0.51890985301725 Result: 0.52298923025525 Denormalized Target: -9.75397 Denormalized Result: -9.6670717805497Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.005Annealling Rate: 0.6
+Run = 1 Training set error: 0.011099215067519 Test Set error: 0.01055816726802
+Run = 2 Training set error: 0.0099252188771935 Test Set error: 0.0093001648493828
+Run = 3 Training set error: 0.009263541064339 Test Set error: 0.0085866752888122
+Run = 4 Training set error: 0.0090372342714368 Test Set error: 0.0083430679738935
+Run = 5 Training set error: 0.0090109755119187 Test Set error: 0.0083135332035496
+Run = 6 Training set error: 0.0090398257703897 Test Set error: 0.0083419658791178
+Run = 7 Training set error: 0.0090733078695845 Test Set error: 0.0083757700346814
+Run = 8 Training set error: 0.009099118973744 Test Set error: 0.0084022680583997
+Run = 9 Training set error: 0.0091166299120666 Test Set error: 0.0084203827063944
+Run = 10 Training set error: 0.0091278559119161 Test Set error: 0.0084320100742117
+Run = 11 Training set error: 0.0091348483062605 Test Set error: 0.008439257284817
+Run = 12 Training set error: 0.0091391356892188 Test Set error: 0.0084437025738753
+Run = 13 Training set error: 0.0091417411087659 Test Set error: 0.0084464045380367
+Run = 14 Training set error: 0.0091433162124743 Test Set error: 0.0084480382157706
+Run = 15 Training set error: 0.0091442655361066 Test Set error: 0.0084490331067582
+Run = 16 Training set error: 0.0091448366632403 Test Set error: 0.0084496351879889
+Run = 17 Training set error: 0.0091451798911349 Test Set error: 0.0084499970285335
+Run = 18 Training set error: 0.009145386026398 Test Set error: 0.0084502143458522
+Run = 19 Training set error: 0.0091455097790142 Test Set error: 0.0084503448129087
+Run = 20 Training set error: 0.0091455840563065 Test Set error: 0.0084504231207395
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52281034986474 Denormalized Target: -9.802783 Denormalized Result: -9.6708822610527Target: 0.52291157405912 Result: 0.52279558950369 Denormalized Target: -9.668726 Denormalized Result: -9.6711966838233Target: 0.54059188216237 Result: 0.52278768731385 Denormalized Target: -9.292103 Denormalized Result: -9.6713650149647Target: 0.516588128115 Result: 0.52281612254948 Denormalized Target: -9.803427 Denormalized Result: -9.6707592922767Target: 0.51890985301725 Result: 0.52283142951694 Denormalized Target: -9.75397 Denormalized Result: -9.6704332257867Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.005Annealling Rate: 0.4
+Run = 1 Training set error: 0.0110951760917 Test Set error: 0.010554485502339
+Run = 2 Training set error: 0.0093743536690012 Test Set error: 0.0087073047522716
+Run = 3 Training set error: 0.0090652660693074 Test Set error: 0.0083736504019017
+Run = 4 Training set error: 0.0090754124098104 Test Set error: 0.008382487060524
+Run = 5 Training set error: 0.0090992651400236 Test Set error: 0.0084068621381484
+Run = 6 Training set error: 0.0091117968411378 Test Set error: 0.0084197620586565
+Run = 7 Training set error: 0.0091172754097772 Test Set error: 0.0084254128036536
+Run = 8 Training set error: 0.0091195405464233 Test Set error: 0.0084277507532951
+Run = 9 Training set error: 0.0091204583406541 Test Set error: 0.0084286983009379
+Run = 10 Training set error: 0.0091208273332145 Test Set error: 0.0084290792952114
+Run = 11 Training set error: 0.009120975229995 Test Set error: 0.0084292320087221
+Run = 12 Training set error: 0.0091210344366548 Test Set error: 0.0084292931446407
+Run = 13 Training set error: 0.0091210581269894 Test Set error: 0.0084293176070894
+Run = 14 Training set error: 0.0091210676043504 Test Set error: 0.0084293273933617
+Run = 15 Training set error: 0.0091210713954918 Test Set error: 0.0084293313080782
+Run = 16 Training set error: 0.0091210729119794 Test Set error: 0.0084293328739975
+Run = 17 Training set error: 0.0091210735185794 Test Set error: 0.0084293335003704
+Run = 18 Training set error: 0.0091210737612204 Test Set error: 0.0084293337509207
+Run = 19 Training set error: 0.0091210738582774 Test Set error: 0.0084293338511414
+Run = 20 Training set error: 0.0091210738971004 Test Set error: 0.0084293338912299
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52265409683098 Denormalized Target: -9.802783 Denormalized Result: -9.6742107373433Target: 0.52291157405912 Result: 0.52263929735513 Denormalized Target: -9.668726 Denormalized Result: -9.674525993331Target: 0.54059188216237 Result: 0.52263137322619 Denormalized Target: -9.292103 Denormalized Result: -9.6746947918156Target: 0.516588128115 Result: 0.52265988440326 Denormalized Target: -9.803427 Denormalized Result: -9.6740874514356Target: 0.51890985301725 Result: 0.52267523007108 Denormalized Target: -9.75397 Denormalized Result: -9.6737605605569Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.004Annealling Rate: 1
+Run = 1 Training set error: 0.010539179722024 Test Set error: 0.0099583609748897
+Run = 2 Training set error: 0.010526094287932 Test Set error: 0.009947955155851
+Run = 3 Training set error: 0.010522460289368 Test Set error: 0.0099447285829708
+Run = 4 Training set error: 0.010521260205868 Test Set error: 0.0099435160378282
+Run = 5 Training set error: 0.010520737473306 Test Set error: 0.0099429287435639
+Run = 6 Training set error: 0.010520455251511 Test Set error: 0.0099425945459553
+Run = 7 Training set error: 0.010520283416829 Test Set error: 0.0099423882098089
+Run = 8 Training set error: 0.010520171649182 Test Set error: 0.0099422548552482
+Run = 9 Training set error: 0.010520095304149 Test Set error: 0.0099421653759409
+Run = 10 Training set error: 0.010520040520427 Test Set error: 0.0099421027928755
+Run = 11 Training set error: 0.010519999012852 Test Set error: 0.00994205681289
+Run = 12 Training set error: 0.010519965713055 Test Set error: 0.0099420211069359
+Run = 13 Training set error: 0.010519937494522 Test Set error: 0.0099419917637687
+Run = 14 Training set error: 0.01051991242292 Test Set error: 0.0099419663620235
+Run = 15 Training set error: 0.010519889300267 Test Set error: 0.0099419434017526
+Run = 16 Training set error: 0.010519867384345 Test Set error: 0.0099419219535867
+Run = 17 Training set error: 0.010519846215253 Test Set error: 0.0099419014416409
+Run = 18 Training set error: 0.010519825508003 Test Set error: 0.0099418815090543
+Run = 19 Training set error: 0.010519805085996 Test Set error: 0.0099418619346869
+Run = 20 Training set error: 0.010519784839795 Test Set error: 0.0099418425815009
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52256231405193 Denormalized Target: -9.802783 Denormalized Result: -9.6761658789276Target: 0.52291157405912 Result: 0.52254705619444 Denormalized Target: -9.668726 Denormalized Result: -9.6764908992851Target: 0.54059188216237 Result: 0.5225388754705 Denormalized Target: -9.292103 Denormalized Result: -9.6766651637139Target: 0.516588128115 Result: 0.52256827630912 Denormalized Target: -9.803427 Denormalized Result: -9.6760388719106Target: 0.51890985301725 Result: 0.52258407655415 Denormalized Target: -9.75397 Denormalized Result: -9.6757022977035Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.004Annealling Rate: 0.8
+Run = 1 Training set error: 0.010519764701581 Test Set error: 0.0099418233645742
+Run = 2 Training set error: 0.010039916874875 Test Set error: 0.0094254394985441
+Run = 3 Training set error: 0.0096590522251594 Test Set error: 0.0090119161572941
+Run = 4 Training set error: 0.0093753513531556 Test Set error: 0.0087055852767576
+Run = 5 Training set error: 0.0091849252236258 Test Set error: 0.0084991807860473
+Run = 6 Training set error: 0.0090719403708452 Test Set error: 0.0083771348759166
+Run = 7 Training set error: 0.0090160339776687 Test Set error: 0.0083173999331056
+Run = 8 Training set error: 0.0089979546050224 Test Set error: 0.0082976628623253
+Run = 9 Training set error: 0.009002575227129 Test Set error: 0.0083013130780791
+Run = 10 Training set error: 0.0090192650967682 Test Set error: 0.0083175237630173
+Run = 11 Training set error: 0.0090413268126091 Test Set error: 0.0083393816251859
+Run = 12 Training set error: 0.0090646206892218 Test Set error: 0.0083629273734026
+Run = 13 Training set error: 0.0090868966191714 Test Set error: 0.0083855381669061
+Run = 14 Training set error: 0.009107052432559 Test Set error: 0.0084063262350636
+Run = 15 Training set error: 0.0091246701604786 Test Set error: 0.0084248593468298
+Run = 16 Training set error: 0.0091397176374493 Test Set error: 0.0084410495334643
+Run = 17 Training set error: 0.009152363927929 Test Set error: 0.0084546717759902
+Run = 18 Training set error: 0.0091628691005678 Test Set error: 0.008465982984467
+Run = 19 Training set error: 0.0091715209422546 Test Set error: 0.0084753989341701
+Run = 20 Training set error: 0.0091786418339525 Test Set error: 0.0084831376590913
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52299126501012 Denormalized Target: -9.802783 Denormalized Result: -9.6670284365378Target: 0.52291157405912 Result: 0.52297592041436 Denormalized Target: -9.668726 Denormalized Result: -9.6673553045797Target: 0.54059188216237 Result: 0.52296769068235 Denormalized Target: -9.292103 Denormalized Result: -9.6675306129703Target: 0.516588128115 Result: 0.52299726013506 Denormalized Target: -9.803427 Denormalized Result: -9.6669007293774Target: 0.51890985301725 Result: 0.52301314554159 Denormalized Target: -9.75397 Denormalized Result: -9.666562341074Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.004Annealling Rate: 0.6
+Run = 1 Training set error: 0.010549289777969 Test Set error: 0.009967524916313
+Run = 2 Training set error: 0.009579448735677 Test Set error: 0.0089252661620825
+Run = 3 Training set error: 0.0091291126280985 Test Set error: 0.0084410296186906
+Run = 4 Training set error: 0.009015388631157 Test Set error: 0.0083190135255686
+Run = 5 Training set error: 0.0090232153379542 Test Set error: 0.0083253318650573
+Run = 6 Training set error: 0.0090567943719214 Test Set error: 0.0083590061655515
+Run = 7 Training set error: 0.0090872425454079 Test Set error: 0.0083899186606785
+Run = 8 Training set error: 0.0091091509187984 Test Set error: 0.0084125735549967
+Run = 9 Training set error: 0.0091235858726668 Test Set error: 0.008427526016793
+Run = 10 Training set error: 0.0091327062030099 Test Set error: 0.0084369816961094
+Run = 11 Training set error: 0.0091383426092397 Test Set error: 0.0084428282058395
+Run = 12 Training set error: 0.0091417833075165 Test Set error: 0.0084463981567899
+Run = 13 Training set error: 0.0091438688566681 Test Set error: 0.0084485624036396
+Run = 14 Training set error: 0.0091451277804628 Test Set error: 0.0084498689580953
+Run = 15 Training set error: 0.0091458858659555 Test Set error: 0.0084506557701996
+Run = 16 Training set error: 0.0091463416998959 Test Set error: 0.0084511299334564
+Run = 17 Training set error: 0.0091466155538836 Test Set error: 0.0084514188236952
+Run = 18 Training set error: 0.0091467799935533 Test Set error: 0.0084515922943402
+Run = 19 Training set error: 0.0091468787031692 Test Set error: 0.0084516964258619
+Run = 20 Training set error: 0.0091469379454296 Test Set error: 0.0084517589224611
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52288156597173 Denormalized Target: -9.802783 Denormalized Result: -9.6693652273161Target: 0.52291157405912 Result: 0.52286617327129 Denormalized Target: -9.668726 Denormalized Result: -9.6696931200761Target: 0.54059188216237 Result: 0.52285791653882 Denormalized Target: -9.292103 Denormalized Result: -9.669869003626Target: 0.516588128115 Result: 0.52288757939826 Denormalized Target: -9.803427 Denormalized Result: -9.6692371302985Target: 0.51890985301725 Result: 0.52290351236627 Denormalized Target: -9.75397 Denormalized Result: -9.6688977288484Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.004Annealling Rate: 0.4
+Run = 1 Training set error: 0.01054508871054 Test Set error: 0.0099638859436845
+Run = 2 Training set error: 0.0092191298991383 Test Set error: 0.0085384276796082
+Run = 3 Training set error: 0.009063463192753 Test Set error: 0.0083702849527777
+Run = 4 Training set error: 0.0090849272869326 Test Set error: 0.0083915294941028
+Run = 5 Training set error: 0.0091059180969096 Test Set error: 0.0084130860789273
+Run = 6 Training set error: 0.009116207336484 Test Set error: 0.0084237019771739
+Run = 7 Training set error: 0.0091206194905978 Test Set error: 0.0084282605491634
+Run = 8 Training set error: 0.0091224313645703 Test Set error: 0.0084301334910475
+Run = 9 Training set error: 0.0091231636089337 Test Set error: 0.0084308905614055
+Run = 10 Training set error: 0.009123457704096 Test Set error: 0.0084311946506954
+Run = 11 Training set error: 0.0091235755336358 Test Set error: 0.0084313164880777
+Run = 12 Training set error: 0.0091236226960809 Test Set error: 0.0084313652552901
+Run = 13 Training set error: 0.0091236415659588 Test Set error: 0.0084313847673356
+Run = 14 Training set error: 0.0091236491146942 Test Set error: 0.00843139257298
+Run = 15 Training set error: 0.0091236521343139 Test Set error: 0.0084313956953699
+Run = 16 Training set error: 0.0091236533421829 Test Set error: 0.008431396944348
+Run = 17 Training set error: 0.0091236538253321 Test Set error: 0.008431397443941
+Run = 18 Training set error: 0.0091236540185927 Test Set error: 0.0084313976437792
+Run = 19 Training set error: 0.0091236540958967 Test Set error: 0.0084313977237142
+Run = 20 Training set error: 0.009123654126819 Test Set error: 0.0084313977556889
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52276506368339 Denormalized Target: -9.802783 Denormalized Result: -9.6718469398002Target: 0.52291157405912 Result: 0.52274963998824 Denormalized Target: -9.668726 Denormalized Result: -9.6721754928041Target: 0.54059188216237 Result: 0.52274136586165 Denormalized Target: -9.292103 Denormalized Result: -9.6723517468808Target: 0.516588128115 Result: 0.52277108890289 Denormalized Target: -9.803427 Denormalized Result: -9.6717185915706Target: 0.51890985301725 Result: 0.52278705251901 Denormalized Target: -9.75397 Denormalized Result: -9.6713785372594Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.003Annealling Rate: 1
+Run = 1 Training set error: 0.0099399208512249 Test Set error: 0.0093099704895667
+Run = 2 Training set error: 0.0099333253781214 Test Set error: 0.009305834698865
+Run = 3 Training set error: 0.0099300683771575 Test Set error: 0.0093032045411692
+Run = 4 Training set error: 0.0099288116970086 Test Set error: 0.009302090263941
+Run = 5 Training set error: 0.0099282538174434 Test Set error: 0.0093015387100451
+Run = 6 Training set error: 0.0099279615954431 Test Set error: 0.0093012215112378
+Run = 7 Training set error: 0.0099277846873931 Test Set error: 0.0093010178972696
+Run = 8 Training set error: 0.0099276661502304 Test Set error: 0.009300877808039
+Run = 9 Training set error: 0.0099275813880791 Test Set error: 0.0093007771046924
+Run = 10 Training set error: 0.0099275180124045 Test Set error: 0.0093007023433864
+Run = 11 Training set error: 0.0099274688817097 Test Set error: 0.0093006452110171
+Run = 12 Training set error: 0.009927429484161 Test Set error: 0.0093006002399056
+Run = 13 Training set error: 0.0099273968180375 Test Set error: 0.0093005637170699
+Run = 14 Training set error: 0.009927368833456 Test Set error: 0.0093005330819101
+Run = 15 Training set error: 0.009927344113012 Test Set error: 0.0093005065558049
+Run = 16 Training set error: 0.0099273216709642 Test Set error: 0.0093004828992237
+Run = 17 Training set error: 0.009927300819962 Test Set error: 0.0093004612470313
+Run = 18 Training set error: 0.0099272810801449 Test Set error: 0.009300440994991
+Run = 19 Training set error: 0.0099272621163251 Test Set error: 0.0093004217209549
+Run = 20 Training set error: 0.0099272436943108 Test Set error: 0.009300403129947
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52269059790733 Denormalized Target: -9.802783 Denormalized Result: -9.6734331974499Target: 0.52291157405912 Result: 0.52267483320279 Denormalized Target: -9.668726 Denormalized Result: -9.6737690145795Target: 0.54059188216237 Result: 0.52266636811365 Denormalized Target: -9.292103 Denormalized Result: -9.6739493365089Target: 0.516588128115 Result: 0.52269675305252 Denormalized Target: -9.803427 Denormalized Result: -9.6733020815649Target: 0.51890985301725 Result: 0.52271305470928 Denormalized Target: -9.75397 Denormalized Result: -9.6729548263677Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.003Annealling Rate: 0.8
+Run = 1 Training set error: 0.0099272256504567 Test Set error: 0.00930038501584
+Run = 2 Training set error: 0.0095713084411785 Test Set error: 0.0089163274196775
+Run = 3 Training set error: 0.0093135797405096 Test Set error: 0.0086386041147558
+Run = 4 Training set error: 0.0091466223328983 Test Set error: 0.0084579514110237
+Run = 5 Training set error: 0.0090519351309593 Test Set error: 0.0083560519102168
+Run = 6 Training set error: 0.0090084785706301 Test Set error: 0.0083096110141937
+Run = 7 Training set error: 0.0089981704743799 Test Set error: 0.0082978231986338
+Run = 8 Training set error: 0.0090070441074581 Test Set error: 0.0083058997200151
+Run = 9 Training set error: 0.0090257626954853 Test Set error: 0.0083242041552938
+Run = 10 Training set error: 0.0090484435578288 Test Set error: 0.0083468206701175
+Run = 11 Training set error: 0.0090715684506756 Test Set error: 0.008370561991675
+Run = 12 Training set error: 0.0090932740597351 Test Set error: 0.0083929848003598
+Run = 13 Training set error: 0.0091126922128596 Test Set error: 0.0084132085178637
+Run = 14 Training set error: 0.0091295391198884 Test Set error: 0.0084309187890189
+Run = 15 Training set error: 0.009143854357236 Test Set error: 0.0084463315411207
+Run = 16 Training set error: 0.0091558410610238 Test Set error: 0.0084592312358421
+Run = 17 Training set error: 0.0091657714859566 Test Set error: 0.0084699191323223
+Run = 18 Training set error: 0.0091739365528961 Test Set error: 0.0084788359514773
+Run = 19 Training set error: 0.0091806597158732 Test Set error: 0.008486120001036
+Run = 20 Training set error: 0.0091861277815933 Test Set error: 0.008492043415572
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52302861739549 Denormalized Target: -9.802783 Denormalized Result: -9.6662327622003Target: 0.52291157405912 Result: 0.52301277724256 Denormalized Target: -9.668726 Denormalized Result: -9.6665701865192Target: 0.54059188216237 Result: 0.52300426967704 Denormalized Target: -9.292103 Denormalized Result: -9.6667514132733Target: 0.516588128115 Result: 0.52303480119399 Denormalized Target: -9.803427 Denormalized Result: -9.6661010359472Target: 0.51890985301725 Result: 0.52305117722087 Denormalized Target: -9.75397 Denormalized Result: -9.6657521965302Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.003Annealling Rate: 0.6
+Run = 1 Training set error: 0.0099509583413252 Test Set error: 0.0093200820802914
+Run = 2 Training set error: 0.0092780714802298 Test Set error: 0.0085984169171262
+Run = 3 Training set error: 0.0090459486787955 Test Set error: 0.0083503890366799
+Run = 4 Training set error: 0.009017166127973 Test Set error: 0.008318881985681
+Run = 5 Training set error: 0.0090448019387924 Test Set error: 0.0083462301437801
+Run = 6 Training set error: 0.0090776499949127 Test Set error: 0.0083795160881509
+Run = 7 Training set error: 0.0091031119831555 Test Set error: 0.0084058966029716
+Run = 8 Training set error: 0.0091204241494138 Test Set error: 0.0084240506955031
+Run = 9 Training set error: 0.0091315346160712 Test Set error: 0.0084357083625642
+Run = 10 Training set error: 0.0091384590075657 Test Set error: 0.008442976099034
+Run = 11 Training set error: 0.0091427060574474 Test Set error: 0.0084474345393062
+Run = 12 Training set error: 0.009145287444672 Test Set error: 0.008450144693101
+Run = 13 Training set error: 0.0091468481890418 Test Set error: 0.0084517833918017
+Run = 14 Training set error: 0.009147788918636 Test Set error: 0.008452771143701
+Run = 15 Training set error: 0.0091483548970981 Test Set error: 0.0084533654253809
+Run = 16 Training set error: 0.0091486950385771 Test Set error: 0.0084537225811183
+Run = 17 Training set error: 0.0091488993229945 Test Set error: 0.008453937085726
+Run = 18 Training set error: 0.0091490219654633 Test Set error: 0.0084540658644969
+Run = 19 Training set error: 0.0091490955767969 Test Set error: 0.0084541431591194
+Run = 20 Training set error: 0.0091491397529033 Test Set error: 0.0084541895457418
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52296423659378 Denormalized Target: -9.802783 Denormalized Result: -9.6676041913938Target: 0.52291157405912 Result: 0.52294836122765 Denormalized Target: -9.668726 Denormalized Result: -9.6679423658185Target: 0.54059188216237 Result: 0.52293983387867 Denormalized Target: -9.292103 Denormalized Result: -9.6681240139965Target: 0.516588128115 Result: 0.52297043378146 Denormalized Target: -9.803427 Denormalized Result: -9.6674721799266Target: 0.51890985301725 Result: 0.52298684458816 Denormalized Target: -9.75397 Denormalized Result: -9.6671225996355Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.003Annealling Rate: 0.4
+Run = 1 Training set error: 0.0099469670395222 Test Set error: 0.0093167136610074
+Run = 2 Training set error: 0.0091241843916438 Test Set error: 0.00843383784767
+Run = 3 Training set error: 0.0090724845582504 Test Set error: 0.0083774330194757
+Run = 4 Training set error: 0.0090977226472236 Test Set error: 0.0084031093306549
+Run = 5 Training set error: 0.009114675075481 Test Set error: 0.008420611739419
+Run = 6 Training set error: 0.0091225131263354 Test Set error: 0.0084287253350852
+Run = 7 Training set error: 0.0091258147588887 Test Set error: 0.0084321459470587
+Run = 8 Training set error: 0.0091271618603638 Test Set error: 0.0084335420338129
+Run = 9 Training set error: 0.0091277049212659 Test Set error: 0.0084341049112504
+Run = 10 Training set error: 0.0091279228201425 Test Set error: 0.0084343307722944
+Run = 11 Training set error: 0.0091280100875686 Test Set error: 0.0084344212302738
+Run = 12 Training set error: 0.009128045011796 Test Set error: 0.0084344574316322
+Run = 13 Training set error: 0.0091280589842482 Test Set error: 0.0084344719150823
+Run = 14 Training set error: 0.0091280645736707 Test Set error: 0.0084344777089273
+Run = 15 Training set error: 0.009128066809511 Test Set error: 0.0084344800265403
+Run = 16 Training set error: 0.0091280677038574 Test Set error: 0.0084344809535964
+Run = 17 Training set error: 0.0091280680615982 Test Set error: 0.0084344813244212
+Run = 18 Training set error: 0.0091280682046946 Test Set error: 0.0084344814727511
+Run = 19 Training set error: 0.0091280682619338 Test Set error: 0.0084344815320838
+Run = 20 Training set error: 0.009128068284829 Test Set error: 0.0084344815558164
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52288925209426 Denormalized Target: -9.802783 Denormalized Result: -9.669201498805Target: 0.52291157405912 Result: 0.52287335361624 Denormalized Target: -9.668726 Denormalized Result: -9.669540165555Target: 0.54059188216237 Result: 0.52286481328908 Denormalized Target: -9.292103 Denormalized Result: -9.6697220901923Target: 0.516588128115 Result: 0.52289545807237 Denormalized Target: -9.803427 Denormalized Result: -9.6690693000852Target: 0.51890985301725 Result: 0.52291189171771 Denormalized Target: -9.75397 Denormalized Result: -9.6687192332893Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.002Annealling Rate: 1
+Run = 1 Training set error: 0.0093597831203248 Test Set error: 0.0086837693157984
+Run = 2 Training set error: 0.0093615499898584 Test Set error: 0.0086869979792387
+Run = 3 Training set error: 0.0093599797142015 Test Set error: 0.0086859321086541
+Run = 4 Training set error: 0.0093591516481447 Test Set error: 0.0086853233943261
+Run = 5 Training set error: 0.0093587264845274 Test Set error: 0.0086849912554781
+Run = 6 Training set error: 0.0093584962363287 Test Set error: 0.0086847974483596
+Run = 7 Training set error: 0.0093583619180531 Test Set error: 0.0086846748434693
+Run = 8 Training set error: 0.009358276440283 Test Set error: 0.0086845907992817
+Run = 9 Training set error: 0.0093582170451462 Test Set error: 0.0086845290046215
+Run = 10 Training set error: 0.0093581724519457 Test Set error: 0.0086844809695309
+Run = 11 Training set error: 0.0093581368557157 Test Set error: 0.0086844420269106
+Run = 12 Training set error: 0.0093581071121058 Test Set error: 0.0086844094371046
+Run = 13 Training set error: 0.0093580814064008 Test Set error: 0.0086843814762627
+Run = 14 Training set error: 0.0093580586160717 Test Set error: 0.0086843569877645
+Run = 15 Training set error: 0.0093580379991766 Test Set error: 0.0086843351538224
+Run = 16 Training set error: 0.0093580190372347 Test Set error: 0.0086843153734957
+Run = 17 Training set error: 0.0093580013524006 Test Set error: 0.0086842971934503
+Run = 18 Training set error: 0.0093579846612067 Test Set error: 0.0086842802658705
+Run = 19 Training set error: 0.0093579687469241 Test Set error: 0.0086842643210725
+Run = 20 Training set error: 0.0093579534418706 Test Set error: 0.0086842491486092
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52284921896414 Denormalized Target: -9.802783 Denormalized Result: -9.6700542779238Target: 0.52291157405912 Result: 0.52283309867116 Denormalized Target: -9.668726 Denormalized Result: -9.6703976697395Target: 0.54059188216237 Result: 0.52282443403928 Denormalized Target: -9.292103 Denormalized Result: -9.6705822422952Target: 0.516588128115 Result: 0.52285550941674 Denormalized Target: -9.803427 Denormalized Result: -9.6699202797424Target: 0.51890985301725 Result: 0.52287216277134 Denormalized Target: -9.75397 Denormalized Result: -9.6695655327362Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.002Annealling Rate: 0.8
+Run = 1 Training set error: 0.0093579386153662 Test Set error: 0.0086842345836253
+Run = 2 Training set error: 0.0091771629472904 Test Set error: 0.0084898558317811
+Run = 3 Training set error: 0.0090689201741055 Test Set error: 0.0083737001309212
+Run = 4 Training set error: 0.0090164721156506 Test Set error: 0.00831803687243
+Run = 5 Training set error: 0.0090006372032592 Test Set error: 0.0083006768267302
+Run = 6 Training set error: 0.0090064270482013 Test Set error: 0.0083057928662077
+Run = 7 Training set error: 0.0090235809681961 Test Set error: 0.0083230718873911
+Run = 8 Training set error: 0.0090456805481591 Test Set error: 0.0083454760243958
+Run = 9 Training set error: 0.0090687702338526 Test Set error: 0.0083692424596732
+Run = 10 Training set error: 0.0090907273321279 Test Set error: 0.0083918832107918
+Run = 11 Training set error: 0.0091105267538418 Test Set error: 0.0084124038244053
+Run = 12 Training set error: 0.0091277939747922 Test Set error: 0.0084305299194368
+Run = 13 Training set error: 0.0091425190714469 Test Set error: 0.0084463501636603
+Run = 14 Training set error: 0.009154880593705 Test Set error: 0.0084596344948719
+Run = 15 Training set error: 0.0091651407839652 Test Set error: 0.0084706574159971
+Run = 16 Training set error: 0.0091735856753681 Test Set error: 0.0084798402727955
+Run = 17 Training set error: 0.0091805377479211 Test Set error: 0.0084873755942485
+Run = 18 Training set error: 0.0091862060975349 Test Set error: 0.0084935084804701
+Run = 19 Training set error: 0.0091908029685425 Test Set error: 0.0084984816256672
+Run = 20 Training set error: 0.009194520205595 Test Set error: 0.0085025028495718
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52309067231791 Denormalized Target: -9.802783 Denormalized Result: -9.6649108785029Target: 0.52291157405912 Result: 0.52307449065191 Denormalized Target: -9.668726 Denormalized Result: -9.6652555776767Target: 0.54059188216237 Result: 0.52306579160927 Denormalized Target: -9.292103 Denormalized Result: -9.6654408832447Target: 0.516588128115 Result: 0.52309698613726 Denormalized Target: -9.803427 Denormalized Result: -9.664776382567Target: 0.51890985301725 Result: 0.52311370025919 Denormalized Target: -9.75397 Denormalized Result: -9.6644203411053Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.002Annealling Rate: 0.6
+Run = 1 Training set error: 0.0093713152365868 Test Set error: 0.0086948322345908
+Run = 2 Training set error: 0.0090778997100294 Test Set error: 0.0083816477148243
+Run = 3 Training set error: 0.0090218376660708 Test Set error: 0.0083229885125877
+Run = 4 Training set error: 0.0090428598215061 Test Set error: 0.008344132306536
+Run = 5 Training set error: 0.0090756467753137 Test Set error: 0.0083779001088594
+Run = 6 Training set error: 0.0091024760520649 Test Set error: 0.0084056281543297
+Run = 7 Training set error: 0.0091211044680725 Test Set error: 0.0084251943531152
+Run = 8 Training set error: 0.0091331801530898 Test Set error: 0.0084378840446973
+Run = 9 Training set error: 0.0091407460719142 Test Set error: 0.0084458367074047
+Run = 10 Training set error: 0.0091454003202701 Test Set error: 0.0084507295716234
+Run = 11 Training set error: 0.0091482340074133 Test Set error: 0.0084537087859309
+Run = 12 Training set error: 0.0091499489958241 Test Set error: 0.0084555119377611
+Run = 13 Training set error: 0.009150983300942 Test Set error: 0.0084565994455368
+Run = 14 Training set error: 0.0091516057947638 Test Set error: 0.0084572539705337
+Run = 15 Training set error: 0.0091519799785823 Test Set error: 0.0084576474124895
+Run = 16 Training set error: 0.0091522047363074 Test Set error: 0.0084578837392887
+Run = 17 Training set error: 0.0091523396800023 Test Set error: 0.0084580256295365
+Run = 18 Training set error: 0.0091524206782778 Test Set error: 0.0084581107975825
+Run = 19 Training set error: 0.0091524692887833 Test Set error: 0.0084581619106122
+Run = 20 Training set error: 0.0091524984592417 Test Set error: 0.0084581925828236
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52306346815693 Denormalized Target: -9.802783 Denormalized Result: -9.6654903770424Target: 0.52291157405912 Result: 0.52304726318352 Denormalized Target: -9.668726 Denormalized Result: -9.6658355727067Target: 0.54059188216237 Result: 0.52303855103741 Denormalized Target: -9.292103 Denormalized Result: -9.6660211574026Target: 0.516588128115 Result: 0.52306979083483 Denormalized Target: -9.803427 Denormalized Result: -9.665355692403Target: 0.51890985301725 Result: 0.52308652796067 Denormalized Target: -9.75397 Denormalized Result: -9.6649991609157Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterion: nn.MSECriterion
+LearningRate: 0.002Annealling Rate: 0.4
+Run = 1 Training set error: 0.0093680475305835 Test Set error: 0.0086923602020112
+Run = 2 Training set error: 0.0090778836788671 Test Set error: 0.0083818337585738
+Run = 3 Training set error: 0.0090874586248704 Test Set error: 0.0083912716251202
+Run = 4 Training set error: 0.0091106701038687 Test Set error: 0.0084154793500218
+Run = 5 Training set error: 0.0091229049972204 Test Set error: 0.0084283155091575
+Run = 6 Training set error: 0.0091282596435311 Test Set error: 0.0084339369182826
+Run = 7 Training set error: 0.009130474451145 Test Set error: 0.008436262591873
+Run = 8 Training set error: 0.0091313719965468 Test Set error: 0.0084372051467808
+Run = 9 Training set error: 0.0091317328710973 Test Set error: 0.0084375841310632
+Run = 10 Training set error: 0.009131877517736 Test Set error: 0.0084377360385325
+Run = 11 Training set error: 0.0091319354238688 Test Set error: 0.0084377968517069
+Run = 12 Training set error: 0.0091319585939181 Test Set error: 0.0084378211850064
+Run = 13 Training set error: 0.0091319678631525 Test Set error: 0.0084378309196102
+Run = 14 Training set error: 0.0091319715710411 Test Set error: 0.0084378348136576
+Run = 15 Training set error: 0.0091319730542278 Test Set error: 0.0084378363713096
+Run = 16 Training set error: 0.0091319736475075 Test Set error: 0.0084378369943757
+Run = 17 Training set error: 0.0091319738848201 Test Set error: 0.008437837243603
+Run = 18 Training set error: 0.0091319739797448 Test Set error: 0.0084378373432936
+Run = 19 Training set error: 0.0091319740177149 Test Set error: 0.00843783738317
+Run = 20 Training set error: 0.0091319740329031 Test Set error: 0.0084378373991207
+
+Some forward passes through the network:
+Target: 0.51661836025275 Result: 0.52302586520101 Denormalized Target: -9.802783 Denormalized Result: -9.6662913889922Target: 0.52291157405912 Result: 0.52300964483784 Denormalized Target: -9.668726 Denormalized Result: -9.6666369124866Target: 0.54059188216237 Result: 0.52300092404422 Denormalized Target: -9.292103 Denormalized Result: -9.6668226813904Target: 0.516588128115 Result: 0.52303219373002 Denormalized Target: -9.803427 Denormalized Result: -9.6661565797135Target: 0.51890985301725 Result: 0.52304894605336 Denormalized Target: -9.75397 Denormalized Result: -9.6657997244916

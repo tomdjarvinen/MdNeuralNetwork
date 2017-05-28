@@ -1,0 +1,116 @@
+Data Set Used: Only strain data.  70% of data is allocated as a training set, 30% is left for validation.Network: nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Parallel {
+    input
+       `-> (1): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> (4) -> output]
+             (1): nn.Linear(40 -> 50)
+             (2): nn.Sigmoid
+             (3): nn.Linear(50 -> 1)
+             (4): nn.Sigmoid
+           }
+       ... -> output
+  }
+  (2): nn.Linear(1 -> 1)
+}Criterionnn.MSECriterion
+LearningRate0.01Annealling Rate1
+Run = 1Training set error: 0.023752304704334Test Set error: 0.027425171841582
+Run = 2Training set error: 0.014825685400993Test Set error: 0.017195655711567
+Run = 3Training set error: 0.014059830107933Test Set error: 0.016364835489571
+Run = 4Training set error: 0.014095495134362Test Set error: 0.016411246679991
+Run = 5Training set error: 0.014100098142297Test Set error: 0.016418268680487
+Run = 6Training set error: 0.014100558076114Test Set error: 0.016419013327623
+Run = 7Training set error: 0.014100502277165Test Set error: 0.016418976562448
+Run = 8Training set error: 0.014100382283934Test Set error: 0.016418842532112
+Run = 9Training set error: 0.014100254302311Test Set error: 0.016418696396904
+Run = 10Training set error: 0.014100125328687Test Set error: 0.016418548757411
+Run = 11Training set error: 0.014099996233978Test Set error: 0.0164184009332
+Run = 12Training set error: 0.014099867126597Test Set error: 0.016418253088537
+Run = 13Training set error: 0.014099738020045Test Set error: 0.016418105243873
+Run = 14Training set error: 0.014099608916004Test Set error: 0.016417957401757
+Run = 15Training set error: 0.014099479814687Test Set error: 0.01641780956251
+Run = 16Training set error: 0.014099350716124Test Set error: 0.016417661726174
+Run = 17Training set error: 0.01409922162032Test Set error: 0.016417513892759
+Run = 18Training set error: 0.014099092527279Test Set error: 0.016417366062267
+Run = 19Training set error: 0.014098963437005Test Set error: 0.016417218234702
+Run = 20Training set error: 0.014098834349501Test Set error: 0.016417070410068
+Run = 21Training set error: 0.014098705264769Test Set error: 0.016416922588369
+Run = 22Training set error: 0.014098576182814Test Set error: 0.016416774769607
+Run = 23Training set error: 0.014098447103639Test Set error: 0.016416626953787
+Run = 24Training set error: 0.014098318027246Test Set error: 0.016416479140911
+Run = 25Training set error: 0.014098188953639Test Set error: 0.016416331330983
+Run = 26Training set error: 0.014098059882821Test Set error: 0.016416183524006
+Run = 27Training set error: 0.014097930814796Test Set error: 0.016416035719985
+Run = 28Training set error: 0.014097801749566Test Set error: 0.016415887918921
+Run = 29Training set error: 0.014097672687135Test Set error: 0.01641574012082
+Run = 30Training set error: 0.014097543627506Test Set error: 0.016415592325684
+Run = 31Training set error: 0.014097414570682Test Set error: 0.016415444533516
+Run = 32Training set error: 0.014097285516667Test Set error: 0.01641529674432
+Run = 33Training set error: 0.014097156465463Test Set error: 0.0164151489581
+Run = 34Training set error: 0.014097027417075Test Set error: 0.016415001174859
+Run = 35Training set error: 0.014096898371505Test Set error: 0.0164148533946
+Run = 36Training set error: 0.014096769328756Test Set error: 0.016414705617328
+Run = 37Training set error: 0.014096640288832Test Set error: 0.016414557843044
+Run = 38Training set error: 0.014096511251735Test Set error: 0.016414410071753
+Run = 39Training set error: 0.01409638221747Test Set error: 0.016414262303458
+Run = 40Training set error: 0.014096253186039Test Set error: 0.016414114538163
+Run = 41Training set error: 0.014096124157445Test Set error: 0.01641396677587
+Run = 42Training set error: 0.014095995131693Test Set error: 0.016413819016584
+Run = 43Training set error: 0.014095866108784Test Set error: 0.016413671260308
+Run = 44Training set error: 0.014095737088722Test Set error: 0.016413523507045
+Run = 45Training set error: 0.014095608071511Test Set error: 0.016413375756799
+Run = 46Training set error: 0.014095479057154Test Set error: 0.016413228009573
+Run = 47Training set error: 0.014095350045653Test Set error: 0.016413080265371
+Run = 48Training set error: 0.014095221037013Test Set error: 0.016412932524196
+Run = 49Training set error: 0.014095092031236Test Set error: 0.016412784786051
+Run = 50Training set error: 0.014094963028325Test Set error: 0.01641263705094
+Run = 51Training set error: 0.014094834028284Test Set error: 0.016412489318866
+Run = 52Training set error: 0.014094705031116Test Set error: 0.016412341589833
+Run = 53Training set error: 0.014094576036824Test Set error: 0.016412193863844
+Run = 54Training set error: 0.014094447045412Test Set error: 0.016412046140903
+Run = 55Training set error: 0.014094318056883Test Set error: 0.016411898421012
+Run = 56Training set error: 0.014094189071239Test Set error: 0.016411750704176
+Run = 57Training set error: 0.014094060088484Test Set error: 0.016411602990398
+Run = 58Training set error: 0.014093931108622Test Set error: 0.016411455279682
+Run = 59Training set error: 0.014093802131655Test Set error: 0.01641130757203
+Run = 60Training set error: 0.014093673157587Test Set error: 0.016411159867446
+Run = 61Training set error: 0.014093544186421Test Set error: 0.016411012165934
+Run = 62Training set error: 0.01409341521816Test Set error: 0.016410864467496
+Run = 63Training set error: 0.014093286252807Test Set error: 0.016410716772138
+Run = 64Training set error: 0.014093157290366Test Set error: 0.016410569079861
+Run = 65Training set error: 0.01409302833084Test Set error: 0.016410421390669
+Run = 66Training set error: 0.014092899374232Test Set error: 0.016410273704566
+Run = 67Training set error: 0.014092770420546Test Set error: 0.016410126021555
+Run = 68Training set error: 0.014092641469784Test Set error: 0.01640997834164
+Run = 69Training set error: 0.014092512521949Test Set error: 0.016409830664824
+Run = 70Training set error: 0.014092383577046Test Set error: 0.01640968299111
+Run = 71Training set error: 0.014092254635077Test Set error: 0.016409535320502
+Run = 72Training set error: 0.014092125696045Test Set error: 0.016409387653003
+Run = 73Training set error: 0.014091996759953Test Set error: 0.016409239988617
+Run = 74Training set error: 0.014091867826806Test Set error: 0.016409092327348
+Run = 75Training set error: 0.014091738896606Test Set error: 0.016408944669197
+Run = 76Training set error: 0.014091609969355Test Set error: 0.01640879701417
+Run = 77Training set error: 0.014091481045059Test Set error: 0.016408649362269
+Run = 78Training set error: 0.014091352123719Test Set error: 0.016408501713498
+Run = 79Training set error: 0.014091223205339Test Set error: 0.01640835406786
+Run = 80Training set error: 0.014091094289922Test Set error: 0.016408206425359
+Run = 81Training set error: 0.014090965377471Test Set error: 0.016408058785997
+Run = 82Training set error: 0.01409083646799Test Set error: 0.01640791114978
+Run = 83Training set error: 0.014090707561482Test Set error: 0.016407763516709
+Run = 84Training set error: 0.01409057865795Test Set error: 0.016407615886788
+Run = 85Training set error: 0.014090449757397Test Set error: 0.016407468260022
+Run = 86Training set error: 0.014090320859826Test Set error: 0.016407320636412
+Run = 87Training set error: 0.014090191965241Test Set error: 0.016407173015963
+Run = 88Training set error: 0.014090063073645Test Set error: 0.016407025398679
+Run = 89Training set error: 0.014089934185041Test Set error: 0.016406877784561
+Run = 90Training set error: 0.014089805299432Test Set error: 0.016406730173615
+Run = 91Training set error: 0.014089676416822Test Set error: 0.016406582565842
+Run = 92Training set error: 0.014089547537213Test Set error: 0.016406434961248
+Run = 93Training set error: 0.01408941866061Test Set error: 0.016406287359834
+Run = 94Training set error: 0.014089289787014Test Set error: 0.016406139761606
+Run = 95Training set error: 0.01408916091643Test Set error: 0.016405992166565
+Run = 96Training set error: 0.01408903204886Test Set error: 0.016405844574715
+Run = 97Training set error: 0.014088903184309Test Set error: 0.01640569698606
+Run = 98Training set error: 0.014088774322778Test Set error: 0.016405549400604
+Run = 99Training set error: 0.014088645464272Test Set error: 0.016405401818349
+Run = 100Training set error: 0.014088516608792Test Set error: 0.016405254239299
